@@ -5,11 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AboutController {
-
-    @RequestMapping("/about")
-    public String about(Model model) {
-        model.addAttribute("welcome", "Greeting");
-        return "about";
+public class OnlineOrderController {
+    @RequestMapping("/online_order")
+    public String online_order(Model model) {
+        return "online_order";
     }
 }
