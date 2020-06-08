@@ -5,9 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AdminOrdersController {
-    @RequestMapping("/")
-    public String adminOrders(Model model) {
-        return "homepage";
+public class TestController {
+    @RequestMapping("/dist/password")
+    public String password(Model model) {
+        return "password";
     }
 }
