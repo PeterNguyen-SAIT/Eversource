@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+              integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+              crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+              integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+              crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+              integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+              crossorigin="anonymous"></script>
+
+      <title>Welcome to Eversource Farm!</title>
+   </head>
+   <body>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-success  font-weight-bold ">
+         <a class="navbar-brand" href="./homepage.html">Eversource</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto ">
+               <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Products </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <a class="dropdown-item" href="vegetable.html">Vegetables</a>
+                     <a class="dropdown-item" href="#">Fruits</a>
+                     <a class="dropdown-item" href="#">Eggs</a>
+                     <div class="dropdown-divider"></div>
+                     <a class="dropdown-item" href="#">More</a>
+                  </div>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link " href="./online_order.html">Online Order</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link " href="#">Events</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link " href="#">Contact</a>
+               </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-1">
+               <button class="btn my-sm-0 alert-success" type="submit"><a href="./login.html">Login</a></button>
+            </form>
+         </div>
+      </nav>
+
+      <br>
+      <br>
+      <div class="jumbotron">
+         <h1 class="display-5">What is Eversource Farm?</h1>
+         <p class="lead">Eversource Farm is a newly started Calgary-based ecological farm that covers 154 acres and
+            is located 40 kilometers north of Calgary. It has built four greenhouses involving much more than
+            choosing not to use pesticides, fertilizers, antibiotics, and growth hormones. It has mass production of fresh
+            vegetables such as cucumbers, tomatoes, green peppers, green beans, carobs, pumpkins, carrots, potatoes, garlic and
+            corns. Its mission is to supply Calgarians with the best tasting fresh vegetables as well as affordable
+            prices.</p>
+         <br>
+         <h6 class="lead text-center">
+            <a class="btn btn-success btn-lg" href="./online_order.html" role="button">Order Now!</a>
+         </h6>
+      </div>
+      <br>
+
+
+      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+         <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+         </ol>
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <img src="../img/1.jpg" class="d-block w-100" alt="...">
+               <div class="carousel-caption d-none d-lg-block">
+                  <h1>Fresh tomato.</h1>
+                  <!--<p>Amazing tomato.</p>-->
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img src="../img/2.jpg" class="d-block w-100" alt="...">
+               <div class="carousel-caption d-none d-md-block">
+                  <h1>Wonderful greenhouse.</h1>
+                  <!--<p>Wonderful green house.</p>-->
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img src="../img/3.jpg" class="d-block w-100" alt="...">
+               <div class="carousel-caption d-none d-md-block">
+                  <h1>Desirable farm.</h1>
+                  <!--<p>Desirable farm.</p>-->
+               </div>
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+         </a>
+         <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+         </a>
+      </div>
+      <br><br>
+
+
+      <div class="container.fluid">
+         <div class="row">
+            <div class="col-12 embed-responsive embed-responsive-16by9">
+               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/CFs3QhfPo84?rel=0"
+                       allowfullscreen></iframe>
+            </div>
+         </div>
+      </div>
+
+
+      <br>
+
+      <div class="container">
+         <iframe width="1080" height="299" id="gmap_canvas" class="container"
+                 src="https://maps.google.com/maps?q=G2P8%2B72%20Carstairs%2C%20Mountain%20View%20County%2C%20AB&t=&z=9&ie=UTF8&iwloc=&output=embed"
+                 frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+      </div>
+      <br>
+      <div class="container.fluid bg-dark">
+         <p class="text-center text-light">&copy;2020 Eversource Farm. All Rights Reserved.</p>
+      </div>
+   </body>
+</html>

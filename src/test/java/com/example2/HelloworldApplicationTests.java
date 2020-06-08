@@ -1,5 +1,6 @@
 package com.example2;
 
+import com.example2.controllers.WebController;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
