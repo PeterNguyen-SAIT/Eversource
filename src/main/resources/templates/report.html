@@ -18,7 +18,7 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
 
-    <title>Forgot your username?</title>
+    <title>EverSource Username Report</title>
 </head>
 <body>
 
@@ -64,50 +64,44 @@
 
 <br>
 <br>
-
-
 <div class="container">
-    <a class="navbar-brand" href="./homepage"><u>Back to Homepage</u></a>
+<h1>Report</h1>
     <br/>
-    <h1>Forgot Username</h1>
+<p>
+
+   <b> A verification email has been sent to %email%. Please check your inbox and follow the link provided to retrieve your username.</b>
+
 <br/>
-    <form method="post" th:action="@{/recovery}">
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputUsername">Please enter your registered email address:</label>
-                <input class="form-control" type="text" id="inputUsername" name="inputUsername">
-        </div>
-        </div>
-        <input type="hidden" name="recoveryEmail" id="recoveryEmail" />
-        <button type="submit" class="btn btn-primary">Recover username</button>
-
-    </form>
-
+<br/>
+    <!--<button type="submit" class="btn btn-primary">Back</button>-->
+    <a class="navbar-brand" href="./homepage"><u>Back to Homepage</u></a>
+</p>
+</div>
 
     <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container.fluid bg-dark">
-    <p class="text-center text-light">&copy;2020 Eversource Farm. All Rights Reserved.</p>
-</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container.fluid bg-dark">
+        <p class="text-center text-light">&copy;2020 Eversource Farm. All Rights Reserved.</p>
+    </div>
 </div>
 </body>
 </html>
