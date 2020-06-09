@@ -9,7 +9,7 @@ public class AboutController {
 
     @RequestMapping("/about")
     public String about(Model model) {
-        model.addAttribute("welcome", "Greeting");
+        model.addAttribute("welcome", "Greeting, we are temporarily unavailable. Please come back later");
         return "archive/about";
     }
 }
