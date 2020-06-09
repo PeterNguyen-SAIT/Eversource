@@ -11,7 +11,7 @@ public class WebController {
     public String sayHello(Model model) {
         System.out.println("Saying hello world Spring boot");
         model.addAttribute("message", "Greeting");
-        return "hello";
+        return "archive/hello";
     }
 
 

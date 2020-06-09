@@ -10,6 +10,6 @@ public class AboutController {
     @RequestMapping("/about")
     public String about(Model model) {
         model.addAttribute("welcome", "Greeting");
-        return "about";
+        return "archive/about";
     }
 }
