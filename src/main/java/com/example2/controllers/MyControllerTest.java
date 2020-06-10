@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @author Bin Zhang
  * @create 2020-06-08 9:57 PM
@@ -20,6 +22,12 @@ public class MyControllerTest {
     public UserEntity getUserById(@PathVariable Integer id){
         return userService.getUserById(id);
     }
+
+    @GetMapping("/user/all")
+    public List<UserEntity> getAllUsers(){
+        return userService.getAllUsers();
+    }
+
 
     @GetMapping("/user/insert")
     public UserEntity insertUser(UserEntity userEntity){

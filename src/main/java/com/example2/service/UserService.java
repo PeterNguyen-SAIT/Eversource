@@ -5,6 +5,8 @@ import com.example2.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author Bin Zhang
  * @create 2020-06-08 9:48 PM
@@ -17,6 +19,11 @@ public class UserService {
     public UserEntity getUserById(Integer id){
         return iUserDao.getUserById(id);
     };
+
+    public List<UserEntity> getAllUsers(){
+        List<UserEntity> allUser = iUserDao.getAllUsers();
+        return allUser;
+    }
 
     public Integer insertUser(UserEntity userEntity){
         Integer integer = iUserDao.insertUser(userEntity);

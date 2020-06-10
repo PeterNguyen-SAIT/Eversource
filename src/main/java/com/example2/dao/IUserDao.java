@@ -3,6 +3,8 @@ package com.example2.dao;
 import com.example2.entity.UserEntity;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 /**
  * @author Bin Zhang
  * @create 2020-06-08 9:29 PM
@@ -11,6 +13,9 @@ import org.apache.ibatis.annotations.*;
 public interface IUserDao {
     @Select("select * from users where user_id=#{id}")
     UserEntity getUserById(Integer id);
+
+    @Select("select * from users")
+    List<UserEntity> getAllUsers();
 
 
     @Options(useGeneratedKeys = true,keyProperty = "userId")
