@@ -13,16 +13,16 @@
 </head>
 <body>
 <div align="center">
-    <h2>Registration Succeeded!</h2>
-    <span>First Name:</span><span th:text="${customer.getFirst_name()}"></span><br/>
-    <span>Last Name:</span><span th:text="${customer.getLast_name()}"></span><br/>
-    <span>Username:</span><span th:text="${customer.getUsername()}"></span><br/>
-    <span>Password:</span><span th:text="${customer.getPassword()}"></span><br/>
-    <span>Password Confirmed:</span><span th:text="${customer.getPasswordConfirm()}"></span><br/>
-    <span>Email:</span><span th:text="${customer.getEmail()}"></span><br/>
-    <span>Phone number:</span><span th:text="${customer.getPhone_number()}"></span><br/>
-    <span>Address:</span><span th:text="${customer.getAddress()}"></span><br/>
-    <span>Postal Code:</span><span th:text="${customer.getPostal_code()}"></span><br/>
+    <h2>Registration Successful!</h2>
+    <span>First Name:</span><span th:text="${userEntity.getFirstName()}"></span><br/>
+    <span>Last Name:</span><span th:text="${userEntity.getLastName()}"></span><br/>
+    <span>Username:</span><span th:text="${userEntity.getUserName()}"></span><br/>
+    <span>Password:</span><span th:text="${userEntity.getPassword()}"></span><br/>
+    <span>Email:</span><span th:text="${userEntity.getEmail()}"></span><br/>
+    <span>Phone number:</span><span th:text="${userEntity.getPhoneNumber()}"></span><br/>
+    <span>Address:</span><span th:text="${userEntity.getAddress()}"></span><br/>
+    <span>Address:</span><span th:text="${userEntity.getCity()}"></span><br/>
+    <span>Postal Code:</span><span th:text="${userEntity.getPostalCode()}"></span><br/>
 </div>
 </body>
 </html>

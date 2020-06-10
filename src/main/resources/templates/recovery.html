@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -18,12 +18,12 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
 
-    <title>Welcome to Eversource Farm!</title>
+    <title>Forgot your username?</title>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-success  font-weight-bold ">
-    <a class="navbar-brand" href="./homepage">Eversource</a>
+    <a class="navbar-brand" href="/">Eversource</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto ">
             <li class="nav-item active">
-                <a class="nav-link" href="./homepage">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/homepage">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -64,26 +64,28 @@
 
 <br>
 <br>
+
+
 <div class="container">
-
-
-    <form>
+    <a class="navbar-brand" href="./homepage"><u>Back to Homepage</u></a>
+    <br/>
+    <br/>
+    <h1>Forgot Username</h1>
+<br/>
+    <form method="post" th:action="@{/recovery}">
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputUsername">Enter email address:</label>
-                <input type="email" class="form-control" id="inputUsername" >
+                <label for="inputUsername">Please enter your registered email address:</label>
+                <input class="form-control" type="text" id="inputUsername" name="inputUsername">
         </div>
         </div>
-
+        <input type="hidden" name="recoveryEmail" id="recoveryEmail" />
         <button type="submit" class="btn btn-primary">Recover username</button>
-
-            <button class="btn ">Cancel</button>
 
     </form>
 
 
-
-<br>
+    <br>
 <br>
 <br>
 <br>

@@ -10,8 +10,8 @@ public class WebController {
     @RequestMapping("/hello")
     public String sayHello(Model model) {
         System.out.println("Saying hello world Spring boot");
-        model.addAttribute("message", "Greeting");
-        return "hello";
+        model.addAttribute("message", "Greeting, we are temporarily unavailable. Please come back later");
+        return "archive/hello";
     }
 
 

@@ -5,11 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class LostUsernameController {
+public class ReportController {
 
-    @RequestMapping("/lost")
-    public String recover() {
-        return "recovery";
+    @RequestMapping("/report")
+    public String home() {
+        return "report";
     }
 }
-
