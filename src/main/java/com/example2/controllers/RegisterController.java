@@ -1,5 +1,6 @@
 package com.example2.controllers;
 
+import com.example2.entity.UserEntity;
 import com.example2.model.Customer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,15 +17,18 @@ public class RegisterController {
 
     @GetMapping("/register")
     public String showForm(Model model) {
-        Customer customer = new Customer();
-        model.addAttribute("customer", customer);
+        UserEntity userEntity = new UserEntity();
+        model.addAttribute("userEntity", userEntity);
+
+        //Customer customer = new Customer();
+        //model.addAttribute("customer", customer);
 
         return "register";
     }
 
     @PostMapping("/register")
-    public String submitForm(@ModelAttribute("customer") Customer customer) {
-        System.out.println(customer);
+    public String submitForm(@ModelAttribute("userEntity") UserEntity userEntity) {
+        System.out.println(userEntity);
         return "registerSuccess";
     }
 
