@@ -25,6 +25,11 @@ public class UserService {
         return allUser;
     }
 
+    public UserEntity loginUser(String email, String password) {
+        UserEntity userEntity = iUserDao.loginUser(email, password);
+        return userEntity;
+    }
+
     public Integer insertUser(UserEntity userEntity){
         Integer integer = iUserDao.insertUser(userEntity);
         return integer;
@@ -37,7 +42,7 @@ public class UserService {
 
     public UserEntity deleteUserById(Integer id){
         UserEntity userById = iUserDao.getUserById(id);
-        iUserDao.deleteUerById(id);
+        iUserDao.deleteUserById(id);
         return userById;
     }
 
