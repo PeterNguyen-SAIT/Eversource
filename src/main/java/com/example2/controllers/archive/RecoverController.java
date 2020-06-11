@@ -4,7 +4,9 @@ import com.example2.entity.UserEntity;
 import com.example2.service.AccountService;
 import com.example2.service.GmailService;
 import com.example2.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -15,36 +17,39 @@ import java.util.HashMap;
 
 @Controller
 public class RecoverController {
+    @Autowired
+    private UserService us;
 
     @RequestMapping(value = "/recovery", method= RequestMethod.POST)
     public String sendMail(HttpServletRequest request, HttpServletResponse response) {
         try {
             String email = request.getParameter("inputUsername");
-                UserService us =new  UserService();
+                //us =new  UserService();
                 AccountService as = new AccountService();
-//                ArrayList<UserEntity> allUsers = (ArrayList<UserEntity>) us.getAllUsers();
-//                if(validation(email,allUsers))
-//                {
+                ArrayList<UserEntity> allUsers = (ArrayList<UserEntity>) us.getAllUsers();
+                if(validation(email,allUsers))
+                {
             //HttpSession session = request.getSession();
             //us.insert(username, password, fname, lname,email);
             //response.getWriter().write("Successful!");
+            ArrayList<UserEntity> users = (ArrayList<UserEntity>) us.getUsersByEmail(email);
             String subject = "Get Username";
             String template = "src\\main\\resources\\templates\\emailtemplate\\recoveryemail.html" ;
             HashMap<String, String> tags = new HashMap<>();
-            //tags.put("firstname", fname);
-            //tags.put("lastname", lname);
-            //tags.put("username", username);
+            tags.put("firstname", users.get(0).getFirstName());
+            tags.put("lastname", users.get(0).getLastName());
+            tags.put("username", users.get(0).getUserName());
             tags.put("link", as.getLink(request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/newUsername?action=newuser"));
             GmailService.sendMail1(email, subject, template, tags);
             //session.setAttribute("unactivatedUser",username);
             //request.setAttribute("errorMessage", "Done! Check your mailbox for account activation");
             //getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
                     return "report";
-//                }
-//                else
-//                {
-//                    return "redirect:/invalidEmail";
-//                }
+                }
+                else
+                {
+                    return "redirect:/invalidEmail";
+                }
 
 //                HashMap<String, String> tags = new HashMap();
 //                tags.put("email",email);

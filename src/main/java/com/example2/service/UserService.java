@@ -26,6 +26,11 @@ public class UserService {
         return allUser;
     }
 
+    public List<UserEntity> getUsersByEmail(String email){
+        List<UserEntity> allUser = iUserDao.getUsersByEmail(email);
+        return allUser;
+    }
+
     public UserEntity loginUser(String email, String password) {
         UserEntity userEntity = iUserDao.loginUser(email, password);
         return userEntity;

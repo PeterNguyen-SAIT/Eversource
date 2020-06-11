@@ -17,6 +17,9 @@ public interface IUserDao {
     @Select("select * from users")
     List<UserEntity> getAllUsers();
 
+    @Select("select * from users where email=#{email}")
+    List<UserEntity> getUsersByEmail(String email);
+
     @Select("select * from users where email=#{email} and password=#{password}")
     UserEntity loginUser(String email, String password);
 
