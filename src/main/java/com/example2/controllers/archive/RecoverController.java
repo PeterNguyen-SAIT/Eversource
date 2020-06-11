@@ -1,6 +1,8 @@
 package com.example2.controllers.archive;
 
 import com.example2.entity.UserEntity;
+import com.example2.service.AccountService;
+import com.example2.service.GmailService;
 import com.example2.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Controller
 public class RecoverController {
@@ -17,24 +20,31 @@ public class RecoverController {
     public String sendMail(HttpServletRequest request, HttpServletResponse response) {
         try {
             String email = request.getParameter("inputUsername");
-
-            if (email == null || email.equals("")) {
-                //request.setAttribute("message", "Invalid email address");
-                //response.sendRedirect("recovery");
-
-                //request.getRequestDispatcher("/templates/recovery.html").forward(request,response);
-                return "recovery";
-            } else {
                 UserService us =new  UserService();
-                //ArrayList<UserEntity> allUsers = (ArrayList<UserEntity>) us.getAllUsers();
+                AccountService as = new AccountService();
+//                ArrayList<UserEntity> allUsers = (ArrayList<UserEntity>) us.getAllUsers();
 //                if(validation(email,allUsers))
 //                {
-//                    return "report";
+            //HttpSession session = request.getSession();
+            //us.insert(username, password, fname, lname,email);
+            //response.getWriter().write("Successful!");
+            String subject = "Get Username";
+            String template = "src\\main\\resources\\templates\\emailtemplate\\recoveryemail.html" ;
+            HashMap<String, String> tags = new HashMap<>();
+            //tags.put("firstname", fname);
+            //tags.put("lastname", lname);
+            //tags.put("username", username);
+            tags.put("link", as.getLink(request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/newUsername?action=newuser"));
+            GmailService.sendMail1(email, subject, template, tags);
+            //session.setAttribute("unactivatedUser",username);
+            //request.setAttribute("errorMessage", "Done! Check your mailbox for account activation");
+            //getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+                    return "report";
 //                }
 //                else
 //                {
-                    return "redirect:/invalidEmail";
-                //}
+//                    return "redirect:/invalidEmail";
+//                }
 
 //                HashMap<String, String> tags = new HashMap();
 //                tags.put("email",email);
@@ -52,9 +62,6 @@ public class RecoverController {
 //                    body = body.replace("%" + tag + "%", tags.get(tag));
 //
 //                }
-
-            }
-
         }catch (Exception e)
         {
             return "recovery";
