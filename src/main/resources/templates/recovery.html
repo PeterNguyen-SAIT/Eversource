@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:jsp="http://www.w3.org/1999/html"
+      xmlns:c="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -67,8 +68,7 @@
 
 
 <div class="container">
-    <a class="navbar-brand" href="./homepage"><u>Back to Homepage</u></a>
-    <br/>
+
     <br/>
     <h1>Forgot Username</h1>
 <br/>
@@ -77,6 +77,8 @@
             <div class="form-group col-md-4">
                 <label for="inputUsername">Please enter your registered email address:</label>
                 <input class="form-control" type="text" id="inputUsername" name="inputUsername">
+                <p th:text="${message}"></p>
+
         </div>
         </div>
         <input type="hidden" name="recoveryEmail" id="recoveryEmail" />

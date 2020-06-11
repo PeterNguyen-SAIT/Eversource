@@ -1,5 +1,6 @@
+/*testing*/
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
    <head>
       <meta charset="UTF-8">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -65,24 +66,44 @@
       <br>
       <br>
       <div class="container">
-         <form action="#" method="post" th:action="@{/login}" th:object="${userEntity}">
+
+
+         <form>
             <div class="form-group">
-               <label>Email address</label>
-               <input class="form-control" th:field="*{email}" type="email" placeholder="Email"/><br/>
+               <label for="exampleInputEmail1">Email address</label>
+               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
-               <label>Password</label>
-               <input class="form-control" th:field="*{password}" type="password" placeholder="Password"/><br/>
+               <label for="exampleInputPassword1">Password</label>
+               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-check">
+               
+               <label class="form-check-label" for="exampleCheck1">Not Having an Account Yet? </label>
+               <a href="register"><b>Register</b></a>
+
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn ">Cancel</a></button>
          </form>
-         <div>
-            <h2 th:text="${loginError}"></h2>
-            <label class="form-check-label">Don't have an Account? </label>
-            <a href="register"><b>Register</b></a>
-         </div>
       </div>
 
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       <br>
       <br>
       <br>
