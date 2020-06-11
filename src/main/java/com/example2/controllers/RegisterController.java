@@ -18,7 +18,7 @@ public class RegisterController {
         UserEntity userEntity = new UserEntity();
         model.addAttribute("userEntity", userEntity);
 
-        return "register.html";
+        return "register";
     }
 
     @PostMapping("/register")

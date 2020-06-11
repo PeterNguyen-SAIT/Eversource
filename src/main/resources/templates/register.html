@@ -67,30 +67,26 @@
 <div class="container">
 
 
-    <form action="#" method="post" th:action="@{/register}" th:object="${customer}">
+    <form action="#" method="post" th:action="@{/register}" th:object="${userEntity}">
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label>Username:</label>
-                <input class="form-control" th:field="*{username}" type="text"/><br/>
+                <input class="form-control" th:field="*{userName}" type="text"/><br/>
             </div>
             <div class="form-group col-md-4">
                 <label>Password:</label>
                 <input class="form-control" th:field="*{password}" type="text"/><br/>
-            </div>
-            <div class="form-group col-md-4">
-                <label>Confirm password:</label>
-                <input class="form-control" th:field="*{passwordConfirm}" type="text"/><br/>
             </div>
             <source media="(min-width: )" srcset="">
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label>First name:</label>
-                <input class="form-control" th:field="*{first_name}" type="text"/><br/>
+                <input class="form-control" th:field="*{firstName}" type="text"/><br/>
             </div>
             <div class="form-group col-md-4">
                 <label>Last name:</label>
-                <input class="form-control" th:field="*{last_name}" type="text"/><br/>
+                <input class="form-control" th:field="*{lastName}" type="text"/><br/>
             </div>
         </div>
         <div class="form-row">
@@ -100,7 +96,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label>Phone number:</label>
-                <input class="form-control" th:field="*{phone_number}" type="text"/><br/>
+                <input class="form-control" th:field="*{phoneNumber}" type="text"/><br/>
             </div>
         </div>
 
@@ -110,8 +106,12 @@
                 <input class="form-control" th:field="*{address}" type="text"/><br/>
             </div>
             <div class="form-group col-md-2">
+                <label>City:</label>
+                <input class="form-control" th:field="*{city}" type="text"/><br/>
+            </div>
+            <div class="form-group col-md-2">
                 <label>Postal Code:</label>
-                <input class="form-control" th:field="*{postal_code}" type="text"/><br/>
+                <input class="form-control" th:field="*{postalCode}" type="text"/><br/>
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Register</button>

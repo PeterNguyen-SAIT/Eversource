@@ -71,8 +71,6 @@
 
 <div class="container">
     <form action="#" method="post" th:action="@{/vegetable}" th:object="${productEntity}">
-        <input id="submitButton" th:value="Save" type="submit">
-        <input id="resetButton" name="reset" th:value="Reset" type="reset"/>
         <table>
             <thead>
             <tr>
@@ -89,11 +87,16 @@
                          src="https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&w=1000&q=80">
                 </td>
                 <td>
+                    <label th:value="*{productEntity.product_name}"></label>
+                </td>
+                <td>
                     <input hidden th:name="|products[${itemStat.index}].getProduct_id()|"
                            th:value="${productEntity.getProduct_id()}"/>
-                    <label>productEntity.getProduct_id</label>
+                    <input type="number"
+                           th:field="*{productEntity}"/>
+                    <input id="submitButton" th:value="Save" type="submit">
+                    <input id="resetButton" name="reset" th:value="Reset" type="reset"/>
                 </td>
-                <td><input th:field="*{books[__${itemStat.index}__].author}"/></td>
             </tr>
             </tbody>
         </table>
