@@ -1,7 +1,8 @@
 package com.example2.dao;
 
-import ca.sait.entity.InventoriesEntity;
+import com.example2.entity.InventoriesEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example2.entity.InventoriesEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

@@ -1,10 +1,10 @@
 package com.example2.service.impl;
 
-import ca.sait.common.utils.PageUtils;
-import ca.sait.common.utils.Query;
-import ca.sait.dao.OrderDetailsDao;
-import ca.sait.entity.OrderDetailsEntity;
-import ca.sait.service.OrderDetailsService;
+import ca.common.utils.PageUtils;
+import ca.common.utils.Query;
+import com.example2.dao.OrderDetailsDao;
+import com.example2.entity.OrderDetailsEntity;
+import com.example2.service.OrderDetailsService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -1,6 +1,6 @@
 package ca.common.utils;
 
-import ca.sait.common.xss.SQLFilter;
+import ca.common.xss.SQLFilter;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

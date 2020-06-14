@@ -1,7 +1,8 @@
 package com.example2.dao;
 
-import ca.sait.entity.UsersEntity;
+import com.example2.entity.UsersEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example2.entity.UsersEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

@@ -1,10 +1,10 @@
 package com.example2.service.impl;
 
-import ca.sait.common.utils.PageUtils;
-import ca.sait.common.utils.Query;
-import ca.sait.dao.InventoriesDao;
-import ca.sait.entity.InventoriesEntity;
-import ca.sait.service.InventoriesService;
+import ca.common.utils.PageUtils;
+import ca.common.utils.Query;
+import com.example2.dao.InventoriesDao;
+import com.example2.entity.InventoriesEntity;
+import com.example2.service.InventoriesService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

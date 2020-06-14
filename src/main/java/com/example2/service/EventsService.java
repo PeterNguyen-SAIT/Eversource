@@ -1,7 +1,7 @@
 package com.example2.service;
 
-import ca.sait.common.utils.PageUtils;
-import ca.sait.entity.EventsEntity;
+import ca.common.utils.PageUtils;
+import com.example2.entity.EventsEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.Map;

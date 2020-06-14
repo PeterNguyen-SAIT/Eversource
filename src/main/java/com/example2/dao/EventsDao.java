@@ -1,7 +1,8 @@
 package com.example2.dao;
 
-import ca.sait.entity.EventsEntity;
+import com.example2.entity.EventsEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example2.entity.EventsEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
