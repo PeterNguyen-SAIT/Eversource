@@ -1,58 +1,38 @@
- <template>
-  <div class="form-group">
-        <form name="form">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            name="username"
-            v-model="user.username"
-            v-validate="'required'"
-          />
-          <div
-            class="alert alert-danger"
-            role="alert"
-            v-if="errors.has('username')"
-          >Username is required!</div>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            v-model="user.password"
-            v-validate="'required'"
-          />
-          <div
-            class="alert alert-danger"
-            role="alert"
-            v-if="errors.has('password')"
-          >Password is required!</div>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary btn-block" :disabled="loading">
-            <span class="spinner-border spinner-border-sm" v-show="loading"></span>
-            <span>Login</span>
-          </button>
-        </div>
-        <div class="form-group">
-          <div class="alert alert-danger" role="alert" v-if="message">{{message}}</div>
-        </div>
-         <div class="form-check">
+<template>
+      <form>
+            <div class="form-group">
+               <label for="exampleInputEmail1">Email address</label>
+               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+               
+            </div>
+            <div class="form-group">
+               <label for="exampleInputPassword1">Password</label>
+               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-check">
                
                <label class="form-check-label" for="exampleCheck1">Not Having an Account Yet? </label>
-               <a href="register"><b>Register</b></a>
+               <a href="/register"><b>Register</b></a>
 
             </div>
-      </form>
-    </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn ">Cancel</button>
+         </form>
 </template>
-    
-        
 
+<script>
 
+export default {
+  name: 'login',
+  data() {
+    return {
+      user: new User('', ''),
+      loading: false,
+      message: ''
+    }
+  }
+}
+</script>
 
 <style scoped>
 label {
@@ -61,4 +41,3 @@ label {
 }
 
 </style>
-
