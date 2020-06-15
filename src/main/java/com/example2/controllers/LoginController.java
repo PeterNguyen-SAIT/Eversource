@@ -38,7 +38,7 @@ public class LoginController {
             if (loginCheck.getIsCustomer() == 1) {
                 return "homepage";
             } else if (loginCheck.getIsCustomer() == 0) {
-                return "admin";
+                return "redirect:/admin";
             } else {
                 return "login";
             }
@@ -50,6 +50,7 @@ public class LoginController {
     @RequestMapping("/invalidUser")
     public String showError(ModelMap model) {
         model.addAttribute("message","Invalid login credentials");
+        model.addAttribute("userEntity",new UserEntity());
         return "login";
     }
     }
