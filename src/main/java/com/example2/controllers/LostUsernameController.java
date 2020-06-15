@@ -18,5 +18,6 @@ public class LostUsernameController {
         model.addAttribute("message","Invalid email address");
         return "recovery";
     }
+
 }
 
