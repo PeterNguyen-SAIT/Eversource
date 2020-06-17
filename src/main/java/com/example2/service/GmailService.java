@@ -1,8 +1,12 @@
 package com.example2.service;
 
+import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.stereotype.Service;
-import sun.security.util.Password;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.naming.NamingException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -11,17 +15,6 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.mail.Address;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.swing.*;
 
 @Service
 public class GmailService {
@@ -47,14 +40,14 @@ public class GmailService {
             // send email
             sendMail2(email, subject, body, true);
 
-        } catch (IOException | MessagingException | NamingException ex) {
+        } catch (IOException | MessagingException | NamingException | javax.mail.MessagingException ex) {
             Logger.getLogger(GmailService.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
     }
 
-    public static void sendMail2(String to, String subject, String body, boolean bodyIsHTML) throws MessagingException, NamingException {
+    public static void sendMail2(String to, String subject, String body, boolean bodyIsHTML) throws MessagingException, NamingException, javax.mail.MessagingException {
         //Context env = (Context)new InitialContext().lookup("java:comp/env");
         String username = "Admin Gmail username";//(String)env.lookup("webmail-username");
         String password = "Admin Gmail password";//(String)env.lookup("webmail-password");
