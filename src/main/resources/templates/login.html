@@ -64,8 +64,12 @@
 
       <br>
       <br>
+      <!-- Peter Nguyen
+      This is the login form which uses the LoginController class.
+      It uses thymeleaf to take in usersEntity object. -->
       <div class="container">
-         <form action="#" method="post" th:action="@{/login}" th:object="${userEntity}">
+         <!--/*@thymesVar id="userEntity" type="com.example2.controllers.LoginController"*/-->
+         <form action="#" method="post" th:action="@{/login}" th:object="${usersEntity}">
             <div class="form-group">
                <label>Email address</label>
                <input class="form-control" th:field="*{email}" type="email" placeholder="Email"/><br/>

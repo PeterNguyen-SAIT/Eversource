@@ -62,11 +62,11 @@
     </div>
 </nav>
 
-<br>
-<br>
+<!-- Peter Nguyen
+This is the register form which uses the RegisterController class.
+It uses thymeleaf to take in userEntity object. -->
 <div class="container">
-
-
+    <!--/*@thymesVar id="userEntity" type="com.example2.controllers.RegisterController"*/-->
     <form action="#" method="post" th:action="@{/register}" th:object="${userEntity}">
         <div class="form-row">
             <div class="form-group col-md-4">
@@ -119,8 +119,8 @@
     </form>
 </div>
 
-<br>
 
+<!-- Footer -->
 <div class="container.fluid bg-dark">
     <p class="text-center text-light">&copy;2020 Eversource Farm. All Rights Reserved.</p>
 </div>
