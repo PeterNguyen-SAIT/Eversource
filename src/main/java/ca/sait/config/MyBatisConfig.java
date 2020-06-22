@@ -1,4 +1,4 @@
-package ca.sait;
+package ca.sait.config;
 
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import org.apache.ibatis.session.Configuration;
