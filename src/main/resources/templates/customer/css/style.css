@@ -335,7 +335,75 @@ ol {
 	margin-right: 0;
 }
 
-.
+.header__top__right__language {
+	position: relative;
+	display: inline-block;
+	margin-right: 40px;
+	cursor: pointer;
+}
+
+.header__top__right__language:hover ul {
+	top: 23px;
+	opacity: 1;
+	visibility: visible;
+}
+
+.header__top__right__language:after {
+	position: absolute;
+	right: -21px;
+	top: 1px;
+	height: 20px;
+	width: 1px;
+	background: #000000;
+	opacity: 0.1;
+	content: "";
+}
+
+.header__top__right__language img {
+	margin-right: 6px;
+}
+
+.header__top__right__language div {
+	font-size: 14px;
+	color: #1c1c1c;
+	display: inline-block;
+	margin-right: 4px;
+}
+
+.header__top__right__language span {
+	font-size: 14px;
+	color: #1c1c1c;
+	position: relative;
+	top: 2px;
+}
+
+.header__top__right__language ul {
+	background: #222222;
+	width: 100px;
+	text-align: left;
+	padding: 5px 0;
+	position: absolute;
+	left: 0;
+	top: 43px;
+	z-index: 9;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all, 0.3s;
+	-moz-transition: all, 0.3s;
+	-ms-transition: all, 0.3s;
+	-o-transition: all, 0.3s;
+	transition: all, 0.3s;
+}
+
+.header__top__right__language ul li {
+	list-style: none;
+}
+
+.header__top__right__language ul li a {
+	font-size: 14px;
+	color: #ffffff;
+	padding: 5px 10px;
+}
 .header__top__right__login {
 	position: relative;
 	display: inline-block;
@@ -382,7 +450,7 @@ ol {
 
 
 .header__logo {
-	size: 50%;
+
 	padding: 10px 0;
 }
 
@@ -2590,90 +2658,20 @@ ol {
 -----------------------*/
 
 .footer {
-	background: #F3F6FA;
-	padding-top: 70px;
+
 	padding-bottom: 0;
 }
-
-.footer__about {
-	margin-bottom: 30px;
-}
-
-.footer__about ul li {
-	font-size: 16px;
-	color: #1c1c1c;
-	line-height: 36px;
-	list-style: none;
-}
-
-
-.footer__widget {
-	margin-bottom: 30px;
-	overflow: hidden;
-}
-
-.footer__widget h6 {
-	color: #1c1c1c;
-	font-weight: 700;
-	margin-bottom: 10px;
-}
-
-.footer__widget ul {
-	width: 50%;
-	float: left;
-}
-
-.footer__widget ul li {
-	list-style: none;
-}
-
-.footer__widget ul li a {
-	color: #1c1c1c;
-	font-size: 14px;
-	line-height: 32px;
-}
-
-.footer__widget p {
-	font-size: 14px;
-	color: #1c1c1c;
-	margin-bottom: 30px;
-}
-
-.footer__widget form {
-	position: relative;
-	margin-bottom: 30px;
-}
-
-.footer__widget form input {
-	width: 100%;
-	font-size: 16px;
-	padding-left: 20px;
-	color: #1c1c1c;
-	height: 46px;
-	border: 1px solid #ededed;
-}
-
-.footer__widget form input::placeholder {
-	color: #1c1c1c;
-}
-
-.footer__widget form button {
-	position: absolute;
-	right: 0;
-	top: 0;
-	padding: 0 26px;
-	height: 100%;
-}
-
-
 
 
 
 .footer__copyright {
+	background: #F3F6FA;
 	border-top: 1px solid #ebebeb;
-	padding: 15px 0;
+	padding: 5px 0;
 	overflow: hidden;
 	margin-top: 20px;
+	background: #F3F6FA;
+	padding-bottom: 0;
 }
 
 .footer__copyright__text {
