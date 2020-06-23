@@ -306,43 +306,14 @@ ol {
 	text-align: right;
 	padding: 10px 0 13px;
 }
-
-.header__top__right__cart {
-	position: relative;
-	display: inline-block;
-	margin-right: 35px;
-}
-
-.header__top__right__cart:after {
-	position: absolute;
-	right: -20px;
-	top: 1px;
-	height: 20px;
-	width: 1px;
-	background: #000000;
-	opacity: 0.1;
-	content: "";
-}
-
-.header__top__right__cart a {
-	font-size: 14px;
-	display: inline-block;
-	color: #1c1c1c;
-	margin-right: 20px;
-}
-
-.header__top__right__cart a:last-child {
-	margin-right: 0;
-}
-
-.header__top__right__language {
+.header__top__right__account {
 	position: relative;
 	display: inline-block;
 	margin-right: 40px;
 	cursor: pointer;
 }
 
-.header__top__right__language:after {
+.header__top__right__account:after {
 	position: absolute;
 	right: -21px;
 	top: 1px;
@@ -353,19 +324,43 @@ ol {
 	content: "";
 }
 
+.header__top__right__account:hover ul {
+	top: 23px;
+	opacity: 1;
+	visibility: visible;
+}
 
-
-.header__top__right__language span {
+.header__top__right__account div {
 	font-size: 14px;
 	color: #1c1c1c;
-	position: relative;
-	top: 2px;
+	display: inline-block;
+	margin-right: 4px;
 }
 
 
+.header__top__right__account ul {
+	background: #222222;
+	width: 150px;
+	text-align: left;
+	padding: 5px 0;
+	position: absolute;
+	left: 0;
+	top: 43px;
+	z-index: 9;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: all, 0.3s;
+	-moz-transition: all, 0.3s;
+	-ms-transition: all, 0.3s;
+	-o-transition: all, 0.3s;
+	transition: all, 0.3s;
+}
 
+.header__top__right__account ul li {
+	list-style: none;
+}
 
-.header__top__right__language ul li a {
+.header__top__right__account ul li a {
 	font-size: 14px;
 	color: #ffffff;
 	padding: 5px 10px;
@@ -413,6 +408,19 @@ ol {
 }
 
 
+.header__top__right__logout {
+	display: inline-block;
+}
+
+.header__top__right__logout a {
+	display: block;
+	font-size: 14px;
+	color: #1c1c1c;
+}
+
+.header__top__right__logout a i {
+	margin-right: 6px;
+}
 
 
 .header__logo {
@@ -436,7 +444,7 @@ ol {
 	position: relative;
 }
 
-.header__menu ul li .header__menu__dropdown {
+.header__menu ul li .header__menu__dropdown .header__menu__right {
 	position: absolute;
 	left: 0;
 	top: 50px;
