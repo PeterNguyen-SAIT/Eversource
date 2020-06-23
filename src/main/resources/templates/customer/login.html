@@ -90,7 +90,8 @@
             <div class="checkout__form">
                 <div class="col-lg-4"></div>
                 <h4>Login</h4>
-                <form action="#" method="post" th:action="@{/login}" th:object="${userEntity}">
+                <!--/*@thymesVar id="usersEntity" type="ca.sait.entity.UsersEntity"*/-->
+                <form method="post" th:action="@{/login}" th:object="${usersEntity}">
                     <div class="row">
                         <div class="col-lg-4"></div>
                         <div class="col-lg-8 col-md-8">
@@ -98,7 +99,7 @@
                                 <div class="col-lg-8">
                                     <div class="checkout__input">
                                         <p>User Name<span>*</span></p>
-                                        <input class="form-control" th:field="*{user}" type="text" placeholder="User name">
+                                        <input class="form-control" th:field="*{userName}" type="text" placeholder="User name">
                                     </div>
                                     <div class="checkout__input">
                                         <p>Password<span>*</span></p>

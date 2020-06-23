@@ -1,7 +1,11 @@
 package ca.sait.controllers.archive;
 
+import ca.sait.dao.UsersDao;
+import ca.sait.entity.UsersEntity;
 import ca.sait.service.AccountService;
 import ca.sait.service.GmailService;
+import ca.sait.service.UsersService;
+import ca.sait.service.impl.UsersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,27 +19,27 @@ import java.util.HashMap;
 @Controller
 public class RecoverController {
 //    @Autowired
-//    private UserService us;
+//    private UsersServiceImpl us;
 //
 //    @RequestMapping(value = "/recovery", method= RequestMethod.POST)
 //    public String sendMail(HttpServletRequest request, HttpServletResponse response) {
 //        try {
-//            String email = request.getParameter("inputUsername");
+//            String username = request.getParameter("inputUsername");
 //                //us =new  UserService();
 //                AccountService as = new AccountService();
-//                ArrayList<UserEntity> allUsers = (ArrayList<UserEntity>) us.getAllUsers();
+//                ArrayList<UsersEntity> allUsers = (ArrayList<UsersEntity>) us.list();
 //                if(validation(email,allUsers))
 //                {
 //            //HttpSession session = request.getSession();
 //            //us.insert(username, password, fname, lname,email);
 //            //response.getWriter().write("Successful!");
-//            ArrayList<UserEntity> users = (ArrayList<UserEntity>) us.getUsersByEmail(email);
+//            ArrayList<UsersEntity> users = (ArrayList<UsersEntity>) us.(email);
 //            String subject = "Get Username";
 //            String template = "src\\main\\resources\\templates\\emailtemplate\\recoveryemail.html" ;
 //            HashMap<String, String> tags = new HashMap<>();
-//            tags.put("firstname", users.get(0).getFirstName());
-//            tags.put("lastname", users.get(0).getLastName());
-//            tags.put("username", users.get(0).getUserName());
+////            tags.put("firstname", users.get(0).getFirstName());
+////            tags.put("lastname", users.get(0).getLastName());
+////            tags.put("username", users.get(0).getUserName());
 //            tags.put("link", as.getLink(request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/newUsername?action=newuser"));
 //            GmailService.sendMail1(email, subject, template, tags);
 //            //session.setAttribute("unactivatedUser",username);
@@ -71,9 +75,9 @@ public class RecoverController {
 //
 //    }
 //
-//    private boolean validation(String email, ArrayList<UserEntity> allUsers) {
+//    private boolean validation(String email, ArrayList<UsersEntity> allUsers) {
 //        boolean isFound= false;
-//        for (UserEntity user: allUsers)
+//        for (UsersEntity user: allUsers)
 //        {
 //            if(email.equals(user.getEmail()))
 //            {
