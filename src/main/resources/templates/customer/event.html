@@ -66,7 +66,7 @@
                         <li><a href="./index.html">Home</a></li>
                         <li><a href="./shop-grid.html">Store</a></li>
                         <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./blog.html">Event</a></li>
+                        <li class="active"><a href="/event.html">Event</a></li>
                         <li><a href="./contact.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -76,81 +76,71 @@
     </div>
 </header>
 <!-- Header Section End -->
-<!-- Register Section Begin -->
-<section class="checkout spad">
+
+<!-- Login Section Begin -->
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
     <div class="container">
-        <div class="checkout__form">
-            <h4>Register</h4>
-            <form action="#" method="post" th:action="@{/register}" th:object="${userEntity}">
-                <div class="row">
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-8 col-md-6">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>User Name<span>*</span></p>
-                                    <input class="form-control" th:field="*{userName}" type="text"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Password<span>*</span></p>
-                                    <input class="form-control" th:field="*{password}" type="password">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Fist Name<span>*</span></p>
-                                    <input class="form-control" th:field="*{firstName}" type="text"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Last Name<span>*</span></p>
-                                    <input class="form-control" th:field="*{lastName}" type="text"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="checkout__input">
-                            <p>Address<span>*</span></p>
-                            <input type="text" placeholder="Street Address"  class="form-control" th:field="*{address}" type="text"/>
-                        </div>
-                        <div class="checkout__input">
-                            <p>Town/City<span>*</span></p>
-                            <input class="form-control" th:field="*{city}" type="text"/>
-                        </div>
-                        <div class="checkout__input">
-                            <p>Postal code / ZIP<span>*</span></p>
-                            <input class="form-control" th:field="*{postalCode}" type="text"/>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Phone<span>*</span></p>
-                                    <input class="form-control" th:field="*{phoneNumber}" type="text"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Email<span>*</span></p>
-                                    <input class="form-control" th:field="*{email}" type="text"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="text-right">
-                            <button type="submit" class="login-btn">Register</button>
-                            <a button type="submit" class="login-btn" href="index.html">Cancle</abutton></a></div>
-
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Event</h2>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </section>
-<!-- Register Section End -->
+<!-- Breadcrumb Section End -->
 
+<!-- Blog Section Begin -->
+<section class="blog spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4"></div>
+            <div class="col-lg-8 col-md-8">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                        <div class="blog__item">
+                            <div class="blog__item__pic">
+                                <img src="img/blog/blog-2.jpg" alt="">
+                            </div>
+                            <div class="blog__item__text">
+                                <ul>
+                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                    <li><i class="fa fa-comment-o"></i> 5</li>
+                                </ul>
+                                <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
+                                    quaerat </p>
+                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                        <div class="blog__item">
+                            <div class="blog__item__pic">
+                                <img src="img/blog/blog-3.jpg" alt="">
+                            </div>
+                            <div class="blog__item__text">
+                                <ul>
+                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                    <li><i class="fa fa-comment-o"></i> 5</li>
+                                </ul>
+                                <h5><a href="#">Visit the clean farm in the US</a></h5>
+                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
+                                    quaerat </p>
+                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+    </div>
+</section>
+<!-- Blog Section End -->
+<!-- Checkout Section End -->
 <!-- Footer Section Begin -->
 <footer class="footer spad">
     <div class="col-lg-12">
