@@ -2,17 +2,17 @@ package ca.sait.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
+import lombok.Data;
 
 /**
  * 
  * 
  * @author bin
  * @email bin.zhang@sait.ca
- * @date 2020-06-08 17:39:53
+ * @date 2020-06-23 11:04:00
  */
 @Data
 @TableName("users")
@@ -22,12 +22,12 @@ public class UsersEntity implements Serializable {
 	/**
 	 * 
 	 */
-	@TableId()
-	private Integer userId;
+	@TableId
+	private Integer uid;
 	/**
 	 * 
 	 */
-	private String userName;
+	private String uname;
 	/**
 	 * 
 	 */
@@ -35,15 +35,19 @@ public class UsersEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String firstName;
+	private String salt;
 	/**
 	 * 
 	 */
-	private String lastName;
+	private String fname;
 	/**
 	 * 
 	 */
-	private String phoneNumber;
+	private String lname;
+	/**
+	 * 
+	 */
+	private String phone;
 	/**
 	 * 
 	 */
@@ -55,23 +59,23 @@ public class UsersEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String postalCode;
+	private String code;
 	/**
 	 * 
 	 */
 	private String email;
 	/**
-	 * 0:admin, 1: regular customer
-	 */
-	private Integer isCustomer;
-	/**
-	 * 0:not active, 1: active
-	 */
-	private Integer isActive;
-	/**
 	 * 
 	 */
-	private Date registerDate;
+	private String role;
+	/**
+	 * active or not
+	 */
+	private String status;
+	/**
+	 * register
+	 */
+	private Date date;
 	/**
 	 * 
 	 */

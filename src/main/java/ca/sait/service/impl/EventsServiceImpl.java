@@ -1,5 +1,6 @@
 package ca.sait.service.impl;
 
+
 import ca.sait.common.utils.PageUtils;
 import ca.sait.common.utils.Query;
 import ca.sait.dao.EventsDao;
@@ -11,7 +12,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
-
 
 @Service("eventsService")
 public class EventsServiceImpl extends ServiceImpl<EventsDao, EventsEntity> implements EventsService {
