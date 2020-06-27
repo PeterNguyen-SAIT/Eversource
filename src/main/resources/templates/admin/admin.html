@@ -79,14 +79,16 @@
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
           <div class="sb-sidenav-menu">
             <div class="nav">
-              <div class="sb-sidenav-menu-heading">Core</div>
+              <div class="sb-sidenav-menu-heading"></div>
+              <!--leaving this div for layout-->
               <a class="nav-link" href="admin.html"
                 ><div class="sb-nav-link-icon">
                   <i class="fas fa-tachometer-alt"></i>
                 </div>
                 Dashboard</a
               >
-              <div class="sb-sidenav-menu-heading">Business</div>
+              <div class="sb-sidenav-menu-heading"></div>
+              <!--leaving this div for layout-->
               <a
                 class="nav-link collapsed"
                 href="#"
@@ -94,13 +96,15 @@
                 data-target="#collapseLayouts"
                 aria-expanded="false"
                 aria-controls="collapseLayouts"
-                ><div class="sb-nav-link-icon">
+              >
+                <div class="sb-nav-link-icon">
                   <i class="fas fa-columns"></i>
                 </div>
                 Orders
                 <div class="sb-sidenav-collapse-arrow">
                   <i class="fas fa-angle-down"></i></div
               ></a>
+
               <div
                 class="collapse"
                 id="collapseLayouts"
@@ -112,6 +116,9 @@
                   ><a class="nav-link" href="#">TBD</a>
                 </nav>
               </div>
+
+              <!--Inventory-->
+
               <a
                 class="nav-link collapsed"
                 href="#"
@@ -122,6 +129,7 @@
                 ><div class="sb-nav-link-icon">
                   <i class="fas fa-book-open"></i>
                 </div>
+
                 Inventory
                 <div class="sb-sidenav-collapse-arrow">
                   <i class="fas fa-angle-down"></i></div
@@ -133,17 +141,18 @@
                 data-parent="#sidenavAccordion"
               >
                 <nav
-                  class="sb-sidenav-menu-nested nav accordion"
-                  id="sidenavAccordionPages"
+                  class="sb-sidenav-menu-nested nav accordion event"
+                  id="sidenavAccordionPagesEvent"
                 >
+                  <!-- class, id Changed-->
                   <a
                     class="nav-link collapsed"
-                    href="#"
+                    href="adminInventory.html"
                     data-toggle="collapse"
                     data-target="#pagesCollapseAuth"
                     aria-expanded="false"
                     aria-controls="pagesCollapseAuth"
-                    >TBD
+                    >Catogory 1
                     <div class="sb-sidenav-collapse-arrow">
                       <i class="fas fa-angle-down"></i></div
                   ></a>
@@ -162,6 +171,78 @@
                     data-target="#pagesCollapseError"
                     aria-expanded="false"
                     aria-controls="pagesCollapseError"
+                    >Category 2
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i></div
+                  ></a>
+                  <div
+                    class="collapse"
+                    id="pagesCollapseError"
+                    aria-labelledby="headingOne"
+                    data-parent="#sidenavAccordionPages"
+                  >
+                    <nav class="sb-sidenav-menu-nested nav"></nav>
+                  </div>
+                </nav>
+              </div>
+              <!--End of Inventory-->
+
+              <!-- Event -- Attributes to be looked into -->
+
+              <a
+                class="nav-link collapsed"
+                href="#"
+                data-toggle="collapse"
+                data-target="#collapseEvents"
+                aria-expanded="false"
+                aria-controls="collapseEvents"
+                ><div class="sb-nav-link-icon">
+                  <i class="fa fa-camera" aria-hidden="true"></i>
+                  <!-- 
+                    ori:<i class="fas fa-book-open?"></i>
+new: https://fontawesome.com/v4.7.0/icon/camera -->
+                </div>
+
+                Events
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i></div
+              ></a>
+              <div
+                class="collapse"
+                id="collapseEvents"
+                aria-labelledby="headingTwo"
+                data-parent="#sidenavAccordion"
+              >
+                <nav
+                  class="sb-sidenav-menu-nested nav accordion"
+                  id="sidenavAccordionPages"
+                >
+                  <a
+                    class="nav-link collapsed"
+                    href="./adminEvent.html"
+                    data-toggle="collapse"
+                    data-target="#pagesCollapseAuth"
+                    aria-expanded="false"
+                    aria-controls="pagesCollapseAuth"
+                    >View Events
+                    <div class="sb-sidenav-collapse-arrow">
+                      <i class="fas fa-angle-down"></i></div
+                  ></a>
+                  <div
+                    class="collapse"
+                    id="pagesCollapseAuth"
+                    aria-labelledby="headingOne"
+                    data-parent="#sidenavAccordionPages"
+                  >
+                    <nav class="sb-sidenav-menu-nested nav"></nav>
+                  </div>
+                  <a
+                    class="nav-link collapsed"
+                    href="adminEvent.html"
+                    data-toggle="collapse"
+                    data-target="#pagesCollapseError"
+                    aria-expanded="false"
+                    aria-controls="pagesCollapseError"
                     >TBD
                     <div class="sb-sidenav-collapse-arrow">
                       <i class="fas fa-angle-down"></i></div
@@ -176,11 +257,16 @@
                   </div>
                 </nav>
               </div>
-              <div class="sb-sidenav-menu-heading">Resources</div>
+              <!-- End of Event-->
 
+              <div class="sb-sidenav-menu-heading"></div>
+              <!--leaving this div for layout may change later-->
               <a class="nav-link" href="dashboardUser.html"
                 ><div class="sb-nav-link-icon">
-                  <i class="fas fa-chart-area"></i>
+                  <i class="fa fa-user-circle" aria-hidden="true"></i>
+                  <!-- original fas fa-chart-area 
+                    new:
+                  https://fontawesome.com/v4.7.0/icon/user-circle-->
                 </div>
                 Manage User</a
               ><a class="nav-link" href="#"
