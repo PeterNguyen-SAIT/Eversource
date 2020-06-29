@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eversource Farm</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="header__top__left">
+                        <ul>
+                            <li>Welcome eversource farm website</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8">
+
+                    <div class="header__top__right">
+
+                        <div class="header__top__right__login">
+                            <a href="login.html"><i class="fa fa-user"></i> Login</a>
+
+                        </div>
+                        <div class="header__top__right__signup">
+                            <a href="register.html"><i class="fa fa-sign-in"></i>
+                                Sign up</a>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="header__logo">
+                    <a href="./index.html"><img src="img/logo.png" alt="" height="50"  ></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8">
+                <nav class="header__menu" >
+                    <ul>
+                        <li><a href="./index.html">About us</a></li>
+                        <li class="active"><a href="./product.html">Store</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="./event.html">Event</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Products</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<section class="product spad">
+<div class="container">
+
+    <form action="#" method="post" th:action="@{/vegetable}" th:object="${productEntity}">
+        <div class="row">
+
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="product__item">
+                <div class="product__item__pic set-bg" data-setbg="img/tomato.png" th:each="productEntity, itemStat : ${products}">
+                    <ul class="product__item__pic__hover">
+                        <li><input type="number"
+                                   th:field="*{productEntity}"/></a></li>
+                        <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
+                        <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
+                    </ul>
+                </div>
+                <div class="product__item__text">
+                    <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Tomatoes</label></a></h6>
+                    <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
+                </div>
+            </div>
+        </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="img/peppers.png" th:each="productEntity, itemStat : ${products}">
+                        <ul class="product__item__pic__hover">
+                            <li><input type="number"
+                                       th:field="*{productEntity}"/></a></li>
+                            <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
+                            <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Peppers</label></a></h6>
+                        <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="img/zucchini.png" th:each="productEntity, itemStat : ${products}">
+                        <ul class="product__item__pic__hover">
+                            <li><input type="number"
+                                       th:field="*{productEntity}"/></a></li>
+                            <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
+                            <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Zucchini</label></a></h6>
+                        <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="img/eggs.png" th:each="productEntity, itemStat : ${products}">
+                        <ul class="product__item__pic__hover">
+                            <li><input type="number"
+                                       th:field="*{productEntity}"/></a></li>
+                            <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
+                            <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Eggs</label></a></h6>
+                        <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+</div>
+</section>
+
+
+
+
+
+<!-- Footer Section Begin -->
+<footer class="footer spad">
+    <div class="col-lg-12">
+        <div class="footer__copyright">
+            <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Eversource Farm. All Rights Reserved.
+            </p></div>
+            <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+        </div>
+    </div>
+
+
+</footer>
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
