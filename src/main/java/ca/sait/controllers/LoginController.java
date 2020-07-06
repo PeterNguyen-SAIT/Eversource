@@ -47,14 +47,22 @@ public class LoginController {
         }
         else
         {
-            if(userLoggedIn.getRole().equals("admin"))
+            if(usersEntity.getPassword().equals(userLoggedIn.getPassword()))
             {
-                return "admin/index";
+                if(userLoggedIn.getRole().equals("admin"))
+                {
+                    return "admin/index";
+                }
+                else
+                {
+                    return "customer/loginsuccess";
+                }
             }
             else
             {
-                return "customer/loginsuccess";
+                return "redirect:/invalidUser";
             }
+
 
         }
 //                && loginCheck.getPassword().equals(userEntity.getPassword())) {
