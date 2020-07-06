@@ -2,10 +2,9 @@ package ca.sait.controllers.archive;
 
 import ca.sait.dao.UsersDao;
 import ca.sait.entity.UsersEntity;
-import ca.sait.service.AccountService;
-import ca.sait.service.GmailService;
 import ca.sait.service.UsersService;
 import ca.sait.service.impl.UsersServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +25,10 @@ public class RecoverController {
 //        try {
 //            String username = request.getParameter("inputUsername");
 //                //us =new  UserService();
-//                AccountService as = new AccountService();
-//                ArrayList<UsersEntity> allUsers = (ArrayList<UsersEntity>) us.list();
+//            QueryWrapper<UsersEntity> queryWrapper = new QueryWrapper<>();
+//            queryWrapper.eq("uname", username);
+//            UsersEntity user = us.getOne(queryWrapper);
+//                //ArrayList<UsersEntity> allUsers = (ArrayList<UsersEntity>) us.list();
 //                if(validation(email,allUsers))
 //                {
 //            //HttpSession session = request.getSession();
