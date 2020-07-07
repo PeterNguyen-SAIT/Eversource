@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eversource Farm</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style1.css" type="text/css">
+</head>
+
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="header__top__left">
+                        <ul>
+                            <li>Welcome eversource farm website</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8">
+
+                    <div class="header__top__right">
+
+                        <div class="header__top__right__login">
+                            <a href="login"><i class="fa fa-user"></i> Login</a>
+
+                        </div>
+                        <div class="header__top__right__signup">
+                            <a href="register"><i class="fa fa-sign-in"></i>
+                                Sign up</a>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="header__logo">
+                    <a href="home.html"><img src="img/logo.png" alt="" height="50"  ></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8">
+                <nav class="header__menu" >
+                    <ul>
+                        <li><a href="home.html">About us</a></li>
+                        <li><a href="product.html">Store</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="event.html">Event</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
+
+
+
+<!-- Map Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+        <div class="checkout__form">
+            <h4>Address</h4>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="row">
+
+                        <div class="col-lg-6">
+                            <div class="checkout__input">
+                                Range Rd 292, Carstairs, AB T0M, CANADA <br>
+
+                                G2P8+72 Carstairs, Alberta <br>
+
+                                Tel: +14034528958  <br>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="checkout__input">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1240.8601819119503!2d-113.9861619!3d51.5366886!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5373fb71b0c30f93%3A0xd69994b939a20244!2sEverSource%20Farm!5e0!3m2!1sen!2sca!4v1594001265299!5m2!1sen!2sca" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Map Section End -->
+<!-- Contact Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+        <div class="checkout__form">
+            <h4>Contact Us</h4>
+            <form action="#" method="post" th:action="@{/contact}" th:object="${userEntity}">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8 col-md-6">
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Fist Name<span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Last Name<span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Phone<span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Email<span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Content<span>*</span></p>
+                            <input type="text" placeholder="Enter content" class="checkout__input__add">
+                        </div>
+
+                        <div class="text-right">
+                            <button type="submit" class="login-btn">Submit</button></div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+
+<!-- Footer Section Begin -->
+<footer class="footer spad">
+    <div class="col-lg-12">
+        <div class="footer__copyright">
+            <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Eversource Farm. All Rights Reserved.
+            </p></div>
+            <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+        </div>
+    </div>
+
+
+</footer>
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/mixitup.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>
