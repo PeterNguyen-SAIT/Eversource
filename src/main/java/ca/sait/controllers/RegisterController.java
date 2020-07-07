@@ -16,9 +16,8 @@ public class RegisterController {
     @GetMapping("/register")
     public String showForm(Model model) {
         UsersEntity usersEntity = new UsersEntity();
-        model.addAttribute("userEntity", usersEntity);
-
-        return "register";
+        model.addAttribute("usersEntity", usersEntity);
+        return "customer/register";
     }
 
     @PostMapping("/register")
