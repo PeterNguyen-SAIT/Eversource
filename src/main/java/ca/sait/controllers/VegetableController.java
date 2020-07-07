@@ -1,42 +1,60 @@
 package ca.sait.controllers;
 
+import ca.sait.entity.OrdersEntity;
+import ca.sait.entity.ProductsEntity;
+import ca.sait.service.impl.ProductsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
 public class VegetableController {
-//
-//    @Autowired
-//    private UserService userService;
-//
-//    @GetMapping("/vegetable")
-//    public String showForm(Model model) {
-//        ProductEntity productEntity = new ProductEntity();
-//        List<ProductEntity> products = new ArrayList<>();
-//
-//        model.addAttribute("productEntity", productEntity);
-//        model.addAttribute("products", products);
-//        return "vegetable";
-//    }
-//
-//    @PostMapping("/vegetable")
-//    public String submitForm(@ModelAttribute("userEntity") UserEntity userEntity) {
-//        System.out.println(userEntity);
-//        UserEntity loginCheck = userService.loginUser(userEntity.getEmail(), userEntity.getPassword());
-//        System.out.println(loginCheck);
-//
-//        if (loginCheck.getEmail().equals(userEntity.getEmail())
-//                && loginCheck.getPassword().equals(userEntity.getPassword())) {
-//            return "homepage";
-//        } else {
-//            return "login";
-//        }
-//    }
+
+    @Autowired
+    private ProductsServiceImpl productsService;
+
+    @GetMapping("/product")
+    public String showForm(Model model) {
+        List<ProductsEntity> productsEntityList = productsService.list();
+
+        model.addAttribute("productsEntityList", productsEntityList);
+        return "testing";
+    }
+
+    @PostMapping("/productId")
+    public String submitForm(@RequestParam int productSource, @RequestParam int productQuantity, Model model) {
+        System.out.println(productSource);
+        System.out.println(productQuantity);
+        ProductsEntity productsEntity = productsService.getById(productSource);
+        System.out.println(productsEntity);
+        List<ProductsEntity> productsEntityList = productsService.list();
+        model.addAttribute("productsEntityList", productsEntityList);
+        return "testing";
+    }
+
+    @PostMapping("/productIdGet")
+    public String submitForm2(@RequestParam int productSource, @RequestParam int productQuantity,
+                              Model model, HttpSession session, HttpServletRequest request) {
+        System.out.println(productQuantity);
+        ProductsEntity productsEntity = productsService.getById(productSource);
+        System.out.println(productsEntity);
+        model.addAttribute("hiddenProduct", productSource);
+        session.setAttribute("hiddenProduct", productSource);
+        return "testing2";
+    }
+
+    @PostMapping("/productIdSession")
+    public String submitForm3(Model model, HttpSession session, HttpServletRequest request) {
+        int productSource = (int) session.getAttribute("hiddenProduct");
+        ProductsEntity productsEntity = productsService.getById(productSource);
+        OrdersEntity ordersEntity = new OrdersEntity();
+        model.addAttribute("sessionId", productSource);
+        session.setAttribute("sessionId", productSource);
+        return "testing2";
+    }
 }

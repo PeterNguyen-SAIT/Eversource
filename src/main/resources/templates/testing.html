@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr th:each="product : *{productsEntityList}">
+        <td><span th:text="${product.pname}"></span></td>
+        <td><img height="100" th:src="${product.image}" width="100"></td>
+        <td><span th:text="${product.cname}"></span></td>
+        <td>$<span th:text="${product.price}"></span></td>
+        <td><form action="#" th:action="@{/productId}" method="post">
+            <input type="hidden" th:value="${product.pid}" name="productSource">
+            <button id="minus">−</button>
+            <input type="number" value="1" id="productQuantity" name="productQuantity"/>
+            <button id="plus" onclick="">+</button>
+            <script>
+                const minusButton = document.getElementById('minus');
+                const plusButton = document.getElementById('plus');
+                const inputField = document.getElementById('productQuantity');
+
+                minusButton.addEventListener('click', event => {
+                    event.preventDefault();
+                    const currentValue = Number(inputField.value) || 1;
+                    inputField.value = currentValue - 1;
+                });
+
+                plusButton.addEventListener('click', event => {
+                    event.preventDefault();
+                    const currentValue = Number(inputField.value) || 1;
+                    inputField.value = currentValue + 1;
+                });
+            </script>
+            <input type="submit" value="Add to Cart">
+        </form></td>
+    </tr>
+</table>
+
+
+</body>
+</html>
