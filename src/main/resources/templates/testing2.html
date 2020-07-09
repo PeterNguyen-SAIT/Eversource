@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div>
+      <h1>New Page</h1>
+      <div>
+        Hidden ID:
+        <input name="hiddenProduct" th:value="${hiddenProduct}" type="hidden" />
+      </div>
+    </div>
+    <form action="#" method="post" th:action="@{/productIdSession}">
+      <input type="submit" value="Get Session ID" />
+    </form>
 
-<div>
-    <h1>New Page</h1>
-    <div>Hidden ID: <input name="hiddenProduct" th:value="${hiddenProduct}" type="hidden"></div>
-</div>
-<form action="#" method="post" th:action="@{/productIdSession}">
-    <input type="submit" value="Get Session ID">
-</form>
+    <div><span th:text="${sessionId}"></span></div>
 
-<div><span th:text="${sessionId}"></span></div>
-
-</body>
+    <div>78</div>
+  </body>
 </html>
