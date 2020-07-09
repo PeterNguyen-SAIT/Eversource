@@ -1,92 +1,91 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Eversource Farm</title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style1.css" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style1.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+  </head>
 
-<body>
-<!-- Page Preloder -->
-<div id="preloder">
-    <div class="loader"></div>
-</div>
-<!-- Header Section Begin -->
-<header class="header">
-    <div class="header__top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div class="header__top__left">
-                        <ul>
-                            <li>Welcome eversource farm website</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-8">
-
-                    <div class="header__top__right">
-
-                        <div class="header__top__right__login">
-                            <a href="login"><i class="fa fa-user"></i> Login</a>
-
-                        </div>
-                        <div class="header__top__right__signup">
-                            <a href="register"><i class="fa fa-sign-in"></i>
-                                Sign up</a>
-
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
+  <body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+      <div class="loader"></div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="header__logo">
-                    <a href="home.html"><img src="img/logo.png" alt="" height="50"  ></a>
-                </div>
+    <!-- Header Section Begin -->
+    <header class="header">
+      <div class="header__top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-4">
+              <div class="header__top__left">
+                <ul>
+                  <li>Welcome eversource farm website</li>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-8 col-md-8">
-                <nav class="header__menu" >
-                    <ul>
-                        <li><a href="home.html">About us</a></li>
-                        <li><a href="product.html">Store</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="event.html">Event</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
-                    </ul>
-                </nav>
+              <div class="header__top__right">
+                <div class="header__top__right__login">
+                  <a href="login"><i class="fa fa-user"></i> Login</a>
+                </div>
+                <div class="header__top__right__signup">
+                  <a href="register"><i class="fa fa-sign-in"></i> Sign up</a>
+                </div>
+              </div>
             </div>
-
+          </div>
         </div>
-    </div>
-</header>
-<!-- Header Section End -->
-
-
-
-
-<!-- Hero Section Begin -->
-<section class="hero">
-    <div class="container">
+      </div>
+      <div class="container">
         <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <!--
+          <div class="col-lg-4">
+            <div class="header__logo">
+              <a href="index.html"
+                ><img src="img/logo.png" alt="" height="50"
+              /></a>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-8">
+            <nav class="header__menu">
+              <ul>
+                <li><a href="home.html">About us</a></li>
+                <li><a href="product.html">Store</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="event.html">Event</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            <!--
                                     <div class="hero__search">
                                         <div class="hero__search__form">
                                             <form action="#">
@@ -99,193 +98,247 @@
                                             </form>
                                         </div>
                 -->
-
-            </div>
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <!-- Slide One - Set the background image for this slide in the line below -->
-                    <div class="carousel-item active" style="img/hero/banner.jpg">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3>First Slide</h3>
-                            <p>This is a description for the first slide.</p>
-                        </div>
-                    </div>
-                    <!-- Slide Two - Set the background image for this slide in the line below -->
-                    <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3>Second Slide</h3>
-                            <p>This is a description for the second slide.</p>
-                        </div>
-                    </div>
-                    <!-- Slide Three - Set the background image for this slide in the line below -->
-                    <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3>Third Slide</h3>
-                            <p>This is a description for the third slide.</p>
-                        </div>
-                    </div>
+          </div>
+          <div
+            id="carouselExampleIndicators"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <ol class="carousel-indicators">
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="1"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="2"
+              ></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <!-- Slide One - Set the background image for this slide in the line below -->
+              <div class="carousel-item active" style="img/hero/banner.jpg">
+                <div class="carousel-caption d-none d-md-block">
+                  <h3>First Slide</h3>
+                  <p>This is a description for the first slide.</p>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+              </div>
+              <!-- Slide Two - Set the background image for this slide in the line below -->
+              <div
+                class="carousel-item"
+                style="background-image: url('http://placehold.it/1900x1080');"
+              >
+                <div class="carousel-caption d-none d-md-block">
+                  <h3>Second Slide</h3>
+                  <p>This is a description for the second slide.</p>
+                </div>
+              </div>
+              <!-- Slide Three - Set the background image for this slide in the line below -->
+              <div
+                class="carousel-item"
+                style="background-image: url('http://placehold.it/1900x1080');"
+              >
+                <div class="carousel-caption d-none d-md-block">
+                  <h3>Third Slide</h3>
+                  <p>This is a description for the third slide.</p>
+                </div>
+              </div>
             </div>
-
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleIndicators"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleIndicators"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-
-<!-- Blog Section Begin -->
-<section class="from-blog spad">
-    <div class="container">
+    <!-- Blog Section Begin -->
+    <section class="from-blog spad">
+      <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title from-blog__title">
-                    <h2>The Blog</h2>
-                </div>
+          <div class="col-lg-12">
+            <div class="section-title from-blog__title">
+              <h2>The Blog</h2>
             </div>
+          </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="img/blog/blog-1.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="blog__item">
+              <div class="blog__item__pic">
+                <img src="img/blog/blog-1.jpg" alt="" />
+              </div>
+              <div class="blog__item__text">
+                <ul>
+                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                  <li><i class="fa fa-comment-o"></i> 5</li>
+                </ul>
+                <h5><a href="#">Cooking tips make cooking simple</a></h5>
+                <p>
+                  Sed quia non numquam modi tempora indunt ut labore et dolore
+                  magnam aliquam quaerat
+                </p>
+              </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="img/blog/blog-2.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="blog__item">
+              <div class="blog__item__pic">
+                <img src="img/blog/blog-2.jpg" alt="" />
+              </div>
+              <div class="blog__item__text">
+                <ul>
+                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                  <li><i class="fa fa-comment-o"></i> 5</li>
+                </ul>
+                <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                <p>
+                  Sed quia non numquam modi tempora indunt ut labore et dolore
+                  magnam aliquam quaerat
+                </p>
+              </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="img/blog/blog-3.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">Visit the clean farm in the US</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="blog__item">
+              <div class="blog__item__pic">
+                <img src="img/blog/blog-3.jpg" alt="" />
+              </div>
+              <div class="blog__item__text">
+                <ul>
+                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                  <li><i class="fa fa-comment-o"></i> 5</li>
+                </ul>
+                <h5><a href="#">Visit the clean farm in the US</a></h5>
+                <p>
+                  Sed quia non numquam modi tempora indunt ut labore et dolore
+                  magnam aliquam quaerat
+                </p>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
-<!-- Blog Section End -->
+      </div>
+    </section>
+    <!-- Blog Section End -->
 
-<section class="from-blog spad">
-    <div class="container">
+    <section class="from-blog spad">
+      <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="img/blog/blog-4.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="blog__item">
+              <div class="blog__item__pic">
+                <img src="img/blog/blog-4.jpg" alt="" />
+              </div>
+              <div class="blog__item__text">
+                <ul>
+                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                  <li><i class="fa fa-comment-o"></i> 5</li>
+                </ul>
+                <h5><a href="#">Cooking tips make cooking simple</a></h5>
+                <p>
+                  Sed quia non numquam modi tempora indunt ut labore et dolore
+                  magnam aliquam quaerat
+                </p>
+              </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="img/blog/blog-5.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="blog__item">
+              <div class="blog__item__pic">
+                <img src="img/blog/blog-5.jpg" alt="" />
+              </div>
+              <div class="blog__item__text">
+                <ul>
+                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                  <li><i class="fa fa-comment-o"></i> 5</li>
+                </ul>
+                <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                <p>
+                  Sed quia non numquam modi tempora indunt ut labore et dolore
+                  magnam aliquam quaerat
+                </p>
+              </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="img/blog/blog-6.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">Visit the clean farm in the US</a></h5>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="blog__item">
+              <div class="blog__item__pic">
+                <img src="img/blog/blog-6.jpg" alt="" />
+              </div>
+              <div class="blog__item__text">
+                <ul>
+                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                  <li><i class="fa fa-comment-o"></i> 5</li>
+                </ul>
+                <h5><a href="#">Visit the clean farm in the US</a></h5>
+                <p>
+                  Sed quia non numquam modi tempora indunt ut labore et dolore
+                  magnam aliquam quaerat
+                </p>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
-<!-- Blog Section End -->
+      </div>
+    </section>
+    <!-- Blog Section End -->
 
-<!-- Footer Section Begin -->
-<footer class="footer spad">
-    <div class="col-lg-12">
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+      <div class="col-lg-12">
         <div class="footer__copyright">
-            <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Eversource Farm. All Rights Reserved.
-            </p></div>
-            <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+          <div class="footer__copyright__text">
+            <p>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              Eversource Farm. All Rights Reserved.
+            </p>
+          </div>
+          <div class="footer__copyright__payment">
+            <img src="img/payment-item.png" alt="" />
+          </div>
         </div>
-    </div>
+      </div>
+    </footer>
+    <!-- Footer Section End -->
 
-
-</footer>
-<!-- Footer Section End -->
-
-<!-- Js Plugins -->
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/jquery.slicknav.js"></script>
-<script src="js/mixitup.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/main.js"></script>
-
-
-
-</body>
-
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
