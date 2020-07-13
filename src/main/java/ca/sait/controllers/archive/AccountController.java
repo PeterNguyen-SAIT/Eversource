@@ -12,12 +12,12 @@ public class AccountController {
     @Autowired
     private UsersServiceImpl userService;
 
-    @GetMapping("/account")
-    public String showLoginPage(ModelMap model) {
-        UsersEntity user = new UsersEntity();
-        model.addAttribute("usersEntity",user);
-        return "customer/account";
-    }
+//    @GetMapping("/account")
+//    public String showLoginPage(ModelMap model) {
+//        UsersEntity user = new UsersEntity();
+//        model.addAttribute("usersEntity",user);
+//        return "customer/account";
+//    }
 
 //    @PostMapping("/login")
 //    public String submitForm(@ModelAttribute("usersEntity") UsersEntity usersEntity) {
