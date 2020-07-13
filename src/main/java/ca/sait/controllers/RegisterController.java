@@ -1,6 +1,5 @@
 package ca.sait.controllers;
 
-import ca.sait.entity.UsersEntity;
 import ca.sait.service.impl.UsersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

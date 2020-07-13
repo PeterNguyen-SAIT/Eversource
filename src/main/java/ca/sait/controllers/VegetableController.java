@@ -1,7 +1,5 @@
 package ca.sait.controllers;
 
-import ca.sait.entity.OrdersEntity;
-import ca.sait.entity.ProductsEntity;
 import ca.sait.service.impl.ProductsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

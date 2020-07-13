@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 import lombok.Data;
 
 /**
@@ -12,7 +12,7 @@ import lombok.Data;
  * 
  * @author bin
  * @email bin.zhang@sait.ca
- * @date 2020-06-23 11:04:00
+ * @date 2020-07-08 23:13:21
  */
 @Data
 @TableName("users")
@@ -36,6 +36,10 @@ public class UsersEntity implements Serializable {
 	 * 
 	 */
 	private String salt;
+	/**
+	 * 
+	 */
+	private String token;
 	/**
 	 * 
 	 */
@@ -73,7 +77,7 @@ public class UsersEntity implements Serializable {
 	 */
 	private String status;
 	/**
-	 * register
+	 * register date
 	 */
 	private Date date;
 	/**
@@ -81,66 +85,4 @@ public class UsersEntity implements Serializable {
 	 */
 	private String note;
 
-	public UsersEntity() {
-	}
-
-	public String getUname() {
-		return uname;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public Integer getUid() {
-		return uid;
-	}
-
-	public String getSalt() {
-		return salt;
-	}
-
-	public String getFname() {
-		return fname;
-	}
-
-	public String getLname() {
-		return lname;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public String getNote() {
-		return note;
-	}
 }

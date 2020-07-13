@@ -1,18 +1,15 @@
 package ca.sait.service;
 
-
-import ca.sait.common.utils.PageUtils;
 import ca.sait.entity.EventsEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
+import ca.sait.common.utils.PageUtils;
 
 import java.util.Map;
 
 /**
- * 
- *
  * @author bin
  * @email bin.zhang@sait.ca
- * @date 2020-06-23 11:04:00
+ * @date 2020-07-08 23:13:21
  */
 public interface EventsService extends IService<EventsEntity> {
 
