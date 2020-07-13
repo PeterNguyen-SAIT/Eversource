@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -19,6 +20,7 @@ public class LoginController {
 
     @Autowired
     private UsersServiceImpl userService;
+
 
     @GetMapping("/login")
     public String showLoginPage(ModelMap model) {
@@ -28,7 +30,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String submitForm(@ModelAttribute("usersEntity") UsersEntity usersEntity) {
+    public String submitForm(@ModelAttribute("usersEntity") UsersEntity usersEntity, ModelMap model, HttpSession session) {
         //System.out.println(usersEntity);
         List<UsersEntity> allUsers = userService.list();
 
@@ -50,6 +52,8 @@ public class LoginController {
                 }
                 else
                 {
+                    session.setAttribute("username",userLoggedIn.getUname());
+                    model.addAttribute("loggedIn","Hello "+session.getAttribute("username"));
                     return "customer/loginsuccess";
                 }
             }
@@ -79,5 +83,14 @@ public class LoginController {
         model.addAttribute("usersEntity",new UsersEntity());
         return "customer/login";
     }
+    @GetMapping("/logout")
+    public String logout(ModelMap model, HttpSession session) {
+        model.addAttribute("message","Logout successfully");
+        session.invalidate();
+        model.addAttribute("usersEntity",new UsersEntity());
+        return "customer/index";
+    }
+
+
 //    }
 }

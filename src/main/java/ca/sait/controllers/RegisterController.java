@@ -24,8 +24,12 @@ public class RegisterController {
     @PostMapping("/register")
     public String submitForm(@ModelAttribute("userEntity") UsersEntity usersEntity, ModelMap model) {
         //System.out.println(usersEntity);
+        int length = userService.list().size()+1;
+        usersEntity.setUid(length);
+        usersEntity.setRole("user");
         userService.saveOrUpdate(usersEntity);
         model.addAttribute("message","Register successful, you can now login with your new account");
+        model.addAttribute("usersEntity",new UsersEntity());
         return "customer/login";
     }
 
