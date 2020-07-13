@@ -5,6 +5,7 @@ import ca.sait.service.impl.UsersServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -21,10 +22,11 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String submitForm(@ModelAttribute("userEntity") UsersEntity usersEntity) {
-        System.out.println(usersEntity);
+    public String submitForm(@ModelAttribute("userEntity") UsersEntity usersEntity, ModelMap model) {
+        //System.out.println(usersEntity);
         userService.saveOrUpdate(usersEntity);
-        return "registerSuccess";
+        model.addAttribute("message","Register successful, you can now login with your new account");
+        return "customer/login";
     }
 
 }
