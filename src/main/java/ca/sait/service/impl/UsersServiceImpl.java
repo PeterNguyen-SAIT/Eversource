@@ -1,32 +1,23 @@
 package ca.sait.service.impl;
 
-
-import ca.sait.common.utils.PageUtils;
-import ca.sait.common.utils.Query;
 import ca.sait.dao.UsersDao;
 import ca.sait.entity.UsersEntity;
 import ca.sait.service.UsersService;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Service;
+import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import ca.sait.common.utils.PageUtils;
+import ca.sait.common.utils.Query;
 
-import java.util.List;
-import java.util.Map;
+
 
 @Service("usersService")
+@Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class UsersServiceImpl extends ServiceImpl<UsersDao, UsersEntity> implements UsersService {
-//    @Autowired
-//    UsersDao usersDao;
-//
-//    public UsersEntity findByUname(String uname) {
-//        QueryWrapper queryWrapper = new QueryWrapper("UsersEntity",uname);
-//        List list = usersDao.selectList(queryWrapper);
-//
-//        return null;
-//    }
-
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
