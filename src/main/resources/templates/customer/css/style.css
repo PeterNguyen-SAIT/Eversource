@@ -181,6 +181,16 @@ ol {
   background: #7fad39;
   border: none;
 }
+.shopping-btn {
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: 200;
+
+  padding: 6px 12px 6px;
+  background: #7fad39;
+  border: none;
+}
+
 
 .login-btn {
   font-size: 14px;

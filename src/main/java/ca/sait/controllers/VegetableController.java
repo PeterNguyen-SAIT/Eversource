@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ca.sait.entity.ProductsEntity;
+import ca.sait.entity.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,7 +23,7 @@ public class VegetableController {
         List<ProductsEntity> productsEntityList = productsService.list();
 
         model.addAttribute("productsEntityList", productsEntityList);
-        return "testing";
+        return "customer/product";
     }
 
     @PostMapping("/productId")
@@ -32,7 +34,7 @@ public class VegetableController {
         System.out.println(productsEntity);
         List<ProductsEntity> productsEntityList = productsService.list();
         model.addAttribute("productsEntityList", productsEntityList);
-        return "testing";
+        return "customer/product";
     }
 
     @PostMapping("/productIdGet")
@@ -43,7 +45,7 @@ public class VegetableController {
         System.out.println(productsEntity);
         model.addAttribute("hiddenProduct", productSource);
         session.setAttribute("hiddenProduct", productSource);
-        return "testing2";
+        return "testing2"; // for order pages
     }
 
     @PostMapping("/productIdSession")
