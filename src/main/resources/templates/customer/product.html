@@ -96,15 +96,14 @@
 <!--code in products.txt from PN-->
 
     <table>
+    <table>
 
         <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="product__item">
-
-                <img src="img/tomato.png" alt="tomato"/> <!-- test - to be deleted-->
         <tr th:each="product : *{productsEntityList}">
             <td><span th:text="${product.pname}"></span></td>
 
-            <td><img height="100" th:src="@{/img/tomato.png}" width="100" alt="tomato"></td> <!-- $ to @-->
+            <td><img height="100" th:src="${product.image}" width="100"></td> <!-- $ to @-->
 
             <td><span th:text="${product.cname}"></span></td>
             <td><span th:text="${product.price}"></span></td> <!-- $ in front of<span>deleted-->
