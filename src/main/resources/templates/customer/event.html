@@ -120,10 +120,44 @@
                 </div>
             </div>
 
-    </div>
+        </div>
     </div>
 </section>
 <!-- Event Section End -->
+
+<!-- Adding ThymeLeaf code -->
+
+<section class="event spad">
+   <table>
+       <div class="container">
+           <div class="col-lg-4 col-md-6 col-sm-6">
+               <div class="row">
+
+                       <div class="event__item">
+                           <tr th:each="product : *{ }">  <!-- eventsEntityList -->
+                               <td><span th:text="${ }"></span></td> <!-- event.event -->
+                               <td><img height="150" th:src="${ }" width="200"></td> <!--event.image-->
+                               <td><span class="event__item__text"> th:text="${}" </span></td> <!--event.description-->
+                               <td> <form action="#" th:action="@{/ }" method="GET"> <!--eid-->
+                                   <input type="hidden" th:value="${}" name="eventID"> <!-- eid -->
+                                   <!--<button class="event__btn"  id="register">Register</button>-->
+                                   <script>
+
+                                   </script>
+                                   <input type="submit" value="Register">
+
+                               </form> </td>
+                           </tr>
+
+                       </div>
+                   </div>
+           </div>
+
+       </div>
+   </table>
+</section>
+<!-- /Adding ThymeLeaf code -->
+
 
 <!-- Footer Section Begin -->
 <footer class="footer spad">
