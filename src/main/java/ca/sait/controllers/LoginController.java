@@ -53,7 +53,7 @@ public class LoginController {
                 else
                 {
                     session.setAttribute("username",userLoggedIn.getUname());
-                    model.addAttribute("loggedIn","Hello "+session.getAttribute("username"));
+                    model.addAttribute("loggedIn"," "+session.getAttribute("username"));
                     return "customer/loginsuccess";
                 }
             }

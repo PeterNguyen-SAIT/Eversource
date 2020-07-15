@@ -34,39 +34,33 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8">
-
-                    <c:if test="${username!=null}">
-                        <div class="header__top__right__account">
-                            <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
-                            <span class="arrow_carrot-down"></span>
-                            <ul>
-                                <li><a href="/history">Purchase History</a></li>
-                                <li><a href="/shoppingcart">Shoping Cart</a></li>
-                                <li><a href="/account">Account</a></li>
-                            </ul>
-                        </div>
-
-
-                        <div class="header__top__right__logout">
-                            <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
-
-                        </div>
-                    </c:if>
-
-                    <c:if test="${username==null}">
                     <div class="header__top__right">
-
-                        <div class="header__top__right__login">
-                            <a href="/login"><i class="fa fa-user"></i> Login</a>
-
+                        <div th:if="${usernameExist} != null">
+                            <div class="header__top__right__account">
+                                <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="/history">Purchase History</a></li>
+                                    <li><a href="/shoppingcart">Shoping Cart</a></li>
+                                    <li><a href="/account">Account</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__logout">
+                                <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
+                            </div>
                         </div>
-                        <div class="header__top__right__signup">
-                            <a href="/register"><i class="fa fa-sign-in"></i>
-                                Sign up</a>
+                        <div th:if="${usernameExist} == null">
+                    <div class="header__top__right__login">
+                        <a href="/login"><i class="fa fa-user"></i> Login</a>
 
+                    </div>
+                    <div class="header__top__right__signup">
+                        <a href="/register"><i class="fa fa-sign-in"></i>
+                            Sign up</a>
+
+                    </div>
                         </div>
-                    </c:if>
-
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,7 +70,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="header__logo">
-                    <a href="./index.html"
+                    <a href="/"
                     ><img src="img/logo.png" alt="" height="50"
                     /></a>
                 </div>

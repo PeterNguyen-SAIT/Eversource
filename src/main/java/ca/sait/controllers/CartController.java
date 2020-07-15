@@ -11,7 +11,16 @@ public class CartController {
 
     @GetMapping("/shoppingcart")
     public String showContactPage(ModelMap model, HttpSession session) {
-        model.addAttribute("loggedIn","Hello "+session.getAttribute("username"));
+        String username = (String)session.getAttribute("username");
+        if( username == null || username.equals("") )
+        {
+
+        }
+        else
+        {
+            model.addAttribute("loggedIn"," "+username);
+        }
+        model.addAttribute("usernameExist",username);
         return "customer/shop-cart";
     }
 

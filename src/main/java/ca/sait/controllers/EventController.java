@@ -2,6 +2,7 @@ package ca.sait.controllers;
 
 import ca.sait.entity.EventsEntity;
 import ca.sait.entity.ProductsEntity;
+import ca.sait.entity.UsersEntity;
 import ca.sait.service.impl.EventsServiceImpl;
 import ca.sait.service.impl.ProductsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,19 +23,18 @@ public class EventController {
 
     @GetMapping("/event")
     public String showEventPage(ModelMap model, HttpSession session) {
-        List<EventsEntity> eventsEntityList = eventsService.list();
-        if(session.getAttribute("username") == null)
-        {
-
+        if (session.getAttribute("username") == null) {
+            model.addAttribute("message","Please login first");
+            model.addAttribute("usersEntity",new UsersEntity());
+            return "customer/login";
+        } else {
+            List<EventsEntity> eventsEntityList = eventsService.list();
+            String username = (String) session.getAttribute("username");
+            model.addAttribute("loggedIn", " " + username);
+            model.addAttribute("usernameExist", username);
+            model.addAttribute("eventsEntityList", eventsEntityList);
+            return "customer/event";
         }
-        else
-            {
-
-            model.addAttribute("loggedIn", session.getAttribute("username"));
-        }
-        model.addAttribute("username", session.getAttribute("username"));
-        model.addAttribute("eventsEntityList", eventsEntityList);
-        return "customer/event";
     }
 
     @PostMapping("/event")

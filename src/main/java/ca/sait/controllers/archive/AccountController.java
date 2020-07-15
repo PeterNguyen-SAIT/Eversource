@@ -19,12 +19,13 @@ public class AccountController {
     private UsersServiceImpl userService;
 
     @GetMapping("/account")
-    public String showLoginPage(ModelMap model, HttpSession session) {
+    public String showAccountPage(ModelMap model, HttpSession session) {
 
         QueryWrapper<UsersEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("uname", session.getAttribute("username"));
         UsersEntity userLoggedIn = userService.getOne(queryWrapper);
         model.addAttribute("usersEntity",userLoggedIn);
+        model.addAttribute("loggedIn",(String)session.getAttribute("username"));
         return "customer/account";
     }
 

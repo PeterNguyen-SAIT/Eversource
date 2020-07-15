@@ -34,6 +34,7 @@ public class VegetableController {
         {
             List<ProductsEntity> productsEntityList = productsService.list();
             model.addAttribute("productsEntityList", productsEntityList);
+            model.addAttribute("loggedIn"," "+(String)session.getAttribute("username"));
             return "customer/product";
         }
 
@@ -73,7 +74,7 @@ public class VegetableController {
 
     @GetMapping("/history")
     public String showHistoryPage(ModelMap model, HttpSession session) {
-        model.addAttribute("loggedIn","Hello "+session.getAttribute("username"));
-        return "customer/shop-cart";
+        model.addAttribute("loggedIn"," "+session.getAttribute("username"));
+        return "customer/history";
     }
 }
