@@ -68,11 +68,11 @@
             <div class="col-lg-8 col-md-8">
                 <nav class="header__menu" >
                     <ul>
-                        <li><a href="index.html">About us</a></li>
-                        <li><a href="./product.html">Store</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./event.html">Event</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="/homepage">About us</a></li>
+                        <li><a href="/product">Store</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/event">Event</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -97,10 +97,11 @@
 <!-- Breadcrumb Section End -->
 
 <!-- Register Section Begin -->
+<h2 class="text-md-center" th:text="${message}"></h2>
 <section class="checkout spad">
     <div class="container">
         <div class="checkout__form">
-            <form action="#" method="get" th:action="@{/register}" th:object="${usersEntity}">
+            <form action="#" method="get" th:action="@{/editUser}" th:object="${usersEntity}">
                 <div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-8 col-md-6">
@@ -158,8 +159,7 @@
                         </div>
 
                         <div class="text-right">
-                            <button type="submit" class="login-btn">Save</button>
-                            <a button type="submit" class="login-btn" href="index.html">Cancle</abutton></a></div>
+                            <input type="submit" class="login-btn" value="Save">
 
                     </div>
                 </div>

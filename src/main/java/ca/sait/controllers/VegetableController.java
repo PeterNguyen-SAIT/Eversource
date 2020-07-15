@@ -1,9 +1,12 @@
 package ca.sait.controllers;
 
+import ca.sait.entity.OrdersEntity;
+import ca.sait.entity.ProductsEntity;
 import ca.sait.service.impl.ProductsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import ca.sait.entity.ProductsEntity;
 import ca.sait.entity.*;
@@ -20,11 +23,20 @@ public class VegetableController {
     private ProductsServiceImpl productsService;
 
     @GetMapping("/product")
-    public String showForm(Model model) {
-        List<ProductsEntity> productsEntityList = productsService.list();
+    public String showForm(Model model, HttpSession session) {
+        if(session.getAttribute("username") == null)
+        {
+            model.addAttribute("message","Please login first");
+            model.addAttribute("usersEntity",new UsersEntity());
+            return "customer/login";
+        }
+        else
+        {
+            List<ProductsEntity> productsEntityList = productsService.list();
+            model.addAttribute("productsEntityList", productsEntityList);
+            return "customer/product";
+        }
 
-        model.addAttribute("productsEntityList", productsEntityList);
-        return "customer/product";
     }
 
     @PostMapping("/productId")
@@ -57,5 +69,11 @@ public class VegetableController {
         model.addAttribute("sessionId", productSource);
         session.setAttribute("sessionId", productSource);
         return "testing2";
+    }
+
+    @GetMapping("/history")
+    public String showHistoryPage(ModelMap model, HttpSession session) {
+        model.addAttribute("loggedIn","Hello "+session.getAttribute("username"));
+        return "customer/shop-cart";
     }
 }

@@ -12,10 +12,7 @@
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link type="text/css" rel="stylesheet" th:href="@{css/style.css}" />
-    <!-- <link rel="stylesheet" href="css/style.css" type="text/css"> -->
-
-
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
@@ -32,7 +29,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="header__top__left">
                         <ul>
-                            <li>Welcome to Eversource farm website</li>
+                            <li>Welcome eversource farm website</li>
                         </ul>
                     </div>
                 </div>
@@ -60,17 +57,17 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="header__logo">
-                    <a href="index.html"><img src="img/logo.png" alt="" height="50"  ></a>
+                    <a href="/"><img src="img/logo.png" alt="" height="50"  ></a>
                 </div>
             </div>
             <div class="col-lg-8 col-md-8">
                 <nav class="header__menu" >
                     <ul>
-                        <li><a href="index.html">About us</a></li>
-                        <li class="active"><a href="./product.html">Store</a></li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./event.html">Event</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="/homepage">About us</a></li>
+                        <li class="active"><a href="/product">Store</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/event">Event</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -95,126 +92,128 @@
 <!-- Breadcrumb Section End -->
 
 <section class="product spad">
-    <div class="container">
-        <!--code in products.txt from PN-->
+<div class="container">
+<!--code in products.txt from PN-->
 
-        <table>
-            <table>
+    <table>
+
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="product__item">
+
+                <img src="img/tomato.png" alt="tomato"/> <!-- test - to be deleted-->
+        <tr th:each="product : *{productsEntityList}">
+            <td><span th:text="${product.pname}"></span></td>
+
+            <td><img height="100" th:src="${product.image}" width="100" alt="tomato"></td> <!-- $ to @-->
+
+            <td><span th:text="${product.cname}"></span></td>
+            <td><span th:text="${product.price}"></span></td> <!-- $ in front of<span>deleted-->
+            <td> <form action="#" th:action="@{/productId}" method="post">
+                <input type="hidden" th:value="${product.pid}" name="productSource">
+                <button class="shopping-btn"  id="minus">-</button> <!-- button class!!-->
+                <input type="number" value="1" id="productQuantity" name="productQuantity"/>
+                <button class="shopping-btn" id="plus" onclick="">+</button>
+
+                <script>
+                    const minusButton = document.getElementById('minus');
+                    const plusButton = document.getElementById('plus');
+                    const inputField = document.getElementById('productQuantity');
+
+                    minusButton.addEventListener('click', event => {
+                        event.preventDefault();
+                        const currentValue = Number(inputField.value) || 1;
+                        inputField.value = currentValue - 1;
+                    });
+
+                    plusButton.addEventListener('click', event => {
+                        event.preventDefault();
+                        const currentValue = Number(inputField.value) || 1;
+                        inputField.value = currentValue + 1;
+                    });
+                </script>
+                <input type="submit" value="Add to Cart">
+            </form></td>
+        </tr>
+
+            </div>
+        </div>
+
+    </table>
+
+
+    <!-- /code in products.txt-->
+<!-- -------------------------------------------------- -->
+
+    <!-- <form action="#" method="post" th:action="@{/vegetable}" th:object="${productEntity}">
+        <div class="row">
 
                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <tr th:each="product : *{productsEntityList}">
-                            <td><span th:text="${product.pname}"></span></td>
-
-                            <td><img height="100" th:src="${product.image}" width="100"></td> <!-- $ to @-->
-
-                            <td><span th:text="${product.cname}"></span></td>
-                            <td><span th:text="${product.price}"></span></td> <!-- $ in front of<span>deleted-->
-                            <td> <form action="#" th:action="@{/productId}" method="post">
-                                <input type="hidden" th:value="${product.pid}" name="productSource">
-                                <button class="shopping-btn"  id="minus">-</button> <!-- button class!!-->
-                                <input type="number" value="1" id="productQuantity" name="productQuantity"/>
-                                <button class="shopping-btn" id="plus" onclick="">+</button>
-
-                                <script>
-                                    const minusButton = document.getElementById('minus');
-                                    const plusButton = document.getElementById('plus');
-                                    const inputField = document.getElementById('productQuantity');
-
-                                    minusButton.addEventListener('click', event => {
-                                        event.preventDefault();
-                                        const currentValue = Number(inputField.value) || 1;
-                                        inputField.value = currentValue - 1;
-                                    });
-
-                                    plusButton.addEventListener('click', event => {
-                                        event.preventDefault();
-                                        const currentValue = Number(inputField.value) || 1;
-                                        inputField.value = currentValue + 1;
-                                    });
-                                </script>
-                                <input type="submit" value="Add to Cart">
-                            </form></td>
-                        </tr>
-
+                <div class="product__item">
+                <div class="product__item__pic set-bg" data-setbg="img/tomato.png" th:each="productEntity, itemStat : ${products}">
+                    <ul class="product__item__pic__hover">
+                        <li><input type="number"
+                                   th:field="*{productEntity}"/></a></li>
+                        <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
+                        <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
+                    </ul>
+                </div>
+                <div class="product__item__text">
+                    <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Tomatoes</label></a></h6>
+                    <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
+                </div>
+            </div>
+        </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="img/peppers.png" th:each="productEntity, itemStat : ${products}">
+                        <ul class="product__item__pic__hover">
+                            <li><input type="number"
+                                       th:field="*{productEntity}"/></a></li>
+                            <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
+                            <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Peppers</label></a></h6>
+                        <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
                     </div>
                 </div>
-
-            </table>
-
-
-            <!-- /code in products.txt-->
-            <!-- -------------------------------------------------- -->
-
-            <!-- <form action="#" method="post" th:action="@{/vegetable}" th:object="${productEntity}">
-                <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/tomato.png" th:each="productEntity, itemStat : ${products}">
-                            <ul class="product__item__pic__hover">
-                                <li><input type="number"
-                                           th:field="*{productEntity}"/></a></li>
-                                <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
-                                <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Tomatoes</label></a></h6>
-                            <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
-                        </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="img/zucchini.png" th:each="productEntity, itemStat : ${products}">
+                        <ul class="product__item__pic__hover">
+                            <li><input type="number"
+                                       th:field="*{productEntity}"/></a></li>
+                            <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
+                            <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Zucchini</label></a></h6>
+                        <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
                     </div>
                 </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/peppers.png" th:each="productEntity, itemStat : ${products}">
-                                <ul class="product__item__pic__hover">
-                                    <li><input type="number"
-                                               th:field="*{productEntity}"/></a></li>
-                                    <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
-                                    <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Peppers</label></a></h6>
-                                <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
-                            </div>
-                        </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="img/eggs.png" th:each="productEntity, itemStat : ${products}">
+                        <ul class="product__item__pic__hover">
+                            <li><input type="number"
+                                       th:field="*{productEntity}"/></a></li>
+                            <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
+                            <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
+                        </ul>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/zucchini.png" th:each="productEntity, itemStat : ${products}">
-                                <ul class="product__item__pic__hover">
-                                    <li><input type="number"
-                                               th:field="*{productEntity}"/></a></li>
-                                    <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
-                                    <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Zucchini</label></a></h6>
-                                <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="img/eggs.png" th:each="productEntity, itemStat : ${products}">
-                                <ul class="product__item__pic__hover">
-                                    <li><input type="number"
-                                               th:field="*{productEntity}"/></a></li>
-                                    <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
-                                    <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Eggs</label></a></h6>
-                                <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
-                            </div>
-                        </div>
+                    <div class="product__item__text">
+                        <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Eggs</label></a></h6>
+                        <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
                     </div>
                 </div>
-        </form>-->
-    </div>
+            </div>
+        </div>
+</form>-->
+</div>
 </section>
 
 

@@ -69,4 +69,5 @@ public class ProductsEntity implements Serializable {
 	 */
 	private String note;
 
+
 }
