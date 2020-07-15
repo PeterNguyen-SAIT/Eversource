@@ -2,13 +2,12 @@ spring:
   datasource:
     username: root
     password: password
-    url: jdbc:mysql://localhost:3306/eversourcedb
+    url: jdbc:mysql://localhost:3306/eversourcedb?serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     thymeleaf:
       prefix: classpath:/templates/
       suffix: .html
       cache: false
-
 server:
   port: 8088
 
