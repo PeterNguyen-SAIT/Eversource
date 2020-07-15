@@ -28,6 +28,7 @@ public class RegisterController {
         int length = userService.list().size()+1;
         usersEntity.setUid(length);
         usersEntity.setRole("user");
+        usersEntity.setStatus("active");
         userService.saveOrUpdate(usersEntity);
         model.addAttribute("message","Register successful, you can now login with your new account");
         model.addAttribute("usersEntity",new UsersEntity());

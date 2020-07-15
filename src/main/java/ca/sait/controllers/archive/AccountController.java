@@ -31,20 +31,25 @@ public class AccountController {
 
     @PostMapping("/editUser")
     public String editUser(ModelMap model, UsersEntity usersEntity, HttpSession session) {
-
+        QueryWrapper<UsersEntity> queryWrapper1 = new QueryWrapper<>();
+        queryWrapper1.eq("uname", usersEntity.getUname());
+        UsersEntity old = userService.getOne(queryWrapper1);
+        usersEntity.setUid(old.getUid());
         if(userService.updateById(usersEntity))
         {
             model.addAttribute("usersEntity",usersEntity);
             model.addAttribute("message","Updated!");
+            model.addAttribute("loggedIn",usersEntity.getUname());
             return "customer/account";
         }
         else
         {
             model.addAttribute("message","Error updating user. Please contact developers for assistance");
-            QueryWrapper<UsersEntity> queryWrapper = new QueryWrapper<>();
-            queryWrapper.eq("uname", session.getAttribute("username"));
-            UsersEntity userLoggedIn = userService.getOne(queryWrapper);
+            QueryWrapper<UsersEntity> queryWrapper2 = new QueryWrapper<>();
+            queryWrapper2.eq("uname", session.getAttribute("username"));
+            UsersEntity userLoggedIn = userService.getOne(queryWrapper2);
             model.addAttribute("usersEntity",userLoggedIn);
+            model.addAttribute("loggedIn",userLoggedIn.getUname());
             return "customer/account";
         }
 
