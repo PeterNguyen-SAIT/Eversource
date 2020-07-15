@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:background-repeat="">
 
 <head>
     <meta charset="UTF-8">
@@ -40,8 +40,8 @@
                                     <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
                                     <span class="arrow_carrot-down"></span>
                                     <ul>
-                                        <li><a href="./history.html">Purchase History</a></li>
-                                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                        <li><a href="/history">Purchase History</a></li>
+                                        <li><a href="/shoppingcart">Shoping Cart</a></li>
                                         <li><a href="/account">Account</a></li>
                                     </ul>
                                 </div>
@@ -70,11 +70,11 @@
                 <div class="col-lg-8 col-md-8">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="./home.html">About us</a></li>
-                            <li><a href="./product.html">Store</a></li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./event.html">Event</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="/homepage">About us</a></li>
+                            <li><a href="/product">Store</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/event">Event</a></li>
+                            <li><a href="/contact">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -118,6 +118,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
     </section>
     <!-- Hero Section End -->
 
