@@ -13,15 +13,10 @@
     />
 
     <!-- Css Styles -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="css/style1.css" type="text/css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
   </head>
 
   <body>
@@ -37,18 +32,25 @@
             <div class="col-lg-4 col-md-4">
               <div class="header__top__left">
                 <ul>
-                  <li>Welcome eversource farm website</li>
+                  <li>Free Delivery for all Order of $99</li>
                 </ul>
               </div>
             </div>
             <div class="col-lg-8 col-md-8">
+
               <div class="header__top__right">
+
                 <div class="header__top__right__login">
-                  <a href="login"><i class="fa fa-user"></i> Login</a>
+                  <a href="login.html"><i class="fa fa-user"></i> Login</a>
+
                 </div>
                 <div class="header__top__right__signup">
-                  <a href="register"><i class="fa fa-sign-in"></i> Sign up</a>
+                  <a href="register.html"><i class="fa fa-sign-in"></i>
+                    Sign up</a>
+
                 </div>
+
+
               </div>
             </div>
           </div>
@@ -58,18 +60,18 @@
         <div class="row">
           <div class="col-lg-4">
             <div class="header__logo">
-              <a href="index.html"
-                ><img src="img/logo.png" alt="" height="50"
+              <a href="./index.html"
+              ><img src="img/logo.png" alt="" height="50"
               /></a>
             </div>
           </div>
           <div class="col-lg-8 col-md-8">
             <nav class="header__menu">
               <ul>
-                <li><a href="home.html">About us</a></li>
-                <li><a href="product.html">Store</a></li>
+                <li><a href="./home.html">About us</a></li>
+                <li><a href="./product.html">Store</a></li>
                 <li><a href="./blog.html">Blog</a></li>
-                <li><a href="event.html">Event</a></li>
+                <li class="active"><a href="./event.html">Event</a></li>
                 <li><a href="./contact.html">Contact</a></li>
               </ul>
             </nav>
@@ -79,104 +81,19 @@
     </header>
     <!-- Header Section End -->
 
-    <!-- Hero Section Begin -->
-    <section class="hero">
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
       <div class="container">
         <div class="row">
-          <div class="col-lg-2"></div>
-          <div class="col-lg-8">
-            <!--
-                                    <div class="hero__search">
-                                        <div class="hero__search__form">
-                                            <form action="#">
-                                                <div class="hero__search__categories">
-                                                    All Categories
-                                                    <span class="arrow_carrot-down"></span>
-                                                </div>
-                                                <input type="text" placeholder="What do yo u need?">
-                                                <button type="submit" class="site-btn">SEARCH</button>
-                                            </form>
-                                        </div>
-                -->
-          </div>
-          <div
-            id="carouselExampleIndicators"
-            class="carousel slide"
-            data-ride="carousel"
-          >
-            <ol class="carousel-indicators">
-              <li
-                data-target="#carouselExampleIndicators"
-                data-slide-to="0"
-                class="active"
-              ></li>
-              <li
-                data-target="#carouselExampleIndicators"
-                data-slide-to="1"
-              ></li>
-              <li
-                data-target="#carouselExampleIndicators"
-                data-slide-to="2"
-              ></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-              <!-- Slide One - Set the background image for this slide in the line below -->
-              <div class="carousel-item active" style="img/hero/banner.jpg">
-                <div class="carousel-caption d-none d-md-block">
-                  <h3>First Slide</h3>
-                  <p>This is a description for the first slide.</p>
-                </div>
-              </div>
-              <!-- Slide Two - Set the background image for this slide in the line below -->
-              <div
-                class="carousel-item"
-                style="background-image: url('http://placehold.it/1900x1080');"
-              >
-                <div class="carousel-caption d-none d-md-block">
-                  <h3>Second Slide</h3>
-                  <p>This is a description for the second slide.</p>
-                </div>
-              </div>
-              <!-- Slide Three - Set the background image for this slide in the line below -->
-              <div
-                class="carousel-item"
-                style="background-image: url('http://placehold.it/1900x1080');"
-              >
-                <div class="carousel-caption d-none d-md-block">
-                  <h3>Third Slide</h3>
-                  <p>This is a description for the third slide.</p>
-                </div>
-              </div>
-            </div>
-            <a
-              class="carousel-control-prev"
-              href="#carouselExampleIndicators"
-              role="button"
-              data-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a
-              class="carousel-control-next"
-              href="#carouselExampleIndicators"
-              role="button"
-              data-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="sr-only">Next</span>
-            </a>
+          <div class="col-lg-12 text-center">
+            <div class="breadcrumb__text">
+              <h2>About Us</h2></div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Hero Section End -->
+    <!-- Breadcrumb Section End -->
+
 
     <!-- Featured Section Begin -->
     <section class="featured spad">
@@ -275,7 +192,7 @@
     </section>
     <!-- Featured Section End -->
 
-    <!-- Blog Section Begin -->
+    <!-- About us Section Begin -->
     <section class="from-blog spad">
       <div class="container">
         <div class="row">
@@ -313,38 +230,28 @@
         </div>
       </div>
     </section>
-    <!-- Blog Section End -->
+    <!-- About us Section End -->
+
 
     <!-- Footer Section Begin -->
     <footer class="footer spad">
       <div class="col-lg-12">
         <div class="footer__copyright">
-          <div class="footer__copyright__text">
-            <p>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;
-              <script>
-                document.write(new Date().getFullYear());
-              </script>
-              Eversource Farm. All Rights Reserved.
-            </p>
-          </div>
-          <div class="footer__copyright__payment">
-            <img src="img/payment-item.png" alt="" />
-          </div>
+          <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> Eversource Farm. All Rights Reserved.
+          </p></div>
+          <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
         </div>
       </div>
+
+
     </footer>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
   </body>
 </html>
