@@ -21,12 +21,19 @@ public class AccountController {
     @GetMapping("/account")
     public String showAccountPage(ModelMap model, HttpSession session) {
 
-        QueryWrapper<UsersEntity> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("uname", session.getAttribute("username"));
-        UsersEntity userLoggedIn = userService.getOne(queryWrapper);
-        model.addAttribute("usersEntity",userLoggedIn);
-        model.addAttribute("loggedIn",(String)session.getAttribute("username"));
-        return "customer/account";
+        if (session.getAttribute("username") == null) {
+            model.addAttribute("message", "Please login first");
+            model.addAttribute("usersEntity", new UsersEntity());
+            return "customer/login";
+
+        } else {
+            QueryWrapper<UsersEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("uname", session.getAttribute("username"));
+            UsersEntity userLoggedIn = userService.getOne(queryWrapper);
+            model.addAttribute("usersEntity", userLoggedIn);
+            model.addAttribute("loggedIn", " " + (String) session.getAttribute("username"));
+            return "customer/account";
+        }
     }
 
     @PostMapping("/editUser")

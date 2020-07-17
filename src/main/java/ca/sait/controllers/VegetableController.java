@@ -2,6 +2,7 @@ package ca.sait.controllers;
 
 import ca.sait.entity.OrdersEntity;
 import ca.sait.entity.ProductsEntity;
+import ca.sait.service.impl.OrdersServiceImpl;
 import ca.sait.service.impl.ProductsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import ca.sait.entity.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.Date;
 import java.util.List;
 
 
@@ -21,6 +23,9 @@ public class VegetableController {
 
     @Autowired
     private ProductsServiceImpl productsService;
+
+    @Autowired
+    private OrdersServiceImpl ordersService;
 
     @GetMapping("/product")
     public String showForm(Model model, HttpSession session) {
@@ -41,13 +46,37 @@ public class VegetableController {
     }
 
     @PostMapping("/productId")
-    public String submitForm(@RequestParam int productSource, @RequestParam int productQuantity, Model model) {
+    public String submitForm(@RequestParam int productSource, @RequestParam int productQuantity, Model model, HttpSession session) {
+        String username = (String)session.getAttribute("username");
         System.out.println(productSource);
         System.out.println(productQuantity);
         ProductsEntity productsEntity = productsService.getById(productSource);
         System.out.println(productsEntity);
+
+        List<OrdersEntity> allOrders = ordersService.list();
+        int newOID = allOrders.size()+1;
+
+        OrdersEntity newOrder = new OrdersEntity();
+        newOrder.setUnit(productsEntity.getUnit());
+        newOrder.setQuantity(productQuantity);
+        newOrder.setUname(username);
+        newOrder.setPname(productsEntity.getPname());
+        newOrder.setOid(newOID);
+        newOrder.setPrice(productsEntity.getPrice());
+        newOrder.setStatus("hold");
+        if(ordersService.save(newOrder))
+        {
+            model.addAttribute("message", "Added "+productQuantity+" "+productsEntity.getUnit()+" of "+productsEntity.getPname()+" to cart.");
+
+        }
+        else
+        {
+            model.addAttribute("message", "Failed to add, please contact developers for assistance");
+        }
+
         List<ProductsEntity> productsEntityList = productsService.list();
         model.addAttribute("productsEntityList", productsEntityList);
+        model.addAttribute("loggedIn", " "+username);
         return "customer/product";
     }
 

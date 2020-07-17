@@ -107,71 +107,70 @@
 <!-- Breadcrumb Section End -->
 
 <!-- Shoping Cart Section Begin -->
+<h2 class="text-md-center" th:text="${message}"></h2>
 <section class="shoping-cart spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-6">
                 <div class="shoping__cart__table">
-                    <form action="#" method="post" th:action="@{/cart}">
+
                         <table>
                         <thead>
                         <tr>
                             <th class="shoping__product">Products</th>
                             <th>Price</th>
                             <th>Quantity</th>
+                            <th>Update</th>
                             <th>Total</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
+
+                        <tr th:each="order : *{orderArrayList}">
                             <td class="shoping__cart__item">
-                               <a href="shop-details.html"> <img src="img/tomato.png" alt="">
-                                <h5>tomatoes</h5></a>
+                               <a href="/shopdetail">
+                                   <img src="img/eggs.jpeg" th:alt="${order.pname}">
+                                </a>
                             </td>
-                            <td class="shoping__cart__price">
-                                $10.00
+
+                            <td class="shoping__cart__price" th:text="${order.price}">
                             </td>
+                            <form action="#" method="post" th:action="@{/cart}">
                             <td class="shoping__cart__quantity">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="number" value="1">
+                                        <label>
+                                            <input type="number" min="0" th:value="${order.quantity}" name="amount">
+                                        </label>
                                     </div>
                                 </div>
                             </td>
-                            <td class="shoping__cart__total">
-                                $10.00
+
+                            <td>
+                                <input type="submit" value="Update">
+                                <input type="hidden" name="oid" th:value="${order.oid}">
                             </td>
+                                <td class="shoping__cart__total">
+                                    <input type="number" th:value="${order.price}*${order.quantity}" step="0.01" style="width: 3.80em" disabled>
+
+                                </td>
+                            </form>
+
+
+
+
                             <td class="shoping__cart__item__close">
                                 <span class="icon_close"></span>
                             </td>
+
+
                         </tr>
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="img/peppers.png" alt="">
-                                <h5>Peppers</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                $10.00
-                            </td>
-                            <td class="shoping__cart__quantity">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="2">
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__total">
-                                $20.00
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <span class="icon_close"></span>
-                            </td>
-                        </tr>
+
                         </tbody>
 
                     </table>
-                    </form>
+
 
             </div>
         </div>
@@ -179,16 +178,30 @@
             <div class="col-lg-4 col-md-6">
                 <div class="checkout__order">
                     <h4>Your Order</h4>
+
                     <div class="checkout__order__products">Products <span>Total</span></div>
+
+                    <table>
+                        <tr th:each="order: *{orderArrayList}">
+                            <td th:text="${order.pname}"></td>
+                            <td>-------------------$</td>
+                            <td>
+                                <input type="number" step="0.01" th:value="${order.price}*${order.quantity}" disabled style="width: 3.85em">
+                            </td>
+                        </tr>
+                    </table>
+
+<!--                    <ul th:each="order: *{orderArrayList}">-->
+
+<!--                        <li th:text="${order.pname}"> <span th:text="${order.price}"></span></li>-->
+
+<!--                    </ul>-->
+
+                    <div class="checkout__order__subtotal">Subtotal <span th:text="${total}"></span></div>
                     <ul>
-                        <li>Tomatoes <span>$10.00</span></li>
-                        <li>Peppers <span>$20.00</span></li>
+                        <li>Gst 5% <span th:text="${gst}"> </span></li>
                     </ul>
-                    <div class="checkout__order__subtotal">Subtotal <span>$30.00</span></div>
-                    <ul>
-                        <li>Gst 5% <span>$1.50</span></li>
-                    </ul>
-                    <div class="checkout__order__total">Total <span>$31.50</span></div>
+                    <div class="checkout__order__total">Total <span th:text="${finalTotal}"></span></div>
                     <div class="checkout__input__checkbox">
                         <label for="payment">
                             Check Payment
@@ -197,6 +210,7 @@
                         </label>
                     </div>
                     <button type="submit" class="site-btn">PLACE ORDER</button>
+
                 </div>
             </div>
 

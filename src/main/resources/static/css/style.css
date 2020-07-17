@@ -1790,7 +1790,7 @@ ol {
 }
 
 .shoping__cart__table table thead th.shoping__product {
-  text-align: center;
+  text-align: left;
 }
 
 .shoping__cart__table table tbody tr td {
