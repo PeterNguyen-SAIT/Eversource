@@ -149,7 +149,7 @@
                        <div class="event__item">
                            <tr th:each="event : *{eventEntityList}">  <!-- eventsEntityList -->
                                <td><span th:text="${event.event}"></span></td> <!-- event.event -->
-                               <td><img height="150" th:src="${event.image}" width="200"></td> <!--event.image-->
+                              <!--event.image    <td><img height="150" th:src="${event.image}" width="200"></td> -->
                                <td><span class="event__item__text" th:text="${event.description}"> </span></td> <!--event.description-->
                                <td> <form action="#" th:action="@{/event.eid}" method="GET"> <!--eid-->
                                    <input type="hidden" th:value="${event.eid}" name="eventID"> <!-- eid -->
