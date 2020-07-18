@@ -29,7 +29,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="header__top__left">
                         <ul>
-                            <li>Welcome eversource farm website</li>
+                            <li>Welcome to Eversource Farm Website</li>
                         </ul>
                     </div>
                 </div>
@@ -115,9 +115,9 @@
             <td>
                 <form action="post" th:action="@{/productId}" method="post">
                 <input type="hidden" th:value="${product.pid}" name="productSource">
-                <button class="shopping-btn"  id="minus">-</button> <!-- button class!!-->
-                <input type="number" value="1" id="productQuantity" name="productQuantity"/>
-                <button class="shopping-btn" id="plus" onclick="">+</button>
+                <!--<button class="shopping-btn"  id="minus">-</button>--> <!-- button class!!-->
+                <input type="number" value="0" min="0" id="productQuantity" style="width: 60px;"pattern='[0-9]{1,3}' name="productQuantity"/>
+                <!--<button class="shopping-btn" id="plus" onclick="">+</button>-->
 
                 <script>
                     const minusButton = document.getElementById('minus');
@@ -147,78 +147,6 @@
     </table>
 
 
-    <!-- /code in products.txt-->
-<!-- -------------------------------------------------- -->
-
-    <!-- <form action="#" method="post" th:action="@{/vegetable}" th:object="${productEntity}">
-        <div class="row">
-
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="img/tomato.png" th:each="productEntity, itemStat : ${products}">
-                    <ul class="product__item__pic__hover">
-                        <li><input type="number"
-                                   th:field="*{productEntity}"/></a></li>
-                        <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
-                        <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
-                    </ul>
-                </div>
-                <div class="product__item__text">
-                    <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Tomatoes</label></a></h6>
-                    <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
-                </div>
-            </div>
-        </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/peppers.png" th:each="productEntity, itemStat : ${products}">
-                        <ul class="product__item__pic__hover">
-                            <li><input type="number"
-                                       th:field="*{productEntity}"/></a></li>
-                            <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
-                            <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Peppers</label></a></h6>
-                        <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/zucchini.png" th:each="productEntity, itemStat : ${products}">
-                        <ul class="product__item__pic__hover">
-                            <li><input type="number"
-                                       th:field="*{productEntity}"/></a></li>
-                            <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
-                            <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Zucchini</label></a></h6>
-                        <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/eggs.png" th:each="productEntity, itemStat : ${products}">
-                        <ul class="product__item__pic__hover">
-                            <li><input type="number"
-                                       th:field="*{productEntity}"/></a></li>
-                            <li><i class="fa fa-cart-plus" input id="submitButton" th:value="Save" type="submit"></i></li>
-                            <li><i class="fa fa-ban"  input id="resetButton" name="reset" th:value="Reset" type="reset"></i></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="shop-details.html" > <label th:value="*{productEntity.productName}">Eggs</label></a></h6>
-                        <h5><label th:value="*{productEntity.productPrice}">10.00</label></h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-</form>-->
 </div>
 </section>
 

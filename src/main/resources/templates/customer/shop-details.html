@@ -30,7 +30,7 @@
                 <div class="col-lg-4 col-md-4">
                     <div class="header__top__left">
                         <ul>
-                            <li>Welcome eversource farm website</li>
+                            <li>Welcome to Eversource Farm Website</li>
                         </ul>
                     </div>
                 </div>
@@ -124,10 +124,13 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
-                    <h3>Tomatoes</h3>
 
-                    <div class="product__details__price">$10.00</div>
-                    <p>Fresh tomatomes</p>
+                    <!-- Retrieved from database, referenced by pid****-->
+
+                    <h3>Tomatoes</h3> <!-- ProductsEntity.pname -->
+
+                    <div class="product__details__price">$10.00</div>  <!-- ProductsEntity.price-->
+                    <p>Vegetable </p>  <!-- ProductsEntity.category -->
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
@@ -135,13 +138,13 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">ADD TO CART</a>
-                    <a href="shop-cart.html" class="primary-btn">Order</a>
+                    <a href="#" class="primary-btn">Add to Cart</a>  <!-- TBD -->
+                    <a href="shop-cart.html" class="primary-btn">Order</a>  <!-- TBD -->
                     <ul>
-                        <li><b>Availability</b> <span>In Stock</span></li>
-                        <li><b>Pick up</b> <span>Will email you the pick up location <br>
-                            <samp>Free Delivery for all Order of $100</samp></span></li>
-                        <li><b>Weight</b> <span>0.5 kg</span></li>
+                        <li><b>Availability</b> <span>In Stock</span></li> <!-- **conditional (?0) -- ProductsEntity.stock -->
+                        <li><b>Discount</b> <span> <br><!-- ProductsEntity.discount -->
+                            <samp>Free Delivery for all Order of $99</samp></span></li>
+                        <li><b>Unit</b> <span>0.5 kg</span></li> <!-- ProductsEntity.unit -->
                     </ul>
                 </div>
             </div>
@@ -161,14 +164,14 @@
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Product Description</h6>
-                                <p>Harverst Date: June 18, 2020</br>
-                                    weight : 500G</p>
+                                <p>Harverst Date: June 18, 2020</br> <!-- ProductsEntity.shelf -->
+                                    </p><!-- ProductsEntity.description -->
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
-                                <p>Will give you more informaion soon!</p>
+                                <h6>Products Information</h6>
+                                <p>More information will be provided soon!</p>
 
                             </div>
                         </div>
