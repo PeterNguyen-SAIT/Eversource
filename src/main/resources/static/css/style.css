@@ -1821,6 +1821,12 @@ ol {
   font-weight: 700;
   width: 80px;
 }
+.shoping__cart__table table tbody tr td.shoping__cart__unit {
+  font-size: 18px;
+  color: #1c1c1c;
+  font-weight: 700;
+  width: 300px;
+}
 
 .shoping__cart__table table tbody tr td.shoping__cart__total {
   font-size: 18px;
