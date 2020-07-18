@@ -1070,7 +1070,7 @@ ol {
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__item {
-  width: 350px;
+  width: 250px;
   text-align: left;
 }
 
@@ -1095,7 +1095,7 @@ ol {
   font-size: 18px;
   color: #1c1c1c;
   font-weight: 700;
-  width: 300px;
+  width: 80px;
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__total {
