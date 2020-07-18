@@ -61,9 +61,24 @@ public class VegetableController {
         newOrder.setQuantity(productQuantity);
         newOrder.setUname(username);
         newOrder.setPname(productsEntity.getPname());
-        newOrder.setOid(newOID);
         newOrder.setPrice(productsEntity.getPrice());
         newOrder.setStatus("hold");
+        boolean inOrder=true;
+        for(int i=1; i<=allOrders.size();i++)
+        {
+            if(i!= allOrders.get(i-1).getOid())
+            {
+                newOrder.setOid(i);
+                inOrder=false;
+                break;
+            }
+        }
+
+        if(inOrder)
+        {
+            newOrder.setOid(newOID);
+        }
+
         if(ordersService.save(newOrder))
         {
             model.addAttribute("message", "Added "+productQuantity+" "+productsEntity.getUnit()+" of "+productsEntity.getPname()+" to cart.");

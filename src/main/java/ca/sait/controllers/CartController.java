@@ -98,21 +98,25 @@ public class CartController {
             model.addAttribute("message","Error: Order doesn't exist. Please refresh page");
             return "customer/shop-cart";
         }
-        else
-        {
-            QueryWrapper<ProductsEntity> queryWrapper = new QueryWrapper<>();
-            queryWrapper.eq("pname", updatedOrder.getPname());
-            ProductsEntity product = productsService.getOne(queryWrapper);
-            if(amount > product.getStock())
-            {
-                model.addAttribute("message", "Amount exceeds stock. Stock: "+product.getStock());
-            }
-            else {
-                updatedOrder.setQuantity(amount);
-                if (ordersService.saveOrUpdate(updatedOrder)) {
-                    model.addAttribute("message", "Updated.");
+        else {
+            if (amount==0) {
+                ordersService.removeById(oid);
+                model.addAttribute("message","Item removed.");
+            } else {
+
+
+                QueryWrapper<ProductsEntity> queryWrapper = new QueryWrapper<>();
+                queryWrapper.eq("pname", updatedOrder.getPname());
+                ProductsEntity product = productsService.getOne(queryWrapper);
+                if (amount > product.getStock()) {
+                    model.addAttribute("message", "Amount exceeds stock. Stock: " + product.getStock());
                 } else {
-                    model.addAttribute("message", "Failed to update. Please contact developers for assistance");
+                    updatedOrder.setQuantity(amount);
+                    if (ordersService.saveOrUpdate(updatedOrder)) {
+                        model.addAttribute("message", "Updated.");
+                    } else {
+                        model.addAttribute("message", "Failed to update. Please contact developers for assistance");
+                    }
                 }
             }
         }

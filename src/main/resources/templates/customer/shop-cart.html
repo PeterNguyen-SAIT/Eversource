@@ -181,21 +181,23 @@
 
                     <div class="checkout__order__products">Products <span>Total</span></div>
 
-                    <table>
-                        <tr th:each="order: *{orderArrayList}">
-                            <td th:text="${order.pname}"></td>
-                            <td>-------------------$</td>
-                            <td>
-                                <input type="number" step="0.01" th:value="${order.price}*${order.quantity}" disabled style="width: 3.85em">
-                            </td>
-                        </tr>
-                    </table>
+<!--                    <table>-->
+<!--                        <tr th:each="order: *{orderArrayList}">-->
+<!--                            <td th:text="${order.pname}"></td>-->
+<!--                            <td>-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;$</td>-->
+<!--                            <td>-->
+<!--                                <input type="number" step="0.01" th:value="${order.price}*${order.quantity}" disabled style="width: 3.85em">-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
 
-<!--                    <ul th:each="order: *{orderArrayList}">-->
+                    <ul>
 
-<!--                        <li th:text="${order.pname}"> <span th:text="${order.price}"></span></li>-->
+                        <li th:each="order: *{orderArrayList}">
+                            <p th:text="${order.pname}"><span th:text="${order.price}"></span></p>
+                        </li>
 
-<!--                    </ul>-->
+                    </ul>
 
                     <div class="checkout__order__subtotal">Subtotal <span th:text="${total}"></span></div>
                     <ul>
