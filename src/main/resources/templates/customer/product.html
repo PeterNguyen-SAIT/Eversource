@@ -43,18 +43,30 @@
                 </div>
                 <div class="col-lg-8 col-md-8">
                     <div class="header__top__right">
-                        <div class="header__top__right__account">
-                            <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
-                            <span class="arrow_carrot-down"></span>
-                            <ul>
-                                <li><a href="/history">Purchase History</a></li>
-                                <li><a href="/shoppingcart">Shopping Cart</a></li>
-                                <li><a href="/account">Account</a></li>
-                            </ul>
+                        <div th:if="${usernameExist} != null">
+                            <div class="header__top__right__account">
+                                <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="/shoppingcart">Shopping Cart</a></li>
+                                    <li><a href="/history">Purchase History</a></li>
+                                    <li><a href="/account">Account</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__logout">
+                                <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
+                            </div>
                         </div>
+                        <div th:if="${usernameExist} == null">
+                            <div class="header__top__right__login">
+                                <a href="/login"><i class="fa fa-user"></i> Login</a>
 
-                        <div class="header__top__right__logout">
-                            <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
+                            </div>
+                            <div class="header__top__right__signup">
+                                <a href="/register"><i class="fa fa-sign-in"></i>
+                                    Sign up</a>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,6 +161,7 @@
                                         type="number"
                                         value="1"
                                         min="1"
+                                        th:max="${product.stock}"
                                         id="productQuantity"
                                         style="width: 60px;"
                                         pattern="[0-9]{1,3}"

@@ -152,7 +152,7 @@
                                 <span> In Stock   </span>
                             </div>
                         </li> <!-- **conditional (?0) -- ProductsEntity.stock -->
-                        <li><b th:text="*{discount}"></b> <span> <br><!-- ProductsEntity.discount -->
+                        <li><b th:text="'Discount: '+*{discount}+'%'"></b> <span> <br><!-- ProductsEntity.discount -->
                             <samp>Free Delivery for all Order of $99</samp></span></li>
                         <li><b>Unit</b> <span th:text="*{unit}"></span></li> <!-- ProductsEntity.unit -->
                     </ul>

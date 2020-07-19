@@ -199,7 +199,7 @@ public class CartController {
         model.addAttribute("finalTotal","$"+finalAfterFormat);
 
         model.addAttribute("orderArrayList", allCurrentCustomerOrder);
-        model.addAttribute("loggedIn", username);
+        model.addAttribute("loggedIn", " "+username);
         model.addAttribute("usernameExist", username);
         return "customer/shop-cart";
     }
