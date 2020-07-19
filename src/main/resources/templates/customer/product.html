@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Eversource Farm</title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+            rel="stylesheet"
+    />
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
 </head>
 
 <body>
@@ -34,26 +42,20 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8">
-
                     <div class="header__top__right">
-
                         <div class="header__top__right__account">
                             <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
                             <span class="arrow_carrot-down"></span>
                             <ul>
-                                <li><a href="/shoppingcart">Shopping Cart</a></li>
                                 <li><a href="/history">Purchase History</a></li>
+                                <li><a href="/shoppingcart">Shopping Cart</a></li>
                                 <li><a href="/account">Account</a></li>
                             </ul>
                         </div>
 
-
                         <div class="header__top__right__logout">
                             <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
-
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -63,11 +65,11 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="header__logo">
-                    <a href="/"><img src="img/logo.png" alt="" height="50"  ></a>
+                    <a href="/"><img src="img/logo.png" alt="" height="50" /></a>
                 </div>
             </div>
             <div class="col-lg-8 col-md-8">
-                <nav class="header__menu" >
+                <nav class="header__menu">
                     <ul>
                         <li><a href="/homepage">About us</a></li>
                         <li class="active"><a href="/product">Store</a></li>
@@ -77,7 +79,6 @@
                     </ul>
                 </nav>
             </div>
-
         </div>
     </div>
 </header>
@@ -98,74 +99,111 @@
 <!-- Breadcrumb Section End -->
 
 <section class="product spad">
-<div class="container">
-<!--code in products.txt from PN-->
-    <h2 class="text-md-center" th:text="${message}"></h2>
-    <table>
+    <div class="container">
+        <!--code in products.txt from PN-->
+        <h2 class="text-md-center" th:text="${message}"></h2>
+        <table>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <tr th:each="product : *{productsEntityList}">
+                        <td>
+                            <a
+                                    href=""
+                                    th:href="'/productDetail?productId='+${product.pid}"
+                            ><span th:text="${product.pname}"></span
+                            ></a>
+                        </td>
 
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="product__item">
-        <tr th:each="product : *{productsEntityList}">
-            <td><span th:text="${product.pname}"></span></td>
+                        <td>
+                            <a
+                                    href=""
+                                    th:href="'/productDetail?productId='+${product.pid}"
+                            ><img
+                                    height="100"
+                                    th:src="${product.image}"
+                                    width="100"
+                                    th:alt="${product.pname}"
+                            /></a>
+                        </td>
 
-            <td><img height="100" th:src="${product.image}" width="100" th:alt="${product.pname}"></td> <!-- $ to @-->
+                        <td>
+                            <a
+                                    href=""
+                                    th:href="'/productDetail?productId='+${product.pid}"
+                            >
+                    <span th:text="${product.cname}"></span
+                    ></a>
+                        </td>
+                        <td><span th:text="${product.price}"></span></td>
+                        <!-- $ in front of<span>deleted-->
+                        <td>
+                            <form action="post" th:action="@{/productId}" method="post">
+                                <input
+                                        type="hidden"
+                                        th:value="${product.pid}"
+                                        name="productSource"
+                                />
+                                <!--<button class="shopping-btn"  id="minus">-</button>-->
+                                <!-- button class!!-->
+                                <input
+                                        type="number"
+                                        value="0"
+                                        min="0"
+                                        id="productQuantity"
+                                        style="width: 60px;"
+                                        pattern="[0-9]{1,3}"
+                                        name="productQuantity"
+                                />
+                                <!--<button class="shopping-btn" id="plus" onclick="">+</button>-->
 
-            <td><span th:text="${product.cname}"></span></td>
-            <td><span th:text="${product.price}"></span></td> <!-- $ in front of<span>deleted-->
-            <td>
-                <form action="post" th:action="@{/productId}" method="post">
-                <input type="hidden" th:value="${product.pid}" name="productSource">
-                <!--<button class="shopping-btn"  id="minus">-</button>--> <!-- button class!!-->
-                <input type="number" value="0" min="0" id="productQuantity" style="width: 60px;"pattern='[0-9]{1,3}' name="productQuantity"/>
-                <!--<button class="shopping-btn" id="plus" onclick="">+</button>-->
+                                <script>
+                                    const minusButton = document.getElementById("minus");
+                                    const plusButton = document.getElementById("plus");
+                                    const inputField = document.getElementById(
+                                        "productQuantity"
+                                    );
 
-                <script>
-                    const minusButton = document.getElementById('minus');
-                    const plusButton = document.getElementById('plus');
-                    const inputField = document.getElementById('productQuantity');
+                                    minusButton.addEventListener("click", (event) => {
+                                        event.preventDefault();
+                                        const currentValue = Number(inputField.value) || 1;
+                                        inputField.value = currentValue - 1;
+                                    });
 
-                    minusButton.addEventListener('click', event => {
-                        event.preventDefault();
-                        const currentValue = Number(inputField.value) || 1;
-                        inputField.value = currentValue - 1;
-                    });
-
-                    plusButton.addEventListener('click', event => {
-                        event.preventDefault();
-                        const currentValue = Number(inputField.value) || 1;
-                        inputField.value = currentValue + 1;
-                    });
-                </script>
-                <input type="submit" value="Add to Cart">
-            </form>
-            </td>
-        </tr>
-
+                                    plusButton.addEventListener("click", (event) => {
+                                        event.preventDefault();
+                                        const currentValue = Number(inputField.value) || 1;
+                                        inputField.value = currentValue + 1;
+                                    });
+                                </script>
+                                <input type="submit" value="Add to Cart" />
+                            </form>
+                        </td>
+                    </tr>
+                </div>
             </div>
-        </div>
-
-    </table>
-
-
-</div>
+        </table>
+    </div>
 </section>
-
-
-
-
 
 <!-- Footer Section Begin -->
 <footer class="footer spad">
     <div class="col-lg-12">
         <div class="footer__copyright">
-            <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Eversource Farm. All Rights Reserved.
-            </p></div>
-            <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+            <div class="footer__copyright__text">
+                <p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    Eversource Farm. All Rights Reserved.
+                </p>
+            </div>
+            <div class="footer__copyright__payment">
+                <img src="img/payment-item.png" alt="" />
+            </div>
         </div>
     </div>
-
-
 </footer>
 <!-- Footer Section End -->
 
@@ -173,6 +211,5 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
-
 </body>
 </html>
