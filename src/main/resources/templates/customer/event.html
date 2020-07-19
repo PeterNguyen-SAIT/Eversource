@@ -124,10 +124,14 @@
 
 
                                     <tr th:each="event : ${eventsEntityList}">
-                                        <td><img th:src="${event.image}" height="100" th:alt="event.event"></td>
+
                                         <td th:text="${event.start}+'~'+${event.end}"><i class="fa fa-calendar-o"></i > </td>
 
-                                        <td><h5><a href="#" th:text="${event.event}"></a></h5></td>
+                                        <!--<td> <img height="80" th:src="${event.image}" width="100"
+                                                 /></td>-->
+
+                                        <td> <img height="80" th:src="${event.image}" width="100"/></td>
+                                        <td><b><span  th:text="${event.event}"></span></b></td>
                                         <td> <span th:text="${event.description}"></span></td>
                                         <td><form action="post" th:action="@{/eventNotice}" method="post">
                                             <input type="submit" value="Get Notification"> <!--class="event__btn"--> </form></td>

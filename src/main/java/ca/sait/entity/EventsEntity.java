@@ -36,6 +36,7 @@ public class EventsEntity implements Serializable {
 	/**
 	 * 
 	 */
+
 	private String description;
 	/**
 	 * start_date
