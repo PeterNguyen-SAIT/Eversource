@@ -40,8 +40,8 @@
                                 <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
-                                    <li><a href="/shoppingcart">Shopping Cart</a></li>
                                     <li><a href="/history">Purchase History</a></li>
+                                    <li><a href="/shoppingcart">Shopping Cart</a></li>
                                     <li><a href="/account">Account</a></li>
                                 </ul>
                             </div>
@@ -50,21 +50,21 @@
                             </div>
                         </div>
                         <div th:if="${usernameExist} == null">
-                    <div class="header__top__right__login">
-                        <a href="/login"><i class="fa fa-user"></i> Login</a>
+                            <div class="header__top__right__login">
+                                <a href="/login"><i class="fa fa-user"></i> Login</a>
 
-                    </div>
-                    <div class="header__top__right__signup">
-                        <a href="/register"><i class="fa fa-sign-in"></i>
-                            Sign up</a>
+                            </div>
+                            <div class="header__top__right__signup">
+                                <a href="/register"><i class="fa fa-sign-in"></i>
+                                    Sign up</a>
 
-                    </div>
-                        </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <div class="container">
         <div class="row">
@@ -110,64 +110,47 @@
 <section class="event spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-3"></div>
-            <div class="col-lg-9 col-md-9">
-                <div class="row">
-                    <div class="col-lg-9 col-md-9 col-sm-9">
-                        <div class="event__item">
-                            <div class="event__item__pic">
-                                <img src="img/event.jpg" alt="">
-                            </div>
-                            <div class="event__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> August 20,2020 ~ August 30, 2020 </li>
+            <table> <!--  table tag here-->
+                <div class="col-lg-9 col-md-9">
+                    <div class="row">
+                        <div class="col-lg-9 col-md-9 col-sm-9">
 
-                                </ul>
-                                <h5><a href="#">Summer Sale Event</a></h5>
-                                <p>20% off all products</p>
-                                <a href="#" class="event__btn">READ MORE <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
+                            <div class="event__item" >
+                                <!--<div class="event__item" th:each="event : ${eventsEntityList}">-->
 
-                </div>
-            </div>
+                                <div class="event__item__text">
+
+
+
+
+                                    <tr th:each="event : ${eventsEntityList}">
+
+                                        <td th:text="${event.start}+'~'+${event.end}"><i class="fa fa-calendar-o"></i > </td>
+
+                                        <td><h5><a href="#" th:text="${event.event}"></a></h5></td>
+                                        <td> <span th:text="${event.description}"></span></td>
+                                        <td><form action="post" th:action="@{/uId}" method="post">
+                                            <input type="submit" value="Get Notification"> <!--class="event__btn"--> </form></td>
+
+                                    </tr>
+
+            </table>
+
 
         </div>
     </div>
-</section>
-<!-- Event Section End -->
+    </div>
 
-<!-- Adding ThymeLeaf code -->
+    </div>
+    </div>
+
+    </div>
+    </div>
+</section>
+
 
 <section class="event spad">
-   <table>
-       <div class="container">
-           <div class="col-lg-4 col-md-6 col-sm-6">
-               <div class="row">
 
-                       <div class="event__item">
-                           <tr th:each="event : *{eventEntityList}">  <!-- eventsEntityList -->
-                               <td><span th:text="${event.event}"></span></td> <!-- event.event -->
-                              <!--event.image    <td><img height="150" th:src="${event.image}" width="200"></td> -->
-                               <td><span class="event__item__text" th:text="${event.description}"> </span></td> <!--event.description-->
-                               <td> <form action="#" th:action="@{/event.eid}" method="GET"> <!--eid-->
-                                   <input type="hidden" th:value="${event.eid}" name="eventID"> <!-- eid -->
-                                   <!--<button class="event__btn"  id="register">Register</button>-->
-                                   <script>
-
-                                   </script>
-                                   <input type="submit" value="Register">
-
-                               </form> </td>
-                           </tr>
-
-                       </div>
-                   </div>
-           </div>
-
-       </div>
-   </table>
 </section>
 <!-- /Adding ThymeLeaf code -->
 
