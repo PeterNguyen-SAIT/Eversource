@@ -32,6 +32,7 @@ public class AccountController {
             UsersEntity userLoggedIn = userService.getOne(queryWrapper);
             model.addAttribute("usersEntity", userLoggedIn);
             model.addAttribute("loggedIn", " " + (String) session.getAttribute("username"));
+            model.addAttribute("usernameExist", " " + (String) session.getAttribute("username"));
             return "customer/account";
         }
     }
@@ -57,6 +58,7 @@ public class AccountController {
             UsersEntity userLoggedIn = userService.getOne(queryWrapper2);
             model.addAttribute("usersEntity",userLoggedIn);
             model.addAttribute("loggedIn",userLoggedIn.getUname());
+            model.addAttribute("usernameExist", " " +userLoggedIn.getUname());
             return "customer/account";
         }
 

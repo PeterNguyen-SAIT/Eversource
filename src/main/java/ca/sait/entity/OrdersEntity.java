@@ -26,6 +26,10 @@ public class OrdersEntity implements Serializable {
 	@TableId
 	private Integer oid;
 	/**
+	 *
+	 */
+	private String image;
+	/**
 	 * 
 	 */
 	private String uname;
@@ -144,6 +148,15 @@ public class OrdersEntity implements Serializable {
 
 	public void setPickup(String pickup) {
 		this.pickup = pickup;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+
+		this.image = image;
 	}
 
 	public String getNote() {

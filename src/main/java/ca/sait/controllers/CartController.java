@@ -35,16 +35,9 @@ public class CartController {
     @GetMapping("/shoppingcart")
     public String showCartPage(ModelMap model, HttpSession session) {
         String username = (String)session.getAttribute("username");
-        if( username == null || username.equals("") )
-        {
-            model.addAttribute("message","Please login first");
-            model.addAttribute("usersEntity", new UsersEntity());
-            return "customer/login";
-        }
-        else
-        {
-            model.addAttribute("loggedIn"," "+username);
-        }
+
+        model.addAttribute("loggedIn"," "+username);
+
         double total = 0;
         double gst = 0;
         double finalTotal=0;
@@ -59,8 +52,37 @@ public class CartController {
                 total += order.getPrice() * order.getQuantity();
             }
         }
+
+        for(OrdersEntity order:allCurrentCustomerOrder)
+        {
+            QueryWrapper<ProductsEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("pname", order.getPname());
+            ProductsEntity product = productsService.getOne(queryWrapper);
+            if(product==null)
+            {
+                model.addAttribute("message","Error updating image for product"+"\n"+"Please contact developers for assistance.");
+            }
+            else {
+                if(order.getImage()!=null)
+                {
+
+                }
+                else {
+                    order.setImage(product.getImage());
+                    if(ordersService.saveOrUpdate(order))
+                    {
+
+                    }
+                    else
+                    {
+                        model.addAttribute("message", "Error updating image for product. Please contact developers for assistance.");
+                    }
+                }
+            }
+            //ProductsEntity product = productsService.getById(order.getPname());
+        }
         String totalAfterFormat=df.format(total);
-        gst = (total*5)/100;
+        gst = (Double.parseDouble(totalAfterFormat)*5.0)/100.0;
         String gstAfterFormat=df.format(gst);
         finalTotal = total+gst;
         String finalAfterFormat=df.format(finalTotal);
@@ -99,6 +121,7 @@ public class CartController {
             return "customer/shop-cart";
         }
         else {
+
             if (amount==0) {
                 ordersService.removeById(oid);
                 model.addAttribute("message","Item removed.");
@@ -109,7 +132,7 @@ public class CartController {
                 queryWrapper.eq("pname", updatedOrder.getPname());
                 ProductsEntity product = productsService.getOne(queryWrapper);
                 if (amount > product.getStock()) {
-                    model.addAttribute("message", "Amount exceeds stock. Stock: " + product.getStock());
+                    model.addAttribute("message", "Amount exceeds stock. Stock: " + product.getStock()+" "+product.getUnit());
                 } else {
                     updatedOrder.setQuantity(amount);
                     if (ordersService.saveOrUpdate(updatedOrder)) {
@@ -135,9 +158,38 @@ public class CartController {
                 total += order.getPrice() * order.getQuantity();
             }
         }
+        for(OrdersEntity order:allCurrentCustomerOrder)
+        {
+            QueryWrapper<ProductsEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("pname", order.getPname());
+            ProductsEntity product = productsService.getOne(queryWrapper);
+            if(product==null)
+            {
+                model.addAttribute("message","Error updating image for product"+"\n"+"Please contact developers for assistance.");
+
+            }
+            else {
+                if(order.getImage()!=null)
+                {
+
+                }
+                else {
+                    order.setImage(product.getImage());
+                    if(ordersService.saveOrUpdate(order))
+                    {
+
+                    }
+                    else
+                    {
+                        model.addAttribute("message", "Error updating image for product. Please contact developers for assistance.");
+                    }
+                }
+                }
+            //ProductsEntity product = productsService.getById(order.getPname());
+        }
         String totalAfterFormat=df.format(total);
         gst = (total*5)/100;
-        String gstAfterFormat=df.format(gst);
+        String gstAfterFormat= df.format(gst);
         finalTotal = total+gst;
         String finalAfterFormat=df.format(finalTotal);
 
@@ -147,7 +199,8 @@ public class CartController {
         model.addAttribute("finalTotal","$"+finalAfterFormat);
 
         model.addAttribute("orderArrayList", allCurrentCustomerOrder);
-
+        model.addAttribute("loggedIn", username);
+        model.addAttribute("usernameExist", username);
         return "customer/shop-cart";
     }
 

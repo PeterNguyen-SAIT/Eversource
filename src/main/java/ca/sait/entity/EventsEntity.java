@@ -28,6 +28,11 @@ public class EventsEntity implements Serializable {
 	 * 
 	 */
 	private String event;
+
+	/**
+	 *
+	 */
+	private String image;
 	/**
 	 * 
 	 */
@@ -45,4 +50,12 @@ public class EventsEntity implements Serializable {
 	 */
 	private String status;
 
+	/** Getter and setter **/
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 }

@@ -23,23 +23,25 @@ public class EventController {
 
     @GetMapping("/event")
     public String showEventPage(ModelMap model, HttpSession session) {
-        if (session.getAttribute("username") == null) {
-            model.addAttribute("message","Please login first");
-            model.addAttribute("usersEntity",new UsersEntity());
-            return "customer/login";
-        } else {
+
             List<EventsEntity> eventsEntityList = eventsService.list();
             String username = (String) session.getAttribute("username");
             model.addAttribute("loggedIn", " " + username);
             model.addAttribute("usernameExist", username);
             model.addAttribute("eventsEntityList", eventsEntityList);
             return "customer/event";
-        }
+
     }
 
     @PostMapping("/event")
-    public String registerEvent(Model model) {
-
+    public String registerEvent(Model model, HttpSession session) {
+        String username = (String)session.getAttribute("username");
+        if(username==null || username.equals(""))
+        {
+            model.addAttribute("message","Please login first");
+            model.addAttribute("usersEntity", new UsersEntity());
+            return "customer/login";
+        }
         return "customer/event";
     }
 }
