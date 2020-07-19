@@ -8,9 +8,13 @@ spring:
       prefix: classpath:/templates/
       suffix: .html
       cache: false
+    paypal:
+      mode: sandbox
+      client:
+        id: AQAYXUzpBJBrVuX7W2ftE321XZtC9u1KPsLCDaH9y09fQEFqNOcGPEQB02lSW6ummXPBx3xHfkhQD4pF
+        secret: EGgE6mxPP01IXiA_VWL1n-3MWdfh2Rm90-2D2mFCEvt---EZEAejzKSBOHgAhIDUbqql0nUWUbyqy_9U
 server:
   port: 8080
-
 
 # xmlns:th="http://www.thymeleaf.org"
 
