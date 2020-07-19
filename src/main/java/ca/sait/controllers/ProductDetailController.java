@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpSession;
 
 
 @Controller
@@ -17,7 +18,10 @@ public class ProductDetailController {
     private ProductsService productsService;
 
     @GetMapping("/productDetail")
-    public String showEventPage(Long productId, ModelMap model, String productName) {
+    public String showEventPage(Long productId, ModelMap model, String productName, HttpSession session) {
+        String username = (String) session.getAttribute("username");
+        model.addAttribute("loggedIn", username);
+        model.addAttribute("usernameExist",username);
         ProductsEntity productsEntity=null;
         if(productId!=null)
         {
