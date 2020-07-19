@@ -43,8 +43,8 @@
                                 <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
                                 <span class="arrow_carrot-down"></span>
                                 <ul>
-                                    <li><a href="/shoppingcart">Shopping Cart</a></li>
                                     <li><a href="/history">Purchase History</a></li>
+                                    <li><a href="/shoppingcart">Shopping Cart</a></li>
                                     <li><a href="/account">Account</a></li>
                                 </ul>
                             </div>
@@ -112,13 +112,13 @@
 
 <!-- Product Details Section Begin -->
 <section class="product-details spad">
-    <div class="container">
+    <div class="container" th:object="${productsEntity}">
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
-                    <div class="product__details__pic__item">
+                    <div class="product__details__pic__item" >
                         <img class="product__details__pic__item--large"
-                             src="img/tomato.png" alt="">
+                             src="" alt="" th:src="*{image}">
                     </div>
                 </div>
             </div>
@@ -127,10 +127,10 @@
 
                     <!-- Retrieved from database, referenced by pid****-->
 
-                    <h3>Tomatoes</h3> <!-- ProductsEntity.pname -->
+                    <h3 th:text="*{pname}"></h3> <!-- ProductsEntity.pname -->
 
-                    <div class="product__details__price">$10.00</div>  <!-- ProductsEntity.price-->
-                    <p>Vegetable </p>  <!-- ProductsEntity.category -->
+                    <div class="product__details__price" th:text="'$'+*{price}"></div>  <!-- ProductsEntity.price-->
+                    <p th:text="*{category}"> </p>  <!-- ProductsEntity.category -->
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
@@ -141,10 +141,20 @@
                     <a href="#" class="primary-btn">Add to Cart</a>  <!-- TBD -->
                     <a href="shop-cart.html" class="primary-btn">Order</a>  <!-- TBD -->
                     <ul>
-                        <li><b>Availability</b> <span>In Stock</span></li> <!-- **conditional (?0) -- ProductsEntity.stock -->
-                        <li><b>Discount</b> <span> <br><!-- ProductsEntity.discount -->
+                        <li><b>Availability</b>
+                            <div th:if="*{stock eq 0}">
+                                <span>Out of Stock </span>
+                            </div>
+                            <div th:if="*{stock gt 0 and stock le 10}">
+                                <span>Low  </span>
+                            </div>
+                            <div th:if="*{stock gt 10}">
+                                <span> In Stock   </span>
+                            </div>
+                        </li> <!-- **conditional (?0) -- ProductsEntity.stock -->
+                        <li><b th:text="*{discount}"></b> <span> <br><!-- ProductsEntity.discount -->
                             <samp>Free Delivery for all Order of $99</samp></span></li>
-                        <li><b>Unit</b> <span>0.5 kg</span></li> <!-- ProductsEntity.unit -->
+                        <li><b>Unit</b> <span th:text="*{unit}"></span></li> <!-- ProductsEntity.unit -->
                     </ul>
                 </div>
             </div>
@@ -164,8 +174,8 @@
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Product Description</h6>
-                                <p>Harverst Date: June 18, 2020</br> <!-- ProductsEntity.shelf -->
-                                    </p><!-- ProductsEntity.description -->
+                                <p th:text="*{shelf}"></br> <!-- ProductsEntity.shelf -->
+                                </p><!-- ProductsEntity.description -->
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
