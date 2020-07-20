@@ -37,11 +37,10 @@ public class CartController {
         String username = (String)session.getAttribute("username");
 
         model.addAttribute("loggedIn"," "+username);
-
+        model.addAttribute("usernameExist",username);
         double total = 0;
         double gst = 0;
         double finalTotal=0;
-        model.addAttribute("usernameExist",username);
         List<OrdersEntity> allOrders= ordersService.list();
         ArrayList<OrdersEntity> allCurrentCustomerOrder = new ArrayList<>();
         for(OrdersEntity order:allOrders)
@@ -202,6 +201,85 @@ public class CartController {
         model.addAttribute("loggedIn", " "+username);
         model.addAttribute("usernameExist", username);
         return "customer/shop-cart";
+    }
+
+    @PostMapping("/deleteOrder")
+    public String updateOrder(@RequestParam int oid, ModelMap model,  HttpSession session)
+    {
+        String username = (String) session.getAttribute("username");
+        model.addAttribute("loggedIn", " "+username);
+        model.addAttribute("usernameExist", username);
+        OrdersEntity updatedOrder = ordersService.getById(oid);
+        if(updatedOrder==null)
+        {
+            model.addAttribute("message","Error: Order doesn't exist. Please refresh page");
+        }
+        else {
+            if(ordersService.removeById(oid))
+            {
+                model.addAttribute("message","Order deleted.");
+            }
+            else
+            {
+                model.addAttribute("message","Failed to delete order. Please contact developers for assistance.");
+
+            }
+        }
+
+        double total = 0;
+        double gst = 0;
+        double finalTotal=0;
+        List<OrdersEntity> allOrders= ordersService.list();
+        ArrayList<OrdersEntity> allCurrentCustomerOrder = new ArrayList<>();
+        for(OrdersEntity order:allOrders)
+        {
+            if(order.getUname().equals(username))
+            {
+                allCurrentCustomerOrder.add(order);
+                total += order.getPrice() * order.getQuantity();
+            }
+        }
+
+        for(OrdersEntity order:allCurrentCustomerOrder)
+        {
+            QueryWrapper<ProductsEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("pname", order.getPname());
+            ProductsEntity product = productsService.getOne(queryWrapper);
+            if(product==null)
+            {
+                model.addAttribute("message","Error updating image for product"+"\n"+"Please contact developers for assistance.");
+            }
+            else {
+                if(order.getImage()!=null)
+                {
+
+                }
+                else {
+                    order.setImage(product.getImage());
+                    if(ordersService.saveOrUpdate(order))
+                    {
+
+                    }
+                    else
+                    {
+                        model.addAttribute("message", "Error updating image for product. Please contact developers for assistance.");
+                    }
+                }
+            }
+            //ProductsEntity product = productsService.getById(order.getPname());
+        }
+        String totalAfterFormat=df.format(total);
+        gst = (Double.parseDouble(totalAfterFormat)*5.0)/100.0;
+        String gstAfterFormat=df.format(gst);
+        finalTotal = total+gst;
+        String finalAfterFormat=df.format(finalTotal);
+
+        model.addAttribute("orderArrayList", allCurrentCustomerOrder);
+        model.addAttribute("total","$"+totalAfterFormat);
+        model.addAttribute("gst","$"+gstAfterFormat);
+        model.addAttribute("finalTotal","$"+finalAfterFormat);
+        return "customer/shop-cart";
+
     }
 
 
