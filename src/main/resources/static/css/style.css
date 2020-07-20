@@ -147,12 +147,9 @@ ol {
 }
 
 .text-md-center {
-  padding: 20px;
-  opacity: 1;
-  margin-top: 15px;
-  margin-left: 30px;
-  margin-right: 30px;
-  color: #0b2e13;
+  margin-top: 20px;
+  color: #dc3545;
+  font-family: Arial, Helvetica, sans-serif;
 
 }
 
