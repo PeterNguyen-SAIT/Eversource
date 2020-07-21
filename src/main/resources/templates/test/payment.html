@@ -142,14 +142,42 @@
         </div>
     </div>
     <div class="col-25">
-        <div class="container">
-            <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-            <p><a href="#">Product 1</a> <span class="price">$1</span></p>
-            <p><a href="#">Product 2</a> <span class="price">$4</span></p>
-            <p><a href="#">Product 3</a> <span class="price">$3</span></p>
-            <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-            <hr>
-            <p>Total <span class="price" style="color:black"><b>$10</b></span></p>
+
+        <div class="col-lg-3 col-md-3">
+            <div class="checkout__order">
+                <h4>Your Order</h4>
+
+                <div class="checkout__order__products">Products <span>Total</span></div>
+
+                <table>
+                    <tr th:each="order: *{orderArrayList}">
+                        <td th:text="${order.pname}"></td>
+                        <td>
+                            ------$
+                        </td>
+                        <td>
+                            <input type="text" th:value="'$'+${#numbers.formatDecimal(order.price*order.quantity,1,2)}" disabled
+                                   style="width: 4.05em">
+                        </td>
+                    </tr>
+                </table>
+
+                <!--                    <ul>-->
+
+                <!--                        <li th:each="order: *{orderArrayList}">-->
+                <!--                            <p th:text="${order.pname}"></p>-->
+                <!--                                <span style="width: 100px" th:text="${order.price}"></span>-->
+                <!--                        </li>-->
+
+                <!--                    </ul>-->
+
+                <div class="checkout__order__subtotal">Subtotal <span th:text="${total}"></span></div>
+                <ul>
+                    <li>Gst 5% <span th:text="${gst}"> </span></li>
+                </ul>
+                <div class="checkout__order__total">Total <span th:text="${finalTotal}"></span></div>
+
+            </div>
         </div>
     </div>
 </div>

@@ -121,7 +121,6 @@
                             <th>Unit</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Update</th>
                             <th>Total</th>
                             <th></th>
                         </tr>
@@ -137,7 +136,7 @@
                             </td>
                             <td class="shoping__cart__unit" th:text="${order.unit}"></td>
 
-                            <td class="shoping__cart__price" th:text="${order.price}">
+                            <td class="shoping__cart__price" th:text="'$'+${order.price}">
                             </td>
                             <form action="#" method="post" th:action="@{/cart}">
                             <td class="shoping__cart__quantity">
@@ -150,15 +149,20 @@
                                 </div>
                             </td>
 
-                            <td>
-                                <input type="submit" value="Update">
-                                <input type="hidden" name="oid" th:value="${order.oid}">
-                            </td>
+
                                 <td class="shoping__cart__total">
-                                    <input type="number" th:value="${order.price}*${order.quantity}" step="0.01" style="width: 3.80em" disabled>
+                                    <input type="text" th:value="'$'+${#numbers.formatDecimal(order.price*order.quantity,1,2)}" disabled
+                                           style="width: 4.05em">
+                                </td>
+
+                                <td>
+
+                                    <input type="submit" value="Update">
+                                    <input type="hidden" name="oid" th:value="${order.oid}">
 
                                 </td>
                             </form>
+
 
 
                         </tr>
@@ -170,7 +174,7 @@
 
             </div>
         </div>
-        </form>
+
             <div class="col-lg-1"></div>
             <div class="col-lg-3 col-md-3">
                 <div class="checkout__order">
@@ -185,7 +189,8 @@
     ------$
 </td>
                             <td>
-                                <input type="number" step="0.01" th:value="${order.price}*${order.quantity}" disabled style="width: 3.80em">
+                                <input type="text" th:value="'$'+${#numbers.formatDecimal(order.price*order.quantity,1,2)}" disabled
+                                       style="width: 4.05em">
                             </td>
                         </tr>
                     </table>
@@ -211,7 +216,7 @@
                             <span class="checkmark"></span>
                         </label>
                     </div>
-                    <button type="submit" class="site-btn">PLACE ORDER</button>
+                    <form th:action="@{/payment}" method="POST"><input type="submit" class="site-btn" value="PLACE ORDER"/></form>
 
                 </div>
             </div>

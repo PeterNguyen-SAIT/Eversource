@@ -3,6 +3,7 @@ package ca.sait.config;
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import org.apache.ibatis.session.Configuration;
 import org.springframework.context.annotation.Bean;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 
 /**
  * @author Bin Zhang
@@ -19,4 +20,20 @@ public class MyBatisConfig {
             }
         };
     }
+
+
+    /**
+     *   mybatis-plus
+     *   //G_0719
+     */
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        PaginationInterceptor page = new PaginationInterceptor();
+        page.setDialectType("mysql");
+        return page;
+    }
+
+
 }
+
+

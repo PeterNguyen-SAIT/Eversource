@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.sql.Date;
 import java.util.List;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page; //0719
 
 @Controller
 public class VegetableController {
@@ -29,15 +30,23 @@ public class VegetableController {
     private OrdersServiceImpl ordersService;
 
     @GetMapping("/product")
-    public String showForm(Model model, HttpSession session) {
+    public String showForm(Model model, HttpSession session,Long page,
+                           Long limit) { //0719
             String username = (String)session.getAttribute("username");
             List<ProductsEntity> productsEntityList = productsService.list();
             model.addAttribute("productsEntityList", productsEntityList);
             model.addAttribute("loggedIn"," "+username);
             model.addAttribute("usernameExist", username);
+            //0719-------------
+        if(page==null){
+            page=1L;
+        }
+        limit=8L;
+        Page<ProductsEntity> entityPage = productsService.page(new Page<>(page, limit));
+        model.addAttribute("entityPage", entityPage);
+        entityPage.getPages();
+
             return "customer/product";
-
-
     }
 
     @PostMapping("/productId")
