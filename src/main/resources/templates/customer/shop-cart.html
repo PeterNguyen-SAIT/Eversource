@@ -138,12 +138,15 @@
 
                             <td class="shoping__cart__price" th:text="'$'+${order.price}">
                             </td>
-                            <form action="#" method="post" th:action="@{/cart}">
+                            <form method="post" th:action="@{/cart}" th:id="'form'+${order.oid}">
                             <td class="shoping__cart__quantity">
                                 <div class="quantity">
                                     <div class="pro-qty">
                                         <label>
-                                            <input type="number" min="0" th:value="${order.quantity}" name="amount">
+
+                                            <input type="number" min="0" th:value="${order.quantity}" name="amount" th:onchange="'updateCart('+${order.oid}+')'">
+                                            <input type="hidden" name="oid" th:value="${order.oid}">
+
                                         </label>
                                     </div>
                                 </div>
@@ -154,17 +157,13 @@
                                     <input type="text" th:value="'$'+${#numbers.formatDecimal(order.price*order.quantity,1,2)}" disabled
                                            style="width: 4.05em">
                                 </td>
-
-                                <td>
-
-                                    <input type="submit" value="Update">
-                                    <input type="hidden" name="oid" th:value="${order.oid}">
-
-                                </td>
                             </form>
-
-
-
+<!--                                    <input type="submit" value="" name="Update" style='visibility:hidden; width:1px'>-->
+                            <script>
+                                function updateCart(oid) {
+                                    document.getElementById("form"+oid).submit();
+                                }
+                            </script>
                         </tr>
 
                         </tbody>
@@ -186,7 +185,7 @@
                         <tr th:each="order: *{orderArrayList}">
                             <td th:text="${order.pname}"></td>
 <td>
-    ------$
+    ------
 </td>
                             <td>
                                 <input type="text" th:value="'$'+${#numbers.formatDecimal(order.price*order.quantity,1,2)}" disabled

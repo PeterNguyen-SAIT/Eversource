@@ -50,7 +50,8 @@ public class VegetableController {
     }
 
     @PostMapping("/productId")
-    public String submitForm(@RequestParam int productSource, @RequestParam int productQuantity, Model model, HttpSession session) {
+    public String submitForm(@RequestParam int productSource, @RequestParam int productQuantity, Model model, HttpSession session ,Long page,
+                             Long limit) {
         String username = (String)session.getAttribute("username");
         if(username==null || username.equals(""))
         {
@@ -134,6 +135,13 @@ public class VegetableController {
                 model.addAttribute("productsEntityList", productsEntityList);
                 model.addAttribute("loggedIn", " " + username);
                 model.addAttribute("usernameExist", " " + username);
+            if(page==null){
+                page=1L;
+            }
+            limit=8L;
+            Page<ProductsEntity> entityPage = productsService.page(new Page<>(page, limit));
+            model.addAttribute("entityPage", entityPage);
+            entityPage.getPages();
                 return "customer/product";
             }
 
