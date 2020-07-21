@@ -154,7 +154,6 @@ ol {
 }
 
 
-
 /* buttons */
 
 .primary-btn {
@@ -1671,7 +1670,6 @@ ol {
   border-top: 1px solid #ebebeb;
   padding: 5px 0;
   overflow: hidden;
-  margin-top: 20px;
   background: #f3f6fa;
   padding-bottom: 0;
 }
@@ -1681,9 +1679,13 @@ ol {
   color: #1c1c1c;
   float: left;
   line-height: 25px;
+  margin-top: 5px;
 }
 
-.footer__copyright__payment {
+
+.footer__copyright__payment img {
+  height: 50px;
+  width: auto;
   float: right;
 }
 
