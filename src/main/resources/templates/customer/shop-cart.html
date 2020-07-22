@@ -158,12 +158,6 @@
                                            style="width: 4.05em">
                                 </td>
                             </form>
-<!--                                    <input type="submit" value="" name="Update" style='visibility:hidden; width:1px'>-->
-                            <script>
-                                function updateCart(oid) {
-                                    document.getElementById("form"+oid).submit();
-                                }
-                            </script>
                         </tr>
 
                         </tbody>
@@ -173,7 +167,11 @@
 
             </div>
         </div>
-
+            <script>
+                function updateCart(oid) {
+                    document.getElementById("form"+oid).submit();
+                }
+            </script>
             <div class="col-lg-1"></div>
             <div class="col-lg-3 col-md-3">
                 <div class="checkout__order">

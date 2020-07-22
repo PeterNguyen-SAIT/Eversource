@@ -81,7 +81,8 @@ public class VegetableController {
                 if(productExist)
                 {
                     int currentQuantity = oldOrder.getQuantity();
-                    oldOrder.setQuantity(currentQuantity+productQuantity);
+                    int newQuantity = currentQuantity+productQuantity;
+                    oldOrder.setQuantity(newQuantity);
                     if(oldOrder.getImage()!=null)
                     {
 
@@ -94,7 +95,7 @@ public class VegetableController {
                         oldOrder.setImage(product.getImage());
                     }
                     if (ordersService.saveOrUpdate(oldOrder)) {
-                        model.addAttribute("message", "Added " + productQuantity + " " + productsEntity.getUnit() + " of " + productsEntity.getPname() + " to cart.");
+                        model.addAttribute("message", "Added " + productQuantity + " " + productsEntity.getUnit() + " of " + productsEntity.getPname() + " to cart."+"\n"+"Current amount in cart: "+newQuantity+" "+productsEntity.getUnit());
 
                     } else {
                         model.addAttribute("message", "Failed to add, please contact developers for assistance");
@@ -124,7 +125,7 @@ public class VegetableController {
                     }
 
                     if (ordersService.save(newOrder)) {
-                        model.addAttribute("message", "Added " + productQuantity + " " + productsEntity.getUnit() + " of " + productsEntity.getPname() + " to cart.");
+                        model.addAttribute("message", "Added " + productQuantity + " " + productsEntity.getUnit() + " of " + productsEntity.getPname() + " to cart."+"\n"+"Current amount in cart: "+productQuantity+" "+productsEntity.getUnit());
 
                     } else {
                         model.addAttribute("message", "Failed to add, please contact developers for assistance");
