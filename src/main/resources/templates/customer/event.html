@@ -135,9 +135,7 @@
             </thead>
             <tbody th:each="event : ${eventsEntityList}">
             <tr>
-
                 <td th:text="${event.start}+'~'+${event.end}"><i class="fa fa-calendar-o"></i></td>
-
 
                 <td><img height="80" th:src="${event.image}" width="100"/></td>
                 <td><b><span th:text="${event.event}"></span></b></td>
