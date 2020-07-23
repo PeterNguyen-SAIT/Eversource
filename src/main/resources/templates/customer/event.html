@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/XSL/Transform">
 
@@ -123,50 +122,48 @@
 <!-- Event Section Begin -->
 <section class="event spad">
     <div class="container">
-        <h2 th:text="${message}"></h2>
+        <h2 class="text-md-center" th:text="${message}"></h2>
         <table class="table">
             <thead>
             <tr style="font-size: larger">
                 <th scope="col">Date</th>
-                <th scope="col"> </th>
+                <th scope="col"></th>
                 <th scope="col">Event</th>
                 <th scope="col">Description</th>
-                <th scope="col"> </th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody th:each="event : ${eventsEntityList}">
             <tr>
 
-                <td th:text="${event.start}+'~'+${event.end}"><i class="fa fa-calendar-o"></i > </td>
+                <td th:text="${event.start}+'~'+${event.end}"><i class="fa fa-calendar-o"></i></td>
 
 
-                <td> <img height="80" th:src="${event.image}" width="100"/></td>
-                <td><b><span  th:text="${event.event}"></span></b></td>
-                <td> <span th:text="${event.description}"></span></td>
-                <!--     <td><form action="post" th:action="@{/eventNotice}" method="post">
-                         <input type="submit" value="Get Notification"> </form></td>-->
-
-                <td><form action="post"  th:action="@{/eventNotice}" method="post"> <!-- ?? action array??-->
-                    <input type="checkbox" name="checkEvent" th:id="${event.eid}" />
-                </form>
+                <td><img height="80" th:src="${event.image}" width="100"/></td>
+                <td><b><span th:text="${event.event}"></span></b></td>
+                <td><span th:text="${event.description}"></span></td>
+                <td>
+                    <form action="post" th:action="@{/eventNotice}" method="post"> <!-- ?? action array??-->
+                        <input type="checkbox" name="checkEvent" th:id="${event.eid}" class="box"/>
+                    </form>
                 </td>
             </tr>
             </tbody>
             <tr>
+                <td>
 
-                <td><!--<form action="post" th:action="@{/eventNotice}" method="post">
-                    <input type="submit" value="Get Notification1"> </form>-->
                 </td>
                 <td></td>
 
-
-                <form action="post" th:action="@{/eventNotice}" method="post">
-                    <td>
-                        <button class="event__btn" id="notiEvent" onclick="">Get Notification</button>
-                    </td>
-                    <td>
-                        <button class="event__btn" id="clearEvent" onclick="">Clear Selection</button>
-                    </td>
+                <td>
+                    <button class="event__btn" id="notiEvent" onclick="notiEvent()">Get Notification</button>
+                </td>
+                <td>
+                    <button class="event__btn" id="clearEvent" onclick="clearEvent()">Clear Selection</button>
+                </td>
+                <!-- ******* -->
+                <form action=""  th:action="@{/eventNotice}" method="post" id="eventNoticeForm">
+                    <input type="hidden" class="ids" name="ids">
                 </form>
 
             </tr>
@@ -194,9 +191,12 @@
 <footer class="footer spad">
     <div class="col-lg-12">
         <div class="footer__copyright">
-            <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Eversource Farm. All Rights Reserved.
-            </p></div>
+            <div class="footer__copyright__text">
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    Eversource Farm. All Rights Reserved.
+                </p>
+            </div>
             <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
         </div>
     </div>
@@ -209,7 +209,31 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+<script type="text/javascript">
+    var arry = "";
 
+    function notiEvent() {
+        var obj = $("input[name='checkEvent']:checked");
+        arry = "";
+        for (var i = 0; i < obj.length; i++) {
+            arry = arry + obj[i].id + ",";
+        }
+        if (arry !== "" && arry !== undefined) {
+            arry = arry.substring(0, arry.length - 1);
+        }
+        $(".ids").val(arry);
+        alert(arry)
+        $("#eventNoticeForm").submit();
+    }
+
+    function clearEvent() {
+        arry = "";
+        var allCheck = document.getElementsByClassName("box");
+        for (var i = 0; i < allCheck.length; i++) {
+            allCheck[i].checked = false;
+        }
+    }
+</script>
 
 
 </body>

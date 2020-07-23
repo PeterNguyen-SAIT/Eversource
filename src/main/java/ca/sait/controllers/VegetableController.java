@@ -69,9 +69,10 @@ public class VegetableController {
                 OrdersEntity oldOrder = null;
                 List<OrdersEntity> allOrders = ordersService.list();
                 boolean productExist=false;
+
                 for(OrdersEntity order: allOrders)
                 {
-                    if(productsEntity.getPname().equals(order.getPname()))
+                    if(productsEntity.getPname().equals(order.getPname()) && username.equals(order.getUname()))
                     {
                         productExist=true;
                         oldOrder = order;
