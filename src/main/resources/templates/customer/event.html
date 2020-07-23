@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/XSL/Transform">
 
@@ -15,7 +16,20 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
+<style>
+    .event__btn {
+        font-size: 14px;
+        color: #ffffff;
+        font-weight: 800;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 13px 30px 12px;
+        background: #7fad39;
+        border: none;
+        align-content: end;
+    }
 
+</style>
 <body>
 <!-- Page Preloder -->
 <div id="preloder">
@@ -129,10 +143,34 @@
                 <td> <img height="80" th:src="${event.image}" width="100"/></td>
                 <td><b><span  th:text="${event.event}"></span></b></td>
                 <td> <span th:text="${event.description}"></span></td>
-                <td><form action="post" th:action="@{/eventNotice}" method="post">
-                    <input type="submit" value="Get Notification"> <!--class="event__btn"--> </form></td>
+                <!--     <td><form action="post" th:action="@{/eventNotice}" method="post">
+                         <input type="submit" value="Get Notification"> </form></td>-->
+
+                <td><form action="post"  th:action="@{/eventNotice}" method="post"> <!-- ?? action array??-->
+                    <input type="checkbox" name="checkEvent" th:id="${event.eid}" />
+                </form>
+                </td>
             </tr>
             </tbody>
+            <tr>
+
+                <td><!--<form action="post" th:action="@{/eventNotice}" method="post">
+                    <input type="submit" value="Get Notification1"> </form>-->
+                </td>
+                <td></td>
+
+
+                <form action="post" th:action="@{/eventNotice}" method="post">
+                    <td>
+                        <button class="event__btn" id="notiEvent" onclick="">Get Notification</button>
+                    </td>
+                    <td>
+                        <button class="event__btn" id="clearEvent" onclick="">Clear Selection</button>
+                    </td>
+                </form>
+
+            </tr>
+            <tr></tr>
         </table>
 
     </div>
