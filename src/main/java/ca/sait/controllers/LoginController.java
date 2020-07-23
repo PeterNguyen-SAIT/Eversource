@@ -46,9 +46,9 @@ public class LoginController {
         {
             if(usersEntity.getPassword().equals(userLoggedIn.getPassword()))
             {
-                if(userLoggedIn.getRole().equals("admin"))
+                if(userLoggedIn.getStatus()==null || !userLoggedIn.getStatus().equals("active"))
                 {
-                    return "admin/index";
+                    return "redirect:/invalidUser";
                 }
                 else
                 {

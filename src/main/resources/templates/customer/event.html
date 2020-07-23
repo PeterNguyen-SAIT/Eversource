@@ -122,7 +122,7 @@
 <!-- Event Section Begin -->
 <section class="event spad">
     <div class="container">
-        <h2 th:text="${message}"></h2>
+        <h2 class="text-md-center" th:text="${message}"></h2>
         <table class="table">
             <thead>
             <tr style="font-size: larger">
@@ -140,17 +140,16 @@
                 <td><img height="80" th:src="${event.image}" width="100"/></td>
                 <td><b><span th:text="${event.event}"></span></b></td>
                 <td><span th:text="${event.description}"></span></td>
-
                 <td>
-                    <form action="post" th:action="@{/eventNotice}" method="post">
+                    <form action="post" th:action="@{/eventNotice}" method="post"> <!-- ?? action array??-->
                         <input type="checkbox" name="checkEvent" th:id="${event.eid}" class="box"/>
                     </form>
                 </td>
             </tr>
             </tbody>
             <tr>
-
                 <td>
+
                 </td>
                 <td></td>
 
@@ -160,7 +159,7 @@
                 <td>
                     <button class="event__btn" id="clearEvent" onclick="clearEvent()">Clear Selection</button>
                 </td>
-                        <!-- **** closed form-->
+                <!-- ******* -->
                 <form action=""  th:action="@{/eventNotice}" method="post" id="eventNoticeForm">
                     <input type="hidden" class="ids" name="ids">
                 </form>
@@ -200,6 +199,7 @@
         </div>
     </div>
 
+
 </footer>
 <!-- Footer Section End -->
 
@@ -207,9 +207,7 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
-
 <script type="text/javascript">
-
     var arry = "";
 
     function notiEvent() {
