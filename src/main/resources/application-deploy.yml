@@ -1,10 +1,10 @@
 spring:
-#  profiles:
-#    active: @spring.profiles.active@
+  profiles:
+    active: @spring.profiles.active@
   datasource:
-    username: root
+    username: admin
     password: password
-    url: jdbc:mysql://localhost:3306/eversourcedb?serverTimezone=UTC
+    url: jdbc:mysql://aafh1733uezl98.c8fjuyk0dofj.ca-central-1.rds.amazonaws.com:3306/eversourcedb?serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     thymeleaf:
       prefix: classpath:/templates/
@@ -16,7 +16,7 @@ spring:
         id: AQAYXUzpBJBrVuX7W2ftE321XZtC9u1KPsLCDaH9y09fQEFqNOcGPEQB02lSW6ummXPBx3xHfkhQD4pF
         secret: EGgE6mxPP01IXiA_VWL1n-3MWdfh2Rm90-2D2mFCEvt---EZEAejzKSBOHgAhIDUbqql0nUWUbyqy_9U
 server:
-  port: 8080
+  port: 5000
 
 # xmlns:th="http://www.thymeleaf.org"
 
