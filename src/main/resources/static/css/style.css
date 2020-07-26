@@ -205,6 +205,19 @@ ol {
   border: none;
   align-content: center;
 }
+
+.errorPage_btn {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 13px 30px 12px;
+  background: #7fad39;
+  border: none;
+  align-content: end;
+}
+
 /* Preloder */
 
 #preloder {
@@ -2074,6 +2087,16 @@ ol {
 
     .shoping__cart__btns {
       text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 13px 30px 12px;
+    background: #7fad39;
+    border: none;
+    align-content: end;
+
     }
 
     .primary-btn.cart-btn.cart-btn-right {
@@ -2113,4 +2136,7 @@ ol {
       font-size: 24px;
     }
   }
+
+
+
 }

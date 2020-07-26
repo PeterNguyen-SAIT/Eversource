@@ -622,14 +622,8 @@ ol {
   line-height: 82px;
 }
 
-.homepagebackground {
-  background-image: url("img/greenhouse.jpg");
 
-  background-color: #ffffff;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+
 
 .hometextbox {
   background-color: #ffffff;
@@ -3147,6 +3141,19 @@ ol {
 
     .shoping__cart__btns {
       text-align: center;
+
+
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 13px 30px 12px;
+    background: #7fad39;
+    border: none;
+    align-content: end;
+
+
     }
 
     .primary-btn.cart-btn.cart-btn-right {
@@ -3186,4 +3193,4 @@ ol {
       font-size: 24px;
     }
   }
-}
+
