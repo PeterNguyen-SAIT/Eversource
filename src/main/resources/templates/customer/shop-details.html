@@ -118,6 +118,7 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item" >
                         <img class="product__details__pic__item--large"
+
                              src="" alt="" th:src="*{image}">
                     </div>
                 </div>
@@ -130,7 +131,11 @@
                     <h3 th:text="*{pname}"></h3> <!-- ProductsEntity.pname -->
 
                     <div class="product__details__price" th:text="'$'+*{price}"></div>  <!-- ProductsEntity.price-->
-                    <p th:text="*{category}"> </p>  <!-- ProductsEntity.category -->
+
+                    <!-- unnecessary, commented out -->
+                    <!--   <p th:text="*{category}"> </p>  --> <!-- ProductsEntity.category -->
+
+                    <!--
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
@@ -138,27 +143,52 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">Add to Cart</a>  <!-- TBD -->
-                    <a href="shop-cart.html" class="primary-btn">Order</a>  <!-- TBD -->
+                    <a href="#" class="primary-btn">Add to Cart</a>
+                    <a href="shop-cart.html" class="primary-btn">Order</a>
+                    -->
                     <ul>
-                        <li><b>Availability</b>
+                        <li><b>Availability</b>  <!-- **conditional (?0) -- ProductsEntity.stock -->
                             <div th:if="*{stock eq 0}">
                                 <span>Out of Stock </span>
                             </div>
                             <div th:if="*{stock gt 0 and stock le 10}">
-                                <span>Low  </span>
+                                <span>Low in Stock </span>
                             </div>
                             <div th:if="*{stock gt 10}">
                                 <span> In Stock   </span>
                             </div>
-                        </li> <!-- **conditional (?0) -- ProductsEntity.stock -->
-                        <li><b th:text="'Discount: '+*{discount}+'%'"></b> <span> <br><!-- ProductsEntity.discount -->
-                            <samp>Free Delivery for all Order of $99</samp></span></li>
+                        </li>
+
+
+                        <!--<li><b th:text="'Discount: '+*{discount}+'%'"></b> </li>      -->
+
+                        <li><b>Discount </b>  </li><!-- **conditional -- ProductsEntity.discount -->
+                        <div th:if="*{discount eq 0}">  <!-- actual discount in value or description??  -->
+                            <span>Coming soon.. </span> <!--   -->
+                        </div>
+                        <div th:if="*{discount gt 0}"> <!-- connect to discounts table or hard coded -->
+                            <span th:text="*{discount}" > </span>
+                        </div>
+
+
+                           <!-- ???  ----need to verify "free delivery"
+                            <li><samp>Free Delivery for all Order of $99</samp></span></li>
+                           -->
                         <li><b>Unit</b> <span th:text="*{unit}"></span></li> <!-- ProductsEntity.unit -->
+                    <li> <b> Harvested period</b>
+
+                        <span th:text="*{shelf}"></span>
+                    </li>
+
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-12">
+
+
+
+    <!--  no more information to display, code kept for future impl -->
+            <!----
+                    <div class="col-lg-12">
                 <div class="product__details__tab">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
@@ -166,19 +196,23 @@
                                aria-selected="true">Description</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+
+                         <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
                                aria-selected="false">Information</a>
                         </li>
                     </ul>
+
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Product Description</h6>
-                                <p th:text="*{shelf}"></br> <!-- ProductsEntity.shelf -->
-                                </p><!-- ProductsEntity.description -->
+                                <p th:text="*{shelf}"></br>
+                                </p>
                             </div>
                         </div>
-                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+
+
+               <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Products Information</h6>
                                 <p>More information will be provided soon!</p>
@@ -187,8 +221,26 @@
                         </div>
 
                     </div>
+
                 </div>
             </div>
+
+
+            ---->
+
+            <!------ end of "col-lg-12" ------->
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__btns">
+                        <a href="/product" class="primary-btn cart-btn"> Product List</a>
+
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </section>
