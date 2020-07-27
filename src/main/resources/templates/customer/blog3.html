@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,8 +16,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Pompiere&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
 <!-- Page Preloder -->
 <div id="preloder">
@@ -109,106 +112,54 @@
 
 <!-- Blog Section Begin -->
 
-<section class="from-blog spad">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="cover80">
+                <h3 class ="center">How to Store Fresh Orange Slices </h3>
+                <br>
+                <p class ="italic">
+                    Orange slices only remain fresh for a few hours after peeling, so enjoy oranges soon after removing the rind.
+                    If you don't eat the oranges, follow specific guidelines to store them in the fridge or freezer for later use.
+                    Refrigerated orange slices can keep for several days and frozen slices last for months. The Sunkist website says
+                    not to freeze whole oranges, but you can freeze slices or grated peels to use for orange zest later on.</p>
+                <h5> Step 1  </h5>
+                <p> Grate orange zest from the peel of the orange with a cheese grater first, if you plan on using zest for recipes now
+                    or later on. Place zest in plastic bags and store in the fridge for use within one week. Keep these bags in the freezer,
+                    if you plan on using the zest for future recipes in the upcoming months. It's always easier to remove zest from a whole
+                    orange rather than peeled rinds. Skip this step if you don't plan on using the zest at all. Only grate lightly, so the
+                    majority of the peal still remains intact.
+                </p>
+                <h5> Step 2 </h5>
+                <p>Peel the entire orange and discard what's left of the peel or put it in your compost bin.
+                </p>
+                <img class ="commonblog" src="https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/difference-between-tangerines-oranges-1296x728.jpg?w=1155&h=1528">
 
-    <div class="container-fluid">
-        <!--- source: in lab3--->
-        <div class="cover80">
+                <h5> Step 3 </h5>
+                <p>Eat the orange slices right away or place them in plastic containers for later use.
+                </p>
+                <h5> Step 4 </h5>
+                <p>
+                    Place packaged orange slices in the fridge, if you plan on enjoying them within one week.
+                    Whole, unpeeled oranges can stay fresh in the refrigerator for two weeks, so you might want
+                    to keep most of your orange peels in tact until you know you are ready to enjoy them.
+                </p>
+                <h5>  Step 5 </h5>
+                <p> Place the containers containing the slices in the freezer if you want to eat the orange
+                    slices within the next seven months.
+                </p>
+                <br>
+                references:
+                <br>
+                www.ehow.com/how_8635756_store-fresh-orange-slices.html
+                <br>
+                www.healthline.com/nutrition/tangerine-vs-orange
 
-            <div class = "background">
-
-                <div class="row header">
-                    <div class="col-sm-12">
-                        <h1 class="center"><br>History Of Chocolate</h1>
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-sm-6 col-md-6">
-
-
-                        <a href="Image/COLOURBOX1152724.jpg"><img src="Image/COLOURBOX1152724.jpg" alt="Chocolate cup"  ></a>
-
-
-                        <h2 class="cyan"> Chocolate Introduction</h2>
-
-                        <p >Chocolate, food product made from cocoa beans, consumed as candy and used to make beverages and to flavour or coat various confections and bakery products. Rich in carbohydrates, it is an excellent source of quick energy, and it also contains minute amounts of the stimulating alkaloids theobromine and caffeine.</p>
-
-
-                    </div>
-
-
-                    <div class="col-sm-6 col-md-6">
-
-                        <a href="Image/COLOURBOX28456358.jpg"> <img class="blog" src="https://img.buzzfeed.com/buzzfeed-static/static/2018-07/12/16/asset/buzzfeed-prod-web-06/sub-buzz-25437-1531428725-1.jpg?downsize=600:*&output-format=auto&output-quality=auto"></a>
-                        <h2 class="cyan">The origin of cocoa</h2>
-
-                        <p>The cacao tree was cultivated more than 3,000 years ago by the Maya, Toltec, and Aztec peoples, who prepared a beverage from its fruit, the cocoa bean (sometimes using it as a ceremonial drink) and also used the bean as a currency. The Maya considered chocolate to be the food of the gods, held the cacao tree to be sacred, and even buried dignitaries with bowls of the substance (along with other items deemed useful in the afterlife). In fact, the identification of the (Olmec-originated) word ka-ka-w (“cacao”) inscribed on those containers was key to deciphering the Maya’s phonetic manner of writing.</p>
-
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
-
-                        <a href="Image/COLOURBOX34574106.jpg"><img  src="Image/COLOURBOX34574106.jpg" alt="chocolate3"> </a>
-
-                        <h2 class="cyan"> Spain, the earliest European country to incorporate chocolate </h2>
-
-                        <p>Spain was the earliest European country to incorporate chocolate into its cuisine, but exactly how that happened is vague. It is known that Christopher Columbus took cocoa beans to Spain after his fourth voyage in 1502, though little was made of it at that time. It has been commonly thought (though there appears to be no evidence) that in 1519 Montezuma II, the Aztec ruler of Mexico, served a bitter cocoa-bean drink to the Spanish conquistador Hernán Cortés, who subsequently introduced the drink to Spain. A strong possibility is that chocolate first arrived in Spain in 1544 with representatives of the Kekchí Mayan people of Guatemala, who came bearing gifts (including chocolate) to visit the court of Prince Philip. However, it was not until 1585 that the first recorded shipment of cocoa beans arrived in Spain from Veracruz, Mexico. Sweetened and flavoured with cinnamon and vanilla, chocolate was served as a hot beverage and became quite popular in the Spanish court. It was many years before chocolate had its introduction to France, England, and beyond.</p>
-
-
-
-                    </div>
-
-
-                    <div class="col-sm-6 col-md-6">
-
-
-                        <a href="Image/COLOURBOX6920491.jpg"><img  src="Image/COLOURBOX6920491.jpg" alt="chocolate4" ></a>
-
-                        <h2 class="cyan">Chocolate became popular</h2>
-
-                        <p>In 1657 a Frenchman opened a shop in London at which solid chocolate for making the beverage could be purchased at 10 to 15 shillings per pound. At that price only the wealthy could afford to drink it, and there appeared in London, Amsterdam, and other European capitals fashionable chocolate houses, some of which later developed into famous private clubs. In London many chocolate houses were used as political party meeting places as well as high-stakes gambling spots, notably Cocoa-Tree Chocolate-House (later the Cocoa-Tree Club), which opened in 1698, and White’s, which was opened by Francis White in 1693 as White’s Chocolate-House. About 1700 the English improved chocolate by the addition of milk. The reduction of the cost of the beverage was hampered in Great Britain by the imposition of high import duties on the raw cocoa bean, and it was not until the mid-19th century, when the duty was lowered to a uniform rate of one penny per pound, that chocolate became popular.</p>
-
-                    </div>
-                </div>
-
-
-
-                <div class="row">
-
-                    <div class="col-sm-6 col-md-6">
-
-
-                        <a href="Image/COLOURBOX34574106.jpg"><img class="commonblog" src="Image/COLOURBOX7471785.jpg" alt="chocolate3" ></a>
-
-                        <h2 class="cyan">Starting Chocolate manufacture by  American</h2>
-
-                        <p> Meanwhile, the making of chocolate spread overseas and grew in sophistication. Chocolate manufacture started in the American colonies in 1765 at Dorchester, Massachusetts, using beans brought in by New England sea captains from their voyages to the West Indies. James Baker financed the first mill, which was operated by an Irish immigrant, John Hanan. Waterpower was used for grinding the beans. In the Netherlands in 1828, C.J. van Houten patented a process for pressing much of the fat, or cocoa butter, from ground and roasted cocoa beans and thus obtaining cocoa powder. In 1847 the English firm of Fry and Sons combined cocoa butter with chocolate liquor and sugar to produce sweet (eating) chocolate—the base of most chocolate confectionary—and in 1876 Daniel Peter of Switzerland added dried milk to make milk chocolate. The proliferation of flavoured, solid, and coated chocolate foods rapidly followed.</p>
-
-                    </div>
-
-                    <div class="col-sm-6 col-md-6">
-
-                        <h2 class="cyan">Process of making chocolate</h2>
-
-                        <p>Chocolate is made from the kernels of fermented and roasted cocoa beans. The kernels are ground to form a pasty fluid chocolate liquor, which may be hardened in molds to form bitter (baking) chocolate, pressed to reduce the cocoa butter content and then pulverized to make cocoa powder, or mixed with sugar and additional cocoa butter to make sweet (eating) chocolate. The addition of dried or concentrated milk to sweet chocolate produces milk chocolate.<br>
-                            White chocolate, prized for its rich texture and delicate flavour, is technically not a chocolate. White chocolate is made from cocoa butter with added milk products, sugar, and flavourings such as vanilla.</p><br>
-                        <p class="italic">
-                            Author: Nathan Myhrvold <br>
-                            source: Encyclopedia Britannica</p>
-
-                    </div>
-
-                </div>
             </div>
-
-
         </div>
     </div>
+</div>
 
-
-</section>
 <!-- Blog Section End -->
 
 <!-- Footer Section Begin -->

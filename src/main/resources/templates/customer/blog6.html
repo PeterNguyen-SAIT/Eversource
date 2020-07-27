@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,8 +16,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Pompiere&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
 <!-- Page Preloder -->
 <div id="preloder">
@@ -109,38 +112,62 @@
 
 <!-- Blog Section Begin -->
 
-<section class="from-blog spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-12">
-                <p>
-
-                <h1>6 ways to prepare breakfast for 30</h1>
-
-                From homemade gravlax to indulgent huevos rancheros, The Kitchen's Rise and Shine episode was all about breakfast this morning, and while it's often called the most-important meal of the day, for better or worse, some days simply don't allow for a long, leisurely morning meal. But that doesn't mean you have to forgo breakfast altogether; the key is to look to ready-to-go dishes that are both quick to prepare and easy to pack. Read on below for wake-up-worthy inspiration from Alton Brown, The Pioneer Woman and more of your favorite chefs.
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="cover80">
+                <h3 class ="center">What To Make For Dinner If You Only Have 10 Minutes </h3>
                 <br>
-                Ree Drummond keeps it classic in her Breakfast of Champions Sandwich, built on buttery English muffins and griddled with thinly sliced ham, gooey just-melted cheese and an egg. "Immediately wrap them in a foil bag to lock in the heat," Ree advises of packing up these sandwiches for on-the-go eating.
-                <br>
-                While leftover delivery pizza is often best eaten for breakfast the next day, there's a fresher option for pizza in the morning: English-Muffin Breakfast Pizza from Food Network Magazine. This single-serving recipe boasts an English muffin in place of a traditional crust, plus tomato and Canadian bacon toppings, and a blanket of mozzarella for added richness.
-                <br>
-                If you'd prefer to drink your breakfast instead, check out this Peach Pie Smoothie, a surprisingly healthy, hands-off recipe that's ready in a hurry. Let the blender do the work of whirling together the yogurt, a squeeze of honey, frozen peaches and fragrant spices for a smooth, refreshing smoothie.
+                <p class ="italic">
+                    We all have high hopes for what our regular weeknight dinners will look like, but when
+                    it comes to the actual execution, takeout, throwing together a sandwich, or opening a
+                    tub of yogurt often win out. Work runs late, you get home and you're tired, or you just
+                    have a bunch of things to do at the end of a long day, and the 30 minutes you were
+                    planning to devote to cooking yourself dinner dwindles down to 25, 20...oh, the subway
+                    was running late? Make that 10. The struggle is shared by all.
                 </p>
-                <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/2/10/0/fnd_portable-breakfasts.jpg.rend.hgtvcom.1280.960.suffix/1423583731628.jpeg">
-                <p>
-
-
-                    Breakfast in five minutes? Yes, please. It all comes down to layering in Tyler Florence's Yogurt-Berry Parfait, boasting a base of tangy yogurt, plus heaping handfuls of your favorite fruits and crunchy granola for welcome texture.
-                    <br>
-                    The beauty of Alton Brown's Blueberry Muffins is that they'll keep well in an airtight container for two to three days. Make a batch of these moist muffins on a Sunday, then grab a muffin on the way out the door on a hectic weekday morning.
-                    <br>
-                    Wrapped up tight with traditional burrito fixings like cool avocado, creamy cheddar cheese and Food Network Kitchen's homemade Pico de Gallo, these Breakfast Burritos get the morning treatment with a hearty filling of fluffy scrambled eggs and crispy hash browns. "All of the elements are snugly wrapped in a tortilla, keeping everything warmer longer when you're taking it to go," the chefs of Food Network Kitchen say.
-                    <br>
-                    Reference: https://www.foodnetwork.com/fn-dish/recipes/2015/02/dont-skip-it-pack-it-6-ways-to-take-your-breakfast-on-the-go
+                <p>But committing an interesting list of 10 minute dinners to memory isn't something we all
+                    have the brain space for. Tack on the time it takes to look up and follow a recipe, and
+                    pouring a bowl of cereal sounds even more desirable. SO, I'm here to help you out—if
+                    you only have 10 minutes to spend in the kitchen, there's one dinner that's totally
+                    easy to make, tastes good, is as healthy (or as unhealthy) as you need it to be, and
+                    has an endless amount of variations, no recipe required: a stir fry!</p>
+                <img class ="commonblog" src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/15/1600x1250/gallery-1460688872-shot-1-052.jpg?resize=768:*">
+                <p> Stir frys are brilliant for many reasons: You can make them with whatever you have in your
+                    refrigerator or pantry—which means no after-work grocery shopping and no buying ingredients
+                    for a special, complicated meal that you run out of time to make. They're also fast—sautéing
+                    veggies, chicken, shrimp, beans, rice, and even eggs takes under 10 minutes. It can be carb
+                    heavy (throw in some leftover pasta!) or low-carb (use veggies or cauli rice!). You can make
+                    everything in one skillet (less clean up = less time), and you can eat it literally every
+                    single night and never run out of variations. Like this rainbow stir-fry:
                 </p>
+                <img class ="commonblog" src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/15/1460722934-delish-rainbow-stir-fry-3.jpg?crop=1xw:0.99975xh;center,top&resize=768:*">
+
+                <p>Cook some veggies and mix in a packet of cooked soba noodles. Done. Or this shrimp stir-fry:</p>
+                <img class ="commonblog" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/shrimp-stir-fry-horizontal-1545495841.png?crop=1xw:1xh;center,top&resize=768:*">
+
+                <p>Cooking shrimp and vegetables will take under 10 minutes, then if you have leftover rice (or
+                    some minute rice!), you can serve it with that, or choose to live your best low-carb life. This
+                    General Tso's chicken stir-fry is another favorite:</p>
+                <img class ="commonblog" src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/15/1460724964-delish-general-tso-5.jpg?crop=1xw:1xh;center,top&resize=768:*">
+                <p>
+                    If you're looking for something a little healthier, you have to try our Skinny Cashew Chicken
+                    with Cauliflower Rice. It tastes as good as it looks!</p>
+                <img class ="commonblog" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/1460687304-delish-stir-fries-cashew-chicken-1547661198.jpg?crop=1xw:1xh;center,top&resize=768:*">
+                <p> You can try all-veggie versions or a breakfast version made with eggs and cheese, throw in some
+                    ground turkey or beef, and play around with sauces depending on what you have on hand (Sriracha,
+                    buffalo, and soy sauce are some of our go-tos). See? The variations really are endless. </p>
+                <br>
+                references:
+                <br>
+                www.delish.com/cooking/a53578/10-minute-dinner/
+
+
             </div>
         </div>
     </div>
-</section>
+</div>
+
 <!-- Blog Section End -->
 
 <!-- Footer Section Begin -->
