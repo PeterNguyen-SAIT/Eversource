@@ -156,7 +156,7 @@
                         <td><br><br>
                             $<span th:text="${product.price}"></span></td>
                         <td> <br><br>
-                            <form action="post" th:action="@{/productId}" method="post">    </form>
+                            <form action="post" th:action="@{/productId}" method="post">
                                 <input
                                         type="hidden"
                                         th:value="${product.pid}"
@@ -176,7 +176,7 @@
                         <td><br><br>
                             <input type="submit" value="Add to Cart" /></td>
 
-
+                        </form>
 
                     </tr></tbody>
                 </div>
