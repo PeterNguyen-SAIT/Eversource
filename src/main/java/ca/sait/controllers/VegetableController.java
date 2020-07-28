@@ -41,7 +41,7 @@ public class VegetableController {
         if(page==null){
             page=1L;
         }
-        limit=8L;
+        limit=6L;
         Page<ProductsEntity> entityPage = productsService.page(new Page<>(page, limit));
         model.addAttribute("entityPage", entityPage);
         entityPage.getPages();
@@ -140,7 +140,11 @@ public class VegetableController {
             if(page==null){
                 page=1L;
             }
-            limit=8L;
+            limit=6L;
+            //0727 to show currentPage
+            int currentPage = productSource/limit.intValue()+1;
+            page = new Long(currentPage);
+
             Page<ProductsEntity> entityPage = productsService.page(new Page<>(page, limit));
             model.addAttribute("entityPage", entityPage);
             entityPage.getPages();
