@@ -142,7 +142,12 @@ public class VegetableController {
             }
             limit=6L;
             //0727 to show currentPage
-            int currentPage = productSource/limit.intValue()+1;
+
+            int tempPage = productSource/limit.intValue();
+            int mod = productSource%limit.intValue();
+
+            int currentPage = (mod==0)? tempPage : tempPage +1;
+
             page = new Long(currentPage);
 
             Page<ProductsEntity> entityPage = productsService.page(new Page<>(page, limit));
