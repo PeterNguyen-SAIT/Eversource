@@ -169,13 +169,8 @@ public class VegetableController {
         return "testing2"; // for order pages
     }
 
-    @PostMapping("/productIdSession")
-    public String submitForm3(Model model, HttpSession session, HttpServletRequest request) {
-        int productSource = (int) session.getAttribute("hiddenProduct");
-        ProductsEntity productsEntity = productsService.getById(productSource);
-        OrdersEntity ordersEntity = new OrdersEntity();
-        model.addAttribute("sessionId", productSource);
-        session.setAttribute("sessionId", productSource);
+    @GetMapping("/productIdSession")
+    public String submitForm3() {
         return "testing2";
     }
 

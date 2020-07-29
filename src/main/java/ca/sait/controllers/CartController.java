@@ -80,6 +80,8 @@ public class CartController {
         model.addAttribute("gst", "$" + gstAfterFormat);
         model.addAttribute("finalTotal", "$" + finalAfterFormat);
 
+        session.setAttribute("cartTotal", finalAfterFormat);
+
         return "customer/shop-cart";
     }
 
@@ -168,6 +170,8 @@ public class CartController {
         model.addAttribute("total", "$" + totalAfterFormat);
         model.addAttribute("gst", "$" + gstAfterFormat);
         model.addAttribute("finalTotal", "$" + finalAfterFormat);
+
+        session.setAttribute("cartTotal", finalAfterFormat);
 
         model.addAttribute("orderArrayList", allCurrentCustomerOrder);
         model.addAttribute("loggedIn", " " + username);
@@ -320,6 +324,9 @@ public class CartController {
         model.addAttribute("total", "$" + totalAfterFormat);
         model.addAttribute("gst", "$" + gstAfterFormat);
         model.addAttribute("finalTotal", "$" + finalAfterFormat);
+
+        session.setAttribute("cartTotal", finalAfterFormat);
+
         return "customer/shop-cart";
 
     }
