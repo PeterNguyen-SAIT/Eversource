@@ -54,7 +54,7 @@ CREATE TABLE `orders` (
   `deliverydate` timestamp NULL DEFAULT NULL COMMENT 'date delivery',
   `pickup` varchar(30) DEFAULT NULL COMMENT 'pickup time range',
   `note` varchar(100) DEFAULT NULL,
-  `image` varchar(100) DEFAULT NULL,
+  `image` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`oid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
@@ -82,7 +82,7 @@ CREATE TABLE `products` (
   `stock` int(10) DEFAULT '0',
   `category` varchar(20) CHARACTER SET utf8 DEFAULT 'vegetable',
   `description` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  `image` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
+  `image` varchar(300) CHARACTER SET utf8 DEFAULT NULL,
   `shelf` timestamp NULL DEFAULT NULL,
   `note` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`pid`),
@@ -115,17 +115,17 @@ DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `uid` int(30) NOT NULL AUTO_INCREMENT,
-  `uname` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `uname` varchar(50) CHARACTER SET utf8 NOT NULL,
   `password` varchar(60) CHARACTER SET utf8 NOT NULL,
   `salt` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `token` varchar(60) DEFAULT NULL,
-  `fname` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
-  `lname` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
+  `fname` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `lname` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `phone` varchar(11) CHARACTER SET utf8 DEFAULT NULL,
   `address` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  `city` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
+  `city` varchar(30) CHARACTER SET utf8 DEFAULT NULL,
   `code` varchar(6) CHARACTER SET utf8 DEFAULT NULL,
-  `email` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `email` varchar(40) CHARACTER SET utf8 NOT NULL,
   `role` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
   `status` varchar(10) CHARACTER SET utf8 DEFAULT NULL COMMENT 'active or not',
   `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'register date',

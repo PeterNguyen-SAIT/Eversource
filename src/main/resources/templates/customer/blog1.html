@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Eversource Farm</title>
+
+    <!-- Google Font -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+            rel="stylesheet"
+    />
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Pompiere&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="header__top__left">
+                        <ul>
+                            <li>Welcome to Eversource Farm Website</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8">
+
+                    <div class="header__top__right">
+                        <div th:if="${usernameExist} != null">
+                            <div class="header__top__right__account">
+                                <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="/shoppingcart">Shopping Cart</a></li>
+                                    <li><a href="/history">Purchase History</a></li>
+                                    <li><a href="/account">Account</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__logout">
+                                <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
+                            </div>
+                        </div>
+                        <div th:if="${usernameExist} == null">
+                            <div class="header__top__right__login">
+                                <a href="/login"><i class="fa fa-user"></i> Login</a>
+
+                            </div>
+                            <div class="header__top__right__signup">
+                                <a href="/register"><i class="fa fa-sign-in"></i>
+                                    Sign up</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="header__logo">
+                    <a href="/"
+                    ><img src="img/logo.png" alt="" height="50"
+                    /></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8">
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="/homepage">About us</a></li>
+                        <li><a href="/product">Store</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/event">Event</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
+
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2><Bloge>The Blog</Bloge></h2></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Blog Section Begin -->
+<section class="from-blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="cover80">
+                <h3 class ="center">Cooking tips make cooking simple</h3>
+                <br>
+                <p class ="italic">
+                    From learning to not rinse your pasta after draining, to using a garbage bowl, you could start
+                    a spreadsheet of cooking tips and never run out of ideas. Some cooking tips are so simple that
+                    once you learn one you can’t imagine how you used to get through a recipe. That’s why I made
+                    this list. Memorize these tips and I guarantee your next meal will be a smashing success.
+               </p>
+               <h5> 1. Read the whole recipe first </h5>
+               <p> I’ll say this until the cows come home. If you’re cooking from a recipe, the best tip I can give
+                   you is to read through the whole thing all the way through before you start to cook. Not only will
+                   this help you gain a better understanding of what the final dish should look and taste like,
+                   you’ll also be able to ascertain which pots, pans, and tools you need, as well as catch important
+                   instructions like “marinate overnight.”
+               </p>
+                <h5>   2. Set up mise en place </h5>
+                <p>Mise en place is a French term that literally means “put in place.” It also refers to a way cooks
+                    in professional kitchens and restaurants set up their work stations—first by gathering all ingredients
+                    for a recipes, partially preparing them (like measuring out and chopping), and setting them all near
+                    each other. Setting up mise en place before cooking is another top tip for home cooks, as it seriously
+                    helps with organization. It’ll pretty much guarantee you never forget to add an ingredient and save you
+                    time from running back and forth from the pantry ten times.
+                </p>
+                <img class ="commonblog" src="https://www.argalys.com/wp-content/uploads/2018/10/cooking-tips-article-picture-1080x675.png">
+
+                <h5>   3. Always sharpen knives </h5>
+                <p>Don’t fear sharp knives. Can they give you a nasty cut? Absolutely. But dull knives are constantly proven
+                    to be more dangerous. They’re more prone to slip when cutting, which makes the chance of cutting yourself
+                    higher. If you commit to keeping knives sharp, you should also learn how to properly hold a chef’s knife,
+                    as well as how to hold the food you’re cutting.
+                </p>
+                <h5> 4. Cut the cooking time of veggies </h5>
+                <p>Certain foods can take a long time to prepare — like potatoes — so they're not always ideal for weeknight
+                    cooking. One way to get around that is to par cook (or partially cook) them in the microwave. For potatoes,
+                    cook them until they're soft — about five minutes — then sauté or roast them until the outside is nice and brown.
+                    This technique can be used for veggies like brussels sprouts to get a head start and make sure the center is cooked through.
+                </p>
+                <h5>  5. Utilize your morning to get a head start on dinner </h5>
+                <p> For many people, mornings are when you're the freshest and most motivated. By prepping ingredients for dinner before
+                    work or class, you can make sure it's easy to put together when you're exhausted. (Because no one wants to chop onions
+                    after a long day.)
+                </p>
+                <br>
+                references:
+                <br>
+                www.myrecipes.com/cooking-method/11-simple-cooking-tips
+                <br>
+                www.buzzfeed.com/jesseszewczyk/how-to-make-cooking-easier
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Section End -->
+
+<!-- Footer Section Begin -->
+<footer class="footer spad">
+    <div class="col-lg-12">
+        <div class="footer__copyright">
+            <div class="footer__copyright__text">
+                <p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    Eversource Farm. All Rights Reserved.
+                </p>
+            </div>
+            <div class="footer__copyright__payment">
+                <img src="img/payment-item.png" alt="" />
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/mixitup.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

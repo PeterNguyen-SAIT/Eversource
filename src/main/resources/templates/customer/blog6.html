@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Eversource Farm</title>
+
+    <!-- Google Font -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+            rel="stylesheet"
+    />
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Pompiere&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="header__top__left">
+                        <ul>
+                            <li>Welcome to Eversource Farm Website</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8">
+
+                    <div class="header__top__right">
+                        <div th:if="${usernameExist} != null">
+                            <div class="header__top__right__account">
+                                <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="/shoppingcart">Shopping Cart</a></li>
+                                    <li><a href="/history">Purchase History</a></li>
+                                    <li><a href="/account">Account</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__logout">
+                                <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
+                            </div>
+                        </div>
+                        <div th:if="${usernameExist} == null">
+                            <div class="header__top__right__login">
+                                <a href="/login"><i class="fa fa-user"></i> Login</a>
+
+                            </div>
+                            <div class="header__top__right__signup">
+                                <a href="/register"><i class="fa fa-sign-in"></i>
+                                    Sign up</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="header__logo">
+                    <a href="/"
+                    ><img src="img/logo.png" alt="" height="50"
+                    /></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8">
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="/homepage">About us</a></li>
+                        <li><a href="/product">Store</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/event">Event</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
+
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2><Bloge>The Blog</Bloge></h2></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Blog Section Begin -->
+<section  class="from-blog">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="cover80">
+                <h3 class ="center">What To Make For Dinner If You Only Have 10 Minutes </h3>
+                <br>
+                <p class ="italic">
+                    We all have high hopes for what our regular weeknight dinners will look like, but when
+                    it comes to the actual execution, takeout, throwing together a sandwich, or opening a
+                    tub of yogurt often win out. Work runs late, you get home and you're tired, or you just
+                    have a bunch of things to do at the end of a long day, and the 30 minutes you were
+                    planning to devote to cooking yourself dinner dwindles down to 25, 20...oh, the subway
+                    was running late? Make that 10. The struggle is shared by all.
+                </p>
+                <p>But committing an interesting list of 10 minute dinners to memory isn't something we all
+                    have the brain space for. Tack on the time it takes to look up and follow a recipe, and
+                    pouring a bowl of cereal sounds even more desirable. SO, I'm here to help you out—if
+                    you only have 10 minutes to spend in the kitchen, there's one dinner that's totally
+                    easy to make, tastes good, is as healthy (or as unhealthy) as you need it to be, and
+                    has an endless amount of variations, no recipe required: a stir fry!</p>
+                <img class ="commonblog" src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/15/1600x1250/gallery-1460688872-shot-1-052.jpg?resize=768:*">
+                <p> Stir frys are brilliant for many reasons: You can make them with whatever you have in your
+                    refrigerator or pantry—which means no after-work grocery shopping and no buying ingredients
+                    for a special, complicated meal that you run out of time to make. They're also fast—sautéing
+                    veggies, chicken, shrimp, beans, rice, and even eggs takes under 10 minutes. It can be carb
+                    heavy (throw in some leftover pasta!) or low-carb (use veggies or cauli rice!). You can make
+                    everything in one skillet (less clean up = less time), and you can eat it literally every
+                    single night and never run out of variations. Like this rainbow stir-fry:
+                </p>
+                <img class ="commonblog" src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/15/1460722934-delish-rainbow-stir-fry-3.jpg?crop=1xw:0.99975xh;center,top&resize=768:*">
+
+                <p>Cook some veggies and mix in a packet of cooked soba noodles. Done. Or this shrimp stir-fry:</p>
+                <img class ="commonblog" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/shrimp-stir-fry-horizontal-1545495841.png?crop=1xw:1xh;center,top&resize=768:*">
+
+                <p>Cooking shrimp and vegetables will take under 10 minutes, then if you have leftover rice (or
+                    some minute rice!), you can serve it with that, or choose to live your best low-carb life. This
+                    General Tso's chicken stir-fry is another favorite:</p>
+                <img class ="commonblog" src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/15/1460724964-delish-general-tso-5.jpg?crop=1xw:1xh;center,top&resize=768:*">
+                <p>
+                    If you're looking for something a little healthier, you have to try our Skinny Cashew Chicken
+                    with Cauliflower Rice. It tastes as good as it looks!</p>
+                <img class ="commonblog" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/1460687304-delish-stir-fries-cashew-chicken-1547661198.jpg?crop=1xw:1xh;center,top&resize=768:*">
+                <p> You can try all-veggie versions or a breakfast version made with eggs and cheese, throw in some
+                    ground turkey or beef, and play around with sauces depending on what you have on hand (Sriracha,
+                    buffalo, and soy sauce are some of our go-tos). See? The variations really are endless. </p>
+                <br>
+                references:
+                <br>
+                www.delish.com/cooking/a53578/10-minute-dinner/
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- Blog Section End -->
+
+<!-- Footer Section Begin -->
+<footer class="footer spad">
+    <div class="col-lg-12">
+        <div class="footer__copyright">
+            <div class="footer__copyright__text">
+                <p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    Eversource Farm. All Rights Reserved.
+                </p>
+            </div>
+            <div class="footer__copyright__payment">
+                <img src="img/payment-item.png" alt="" />
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/mixitup.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

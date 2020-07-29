@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Eversource Farm</title>
+
+    <!-- Google Font -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+            rel="stylesheet"
+    />
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Pompiere&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="header__top__left">
+                        <ul>
+                            <li>Welcome to Eversource Farm Website</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8">
+
+                    <div class="header__top__right">
+                        <div th:if="${usernameExist} != null">
+                            <div class="header__top__right__account">
+                                <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="/shoppingcart">Shopping Cart</a></li>
+                                    <li><a href="/history">Purchase History</a></li>
+                                    <li><a href="/account">Account</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__logout">
+                                <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
+                            </div>
+                        </div>
+                        <div th:if="${usernameExist} == null">
+                            <div class="header__top__right__login">
+                                <a href="/login"><i class="fa fa-user"></i> Login</a>
+
+                            </div>
+                            <div class="header__top__right__signup">
+                                <a href="/register"><i class="fa fa-sign-in"></i>
+                                    Sign up</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="header__logo">
+                    <a href="/"
+                    ><img src="img/logo.png" alt="" height="50"
+                    /></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8">
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="/homepage">About us</a></li>
+                        <li><a href="/product">Store</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/event">Event</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
+
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2><Bloge>The Blog</Bloge></h2></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Blog Section Begin -->
+<section class="from-blog">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="cover80">
+                <br>
+                <h3 class ="center">10 Tips for Keeping Produce Fresher Longer</h3>
+                <br>
+                <img class ="commonblog" src="https://www.westislandblog.com/wp-content/uploads/2018/03/veggies2.jpg">
+                <br>
+                <h5> What causes produce to spoil quickly?  </h5>
+                <p> Ethylene gas is produced normally by fruits and vegetables as they ripen but when too much is produced such as
+                    when they are exposed to heat or moisture, the ripening process is accelerated.  In addition, some vegetables
+                    and fruits produce more ethylene and can cause each other to ripen faster.
+                </p>
+                <h5> What can we do?</h5>
+                <p>Aside from indulging in some of the produce that keeps the longest if stored properly like apples – cabbage – beets – carrots – celery – garlic – onions – potatoes – parsnips – and squash, here are a few steps that can be effective in delaying the ripening process:</p>
+                <p>1. Make sure your fruit bowl is not near a source of heat like the stove as this may cause faster ripening.</p>
+                <p>2. Keep bananas away from other fruits and vegetables as they cause them to ripen faster. While a bunch look nice together, separating them can extend their shelf life.</p>
+                <p>3. Make a small bouquet in a glass of water to store fresh herbs and snip bits as you need them, they can often last for a full week. Alternatively, chop and freeze them in freezer bags. Lay them flat to freeze so you can break small pieces as required. Also, consider
+                    drying your herbs.</p>
+                <p>4. Never store potatoes with onions. Instead, add an apple or two to your potatoes, it can stop them from sprouting. Remember to remove a bad apple, potato, onion …etc since one bad potato could ruin the rest.</p>
+                <p>5. Chop tomatoes at the last minute to add to salads. Store tomatoes at room temperature and away from heat and sunlight.</p>
+                <p>6. Store mushrooms in a brown paper bag in the fridge. Eat those within a couple of days. Otherwise, sauté them for a tasty side dish.</p>
+                <p>7. Freeze ripe avocado halves on parchment paper then transfer to freezer bag. You can later use them for smoothies or guacamole. Freeze whole gingerroot in foil and grate from frozen into recipes. Whole tomatoes can also be frozen for use in soups and sauces.</p>
+                <p>8. Any chopped green produce should be dried and wrapped in paper towels to reduce moisture then wrapped in foil. Any chopped fruits like apples that oxidize (change colour with air) can be squirted with lemon juice.</p>
+                <p>9. Plastic bags tend to trap moisture. Broccoli, celery and hard vegetables can be stored in aluminum foil to extend their life. Squash can keep for a long time in a paper bag in a cold dark room.Also, store nuts and seeds in jars in the fridge to avoid rancidity.</p>
+                <p>10. Canning, preserving and freezing foods are all highly effective, and money saving options.</p>
+                <p>What I like to do is to take out produce each day from my fridge and make a big salad. I also take out a couple of fruits and leave them on the island for a great and healthy grab-and-go snack. This habit has us eating better and wasting less produce.</p>
+                <p>For people who live alone or for smaller families, purchasing a variety of smaller quantities of fruits and vegetables rather than larger bags is a better option. It also will promote health while saving money.</p>
+
+                <br>
+                references:
+                <br>
+                www.westislandblog.com/10-tips-for-keeping-produce-fresher-longer/
+                <br>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- Blog Section End -->
+
+<!-- Footer Section Begin -->
+<footer class="footer spad">
+    <div class="col-lg-12">
+        <div class="footer__copyright">
+            <div class="footer__copyright__text">
+                <p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    Eversource Farm. All Rights Reserved.
+                </p>
+            </div>
+            <div class="footer__copyright__payment">
+                <img src="img/payment-item.png" alt="" />
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/mixitup.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

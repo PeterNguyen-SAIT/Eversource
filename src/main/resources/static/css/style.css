@@ -129,9 +129,15 @@ ol {
 }
 
 .spad {
-  padding-top: 100px;
-  padding-bottom: 100px;
+
+/*  padding-top: 10px; -- July 25*/
+  padding-bottom: 50px;
 }
+.event_spad {  /*--- -- July 25 ---*/
+  margin-top: 60px;
+  padding-top: 10px;
+}
+
 
 .text-white h1,
 .text-white h2,
@@ -147,12 +153,11 @@ ol {
 }
 
 .text-md-center {
-  margin-top: 20px;
+ /* margin-top: 20px;       July 25*/
   color: #dc3545;
   font-family: Arial, Helvetica, sans-serif;
 
 }
-
 
 
 /* buttons */
@@ -200,6 +205,19 @@ ol {
   border: none;
   align-content: center;
 }
+
+.errorPage_btn {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 13px 30px 12px;
+  background: #7fad39;
+  border: none;
+  align-content: end;
+}
+
 /* Preloder */
 
 #preloder {
@@ -787,7 +805,7 @@ ol {
 
 .from-blog {
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 .from-blog .blog__item {
@@ -798,6 +816,57 @@ ol {
   margin-bottom: 70px;
 }
 
+
+.cyan{
+  color: darkred;
+  font-style: italic;
+
+}
+
+img.blog {
+  float: left;
+  width: 200px;
+  height: 200px;
+
+  margin-right: 10px;
+  margin-bottom: 5px;
+  transition-duration: 1s;
+}
+
+img.commonblog {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+img.blog:hover {
+
+  position:absolute;
+  transform: scale(1.25);
+
+  /* source: https://css-tricks.com/forums/topic/images-scale-on-hover-but-very-glitchy-and-not-positioning-well*/
+}
+
+.cover80{
+  width: 80%;
+  margin-left:auto;
+  margin-right:auto;
+
+}
+
+.center {
+  text-align: center
+}
+
+.italic{
+  font-style: italic;
+
+}
+
+
+
 /*---------------------
   Breadcrumb
 -----------------------*/
@@ -805,7 +874,8 @@ ol {
 .breadcrumb-section {
   display: flex;
   align-items: center;
-  padding: 45px 0 40px;
+  padding: 20px 0 15px;
+  /*padding: 45px 0 40px;*/
 }
 
 .breadcrumb__text h2 {
@@ -813,6 +883,17 @@ ol {
   color: #ffffff;
   font-weight: 700;
 }
+
+
+.breadcrumb-section  { /*background-image: url(/images/building.jpg);*/    /*July 28 */
+
+  background-image: url('https://i.postimg.cc/wMrgjg2K/greenhouse.jpg');
+  background-size: auto;
+
+/*'/img/greenhouse.jpg'*/
+
+}
+
 
 .breadcrumb__option a {
   display: inline-block;
@@ -844,7 +925,9 @@ ol {
 -----------------------*/
 
 .product {
-  padding-top: 80px;
+
+  padding-top: 20px; /*--- July 25---*/
+  /*padding-top: 80px;*/
   padding-bottom: 80px;
 }
 
@@ -1045,7 +1128,8 @@ ol {
 -----------------------*/
 
 .product-details {
-  padding-top: 80px;
+  padding-top: 25px; /*-------Juyly 25------*/
+  /*padding-top: 80px;*/
 }
 
 .product__details__pic__item {
@@ -1053,9 +1137,16 @@ ol {
 }
 
 .product__details__pic__item img {
-  min-width: 100%;
+  min-width: 80%;
+  border-color: #721c24;
 }
+/*----------------------------*/
+.product__details__pic__item--large img{
+  width:50px;
 
+
+}
+/*----------------------------*/
 .product__details__pic__slider img {
   cursor: pointer;
 }
@@ -1581,9 +1672,13 @@ ol {
 /*---------------------
   Event
   -----------------------*/
+.event {
+  padding-top: 20px; /*--- July 25---*/
+}
 
 .event__item {
   margin-bottom: 60px;
+  padding-top: 20px; /*--- July 25---*/
 }
 
 .event__item__pic img {
@@ -1671,7 +1766,6 @@ ol {
   border-top: 1px solid #ebebeb;
   padding: 5px 0;
   overflow: hidden;
-  margin-top: 20px;
   background: #f3f6fa;
   padding-bottom: 0;
 }
@@ -1681,9 +1775,13 @@ ol {
   color: #1c1c1c;
   float: left;
   line-height: 25px;
+  margin-top: 5px;
 }
 
-.footer__copyright__payment {
+
+.footer__copyright__payment img {
+  height: 50px;
+  width: auto;
   float: right;
 }
 
@@ -2051,6 +2149,16 @@ ol {
 
     .shoping__cart__btns {
       text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 13px 30px 12px;
+    background: #7fad39;
+    border: none;
+    align-content: end;
+
     }
 
     .primary-btn.cart-btn.cart-btn-right {
@@ -2089,5 +2197,14 @@ ol {
     .blog__details__hero__text h2 {
       font-size: 24px;
     }
+
+    .content__input {
+      margin-bottom: 10px;
+      width: 20px;
+      height: 10px;
+    }
   }
+
+
+
 }

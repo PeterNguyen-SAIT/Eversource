@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class EventController {
     }
 
     @PostMapping("/eventNotice")
-    public String registerEvent(Model model, HttpSession session, EventsEntity event) {
+    public String registerEvent(Model model, HttpSession session, EventsEntity event, String ids) {
         String username = (String)session.getAttribute("username");
         if(username==null || username.equals(""))
         {

@@ -1,14 +1,49 @@
 package ca.sait.controllers.archive;
 
+import ca.sait.entity.UsersEntity;
+import ca.sait.service.impl.UsersServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.UUID;
 
 @Controller
-public class RecoverController {
-//    @Autowired
-//    private UsersServiceImpl us;
-//
-//    @RequestMapping(value = "/recovery", method= RequestMethod.POST)
-//    public String sendMail(HttpServletRequest request, HttpServletResponse response) {
+public class ActivateController {
+
+    @Autowired
+    private UsersServiceImpl usersService;
+
+    @GetMapping(value = "/activate")
+    public String activateAccount(String username, ModelMap model, String uuid) {
+        if (username == null) {
+            model.addAttribute("message", "Error when activate account - No account found.");
+
+        }
+        else {
+            String checkuuid = UUID.randomUUID().toString();
+            if(uuid==null || !uuid.equals(checkuuid)) {
+                model.addAttribute("message", "Error when activate account.");
+            }
+            else {
+                QueryWrapper<UsersEntity> queryWrapper = new QueryWrapper<>();
+                queryWrapper.eq("uname", username);
+                UsersEntity userLoggedIn = usersService.getOne(queryWrapper);
+                userLoggedIn.setStatus("active");
+                if (usersService.save(userLoggedIn)) {
+                    model.addAttribute("message", "Account activated, you can log in with your new account.");
+                }
+                else {
+                    model.addAttribute("message", "Error when saving account information.");
+                }
+            }
+        }
+        model.addAttribute("usersEntity", new UsersEntity());
+        return "customer/login";
+    }
+}
 //        try {
 //            String username = request.getParameter("inputUsername");
 //                //us =new  UserService();
@@ -76,4 +111,4 @@ public class RecoverController {
 //
 //        return isFound;
 //    }
-}
+

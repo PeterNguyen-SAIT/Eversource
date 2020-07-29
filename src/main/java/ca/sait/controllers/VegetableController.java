@@ -41,7 +41,7 @@ public class VegetableController {
         if(page==null){
             page=1L;
         }
-        limit=8L;
+        limit=6L;
         Page<ProductsEntity> entityPage = productsService.page(new Page<>(page, limit));
         model.addAttribute("entityPage", entityPage);
         entityPage.getPages();
@@ -50,7 +50,8 @@ public class VegetableController {
     }
 
     @PostMapping("/productId")
-    public String submitForm(@RequestParam int productSource, @RequestParam int productQuantity, Model model, HttpSession session) {
+    public String submitForm(@RequestParam int productSource, @RequestParam int productQuantity, Model model, HttpSession session ,Long page,
+                             Long limit) {
         String username = (String)session.getAttribute("username");
         if(username==null || username.equals(""))
         {
@@ -68,9 +69,10 @@ public class VegetableController {
                 OrdersEntity oldOrder = null;
                 List<OrdersEntity> allOrders = ordersService.list();
                 boolean productExist=false;
+
                 for(OrdersEntity order: allOrders)
                 {
-                    if(productsEntity.getPname().equals(order.getPname()))
+                    if(productsEntity.getPname().equals(order.getPname()) && username.equals(order.getUname()))
                     {
                         productExist=true;
                         oldOrder = order;
@@ -80,7 +82,8 @@ public class VegetableController {
                 if(productExist)
                 {
                     int currentQuantity = oldOrder.getQuantity();
-                    oldOrder.setQuantity(currentQuantity+productQuantity);
+                    int newQuantity = currentQuantity+productQuantity;
+                    oldOrder.setQuantity(newQuantity);
                     if(oldOrder.getImage()!=null)
                     {
 
@@ -93,7 +96,7 @@ public class VegetableController {
                         oldOrder.setImage(product.getImage());
                     }
                     if (ordersService.saveOrUpdate(oldOrder)) {
-                        model.addAttribute("message", "Added " + productQuantity + " " + productsEntity.getUnit() + " of " + productsEntity.getPname() + " to cart.");
+                        model.addAttribute("message", "Added " + productQuantity + " " + productsEntity.getUnit() + " of " + productsEntity.getPname() + " to cart."+"\n"+"Current amount in cart: "+newQuantity+" "+productsEntity.getUnit());
 
                     } else {
                         model.addAttribute("message", "Failed to add, please contact developers for assistance");
@@ -123,7 +126,7 @@ public class VegetableController {
                     }
 
                     if (ordersService.save(newOrder)) {
-                        model.addAttribute("message", "Added " + productQuantity + " " + productsEntity.getUnit() + " of " + productsEntity.getPname() + " to cart.");
+                        model.addAttribute("message", "Added " + productQuantity + " " + productsEntity.getUnit() + " of " + productsEntity.getPname() + " to cart."+"\n"+"Current amount in cart: "+productQuantity+" "+productsEntity.getUnit());
 
                     } else {
                         model.addAttribute("message", "Failed to add, please contact developers for assistance");
@@ -134,6 +137,22 @@ public class VegetableController {
                 model.addAttribute("productsEntityList", productsEntityList);
                 model.addAttribute("loggedIn", " " + username);
                 model.addAttribute("usernameExist", " " + username);
+            if(page==null){
+                page=1L;
+            }
+            limit=6L;
+            //0727 to show currentPage
+
+            int tempPage = productSource/limit.intValue();
+            int mod = productSource%limit.intValue();
+
+            int currentPage = (mod==0)? tempPage : tempPage +1;
+
+            page = new Long(currentPage);
+
+            Page<ProductsEntity> entityPage = productsService.page(new Page<>(page, limit));
+            model.addAttribute("entityPage", entityPage);
+            entityPage.getPages();
                 return "customer/product";
             }
 

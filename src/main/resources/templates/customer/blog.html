@@ -44,8 +44,8 @@
                 <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
                 <span class="arrow_carrot-down"></span>
                 <ul>
-                  <li><a href="/history">Purchase History</a></li>
                   <li><a href="/shoppingcart">Shopping Cart</a></li>
+                  <li><a href="/history">Purchase History</a></li>
                   <li><a href="/account">Account</a></li>
                 </ul>
               </div>
@@ -83,7 +83,7 @@
           <ul>
             <li><a href="/homepage">About us</a></li>
             <li><a href="/product">Store</a></li>
-            <li><a href="/blog">Blog</a></li>
+            <li class="active"><a href="/blog">Blog</a></li>
             <li><a href="/event">Event</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
@@ -109,24 +109,24 @@
 <!-- Breadcrumb Section End -->
 
     <!-- Blog Section Begin -->
-    <section class="from-blog spad">
+    <section class="from-blog">
       <div class="container">
 
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="blog__item">
               <div class="blog__item__pic">
-                <img src="img/blog/blog-1.jpg" alt="" />
+                <a href="/blog1" > <img src="img/blog/blog-1.jpg" alt="" /></a>
               </div>
               <div class="blog__item__text">
                 <ul>
-                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                  <li><i class="fa fa-calendar-o"></i> May 4,2020</li>
                   <li><i class="fa fa-comment-o"></i> 5</li>
                 </ul>
-                <h5><a href="#">Cooking tips make cooking simple</a></h5>
+                <h5><a href="/blog1">Cooking tips make cooking simple</a></h5>
                 <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
+                  From learning to not rinse your pasta after draining, to using a garbage bowl,
+                  you could start
                 </p>
               </div>
             </div>
@@ -134,17 +134,17 @@
           <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="blog__item">
               <div class="blog__item__pic">
-                <img src="img/blog/blog-2.jpg" alt="" />
+                <a href="/blog2" ><img src="img/blog/blog-2.jpg" /> </a>
               </div>
               <div class="blog__item__text">
                 <ul>
-                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                  <li><i class="fa fa-calendar-o"></i> May 19,2020</li>
                   <li><i class="fa fa-comment-o"></i> 5</li>
                 </ul>
-                <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                <h5><a href="/blog2">6 ways to prepare breakfast for 30</a></h5>
                 <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
+                  From learning to not rinse your pasta after draining, to using a garbage bowl,
+                  you could start
                 </p>
               </div>
             </div>
@@ -152,17 +152,17 @@
           <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="blog__item">
               <div class="blog__item__pic">
-                <img src="img/blog/blog-3.jpg" alt="" />
+                <a href="/blog3" > <img src="img/blog/blog-3.jpg" alt="" /></a>
               </div>
               <div class="blog__item__text">
                 <ul>
-                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                  <li><i class="fa fa-calendar-o"></i> June 4,2020</li>
                   <li><i class="fa fa-comment-o"></i> 5</li>
                 </ul>
-                <h5><a href="#">Visit the clean farm in the US</a></h5>
+                <h5><a href="/blog3">How to Store Fresh Orange Slices</a></h5>
                 <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
+                  Orange slices only remain fresh for a few hours after peeling,
+                  so enjoy oranges soon after removing the
                 </p>
               </div>
             </div>
@@ -170,7 +170,7 @@
         </div>
       </div>
     </section>
-    <!-- Blog Section End -->
+
 
     <section class="from-blog spad">
       <div class="container">
@@ -178,17 +178,17 @@
           <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="blog__item">
               <div class="blog__item__pic">
-                <img src="img/blog/blog-4.jpg" alt="" />
+                <a href="/blog4" > <img src="img/blog/blog-4.jpg" alt="" /></a>
               </div>
               <div class="blog__item__text">
                 <ul>
-                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                  <li><i class="fa fa-calendar-o"></i> June 19,2020</li>
                   <li><i class="fa fa-comment-o"></i> 5</li>
                 </ul>
-                <h5><a href="#">Cooking tips make cooking simple</a></h5>
+                <h5><a href="/blog4">10 Tips for Keeping Produce Fresher Longer</a></h5>
                 <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
+                  From learning to not rinse your pasta after draining, to using a garbage bowl,
+                  you could start
                 </p>
               </div>
             </div>
@@ -196,17 +196,16 @@
           <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="blog__item">
               <div class="blog__item__pic">
-                <img src="img/blog/blog-5.jpg" alt="" />
+                <a href="/blog5" > <img src="img/blog/blog-5.jpg" alt="" /></a>
               </div>
               <div class="blog__item__text">
                 <ul>
-                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                  <li><i class="fa fa-calendar-o"></i> July 4,2020</li>
                   <li><i class="fa fa-comment-o"></i> 5</li>
                 </ul>
-                <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                <h5><a href="blog5.html">How to Store Strawberries For Up To Two Weeks  </a></h5>
                 <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
+                  Ethylene gas is produced normally by fruits and vegetables as they ripen but when too much
                 </p>
               </div>
             </div>
@@ -214,17 +213,17 @@
           <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="blog__item">
               <div class="blog__item__pic">
-                <img src="img/blog/blog-6.jpg" alt="" />
+                <a href="/blog6" > <img src="img/blog/blog-6.jpg" alt="" /></a>
               </div>
               <div class="blog__item__text">
                 <ul>
-                  <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                  <li><i class="fa fa-comment-o"></i> 5</li>
+                  <li><i class="fa fa-calendar-o"></i> July 19,2020</li>
+                  <li><i class="fa fa-comment-o"></i> 14</li>
                 </ul>
-                <h5><a href="#">Visit the clean farm in the US</a></h5>
+                <h5><a href="blog6.html">What To Make For Dinner If You Only Have 10 Minutes</a></h5>
                 <p>
-                  Sed quia non numquam modi tempora indunt ut labore et dolore
-                  magnam aliquam quaerat
+                  We all have high hopes for what our regular weeknight dinners will look like, but when
+                  it comes
                 </p>
               </div>
             </div>

@@ -114,7 +114,7 @@
             <div class="col-lg-8 col-md-6">
                 <div class="shoping__cart__table">
 
-                        <table>
+                    <table>
                         <thead>
                         <tr>
                             <th class="shoping__product">Products</th>
@@ -127,44 +127,39 @@
                         </thead>
                         <tbody>
 
-                        <tr th:each="order : *{orderArrayList}">
+                        <tr th:each="order : *{orderArrayList}" th:class="'table'+${order.oid}">
                             <td class="shoping__cart__item">
                                 <a th:href="'/productDetail?productName='+${order.getPname()}">
-                                   <img height="100" th:src="${order.image}" width="100" th:alt="${order.pname}">
-                                   <h5 th:text="${order.pname}"></h5>
+                                    <img height="100" th:src="${order.image}" width="100" th:alt="${order.pname}">
+                                    <h5 th:text="${order.pname}"></h5>
                                 </a>
                             </td>
                             <td class="shoping__cart__unit" th:text="${order.unit}"></td>
 
                             <td class="shoping__cart__price" th:text="'$'+${order.price}">
                             </td>
-                            <form action="#" method="post" th:action="@{/cart}">
+                            <!--                            <form method="post" th:action="@{/cart}" th:id="'form'+${order.oid}">-->
                             <td class="shoping__cart__quantity">
                                 <div class="quantity">
                                     <div class="pro-qty">
                                         <label>
-                                            <input type="number" min="0" th:value="${order.quantity}" name="amount">
+                                            <!-- *****  -->
+                                            <input type="number" min="0" th:value="${order.quantity}" name="amount"
+                                                   th:onchange="'updateCart('+${order.price}+','+${order.oid}+')'"
+                                                   th:class="'number'+${order.oid}">
+                                            <input type="hidden" name="oid" th:value="${order.oid}">
+
                                         </label>
                                     </div>
                                 </div>
                             </td>
 
 
-                                <td class="shoping__cart__total">
-                                    <input type="text" th:value="'$'+${#numbers.formatDecimal(order.price*order.quantity,1,2)}" disabled
-                                           style="width: 4.05em">
-                                </td>
-
-                                <td>
-
-                                    <input type="submit" value="Update">
-                                    <input type="hidden" name="oid" th:value="${order.oid}">
-
-                                </td>
-                            </form>
-
-
-
+                            <td class="shoping__cart__total">
+                                <input type="text" th:value="'$'+${#numbers.formatDecimal(order.price*order.quantity,1,2)}" disabled
+                                       style="width: 4.05em">
+                            </td>
+                            <!--                            </form>-->
                         </tr>
 
                         </tbody>
@@ -172,41 +167,85 @@
                     </table>
 
 
+                </div>
             </div>
-        </div>
 
-            <div class="col-lg-1"></div>
+            <!-- *** update with AJAX *** -->
+            <script>
+                function updateCart(price,oid) {
+                    var amount = $(".number"+oid).val();
+                    if(amount===0||amount==="0"){
+                        $(".table"+oid).html("");
+                        $(".2table"+oid).html("");
+                    }
+                    var  dataObj=$.ajax({url:"/cartEdit?oid="+oid+"&amount="+amount,async:false,method:"post"});
+                    if(dataObj.responseJSON!==undefined){
+                        if(dataObj.responseJSON.code!==200){
+                            alert(dataObj.responseJSON.msg);
+                            $(".number"+oid).val(dataObj.responseJSON.max);
+                            updateCart(price,oid)
+                            return ;
+                        }
+                    }
+                    console.log(dataObj)
+                    var productTotalPrice=amount* price;
+                    $(".table"+oid+" .shoping__cart__total input").val("$"+productTotalPrice.toFixed(2));
+                    $(".2table"+oid+" input").val("$"+productTotalPrice.toFixed(2));
+
+                    var checkOrderObj=$(".checkout__order table input");
+                    var Subtotal=0.0;
+                    for(var i=0;i<checkOrderObj.length;i++){
+                        Subtotal+=parseFloat(checkOrderObj[i].value.replace("$",""));
+                    }
+                    $(".checkout__order__subtotal span").html("$"+Subtotal.toFixed(2))
+                    var gst= Subtotal.toFixed(2)/100*5;
+                    $(".gst").html("$"+gst.toFixed(2));
+                    $(".checkout__order__total span").html((gst+Subtotal).toFixed(2));
+
+                }
+            </script>
+
             <div class="col-lg-3 col-md-3">
                 <div class="checkout__order">
+
                     <h4>Your Order</h4>
 
                     <div class="checkout__order__products">Products <span>Total</span></div>
 
                     <table>
-                        <tr th:each="order: *{orderArrayList}">
+                        <tr class="checkout__order__products__row"
+                            th:each="order: *{orderArrayList}" th:class="'2table'+${order.oid}">
                             <td th:text="${order.pname}"></td>
-<td>
-    ------$
-</td>
-                            <td>
-                                <input type="text" th:value="'$'+${#numbers.formatDecimal(order.price*order.quantity,1,2)}" disabled
-                                       style="width: 4.05em">
-                            </td>
+
+                            <td>&nbsp;&nbsp;&nbsp;</td>
+                            <td>&nbsp;&nbsp;&nbsp;</td>
+                            <td>&nbsp;&nbsp;&nbsp;</td>
+                            <td>&nbsp;&nbsp;&nbsp;</td>
+                            <td>&nbsp;&nbsp;&nbsp;</td>
+
+
+                            <span><td>
+                                 <input type="text"
+                                        th:value="'$'+${#numbers.formatDecimal(order.price*order.quantity,1,2)}"
+                                        disabled
+                                        style="width: 4.20em">
+                            </td></span>
                         </tr>
+
+
                     </table>
+                    <!--                    <ul>-->
 
-<!--                    <ul>-->
+                    <!--                        <li th:each="order: *{orderArrayList}">-->
+                    <!--                            <p th:text="${order.pname}"></p>-->
+                    <!--                                <span style="width: 100px" th:text="${order.price}"></span>-->
+                    <!--                        </li>-->
 
-<!--                        <li th:each="order: *{orderArrayList}">-->
-<!--                            <p th:text="${order.pname}"></p>-->
-<!--                                <span style="width: 100px" th:text="${order.price}"></span>-->
-<!--                        </li>-->
-
-<!--                    </ul>-->
+                    <!--                    </ul>-->
 
                     <div class="checkout__order__subtotal">Subtotal <span th:text="${total}"></span></div>
                     <ul>
-                        <li>Gst 5% <span th:text="${gst}"> </span></li>
+                        <li>Gst 5% <span th:text="${gst}" class="gst"> </span></li>
                     </ul>
                     <div class="checkout__order__total">Total <span th:text="${finalTotal}"></span></div>
                     <div class="checkout__input__checkbox">
@@ -220,8 +259,8 @@
 
                 </div>
             </div>
-<br>
-    </div>
+            <br>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">

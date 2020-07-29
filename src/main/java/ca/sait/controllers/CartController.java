@@ -14,12 +14,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody; //*************** July 22
 
 import javax.servlet.http.HttpSession;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class CartController {
@@ -34,96 +33,79 @@ public class CartController {
 
     @GetMapping("/shoppingcart")
     public String showCartPage(ModelMap model, HttpSession session) {
-        String username = (String)session.getAttribute("username");
+        String username = (String) session.getAttribute("username");
 
-        model.addAttribute("loggedIn"," "+username);
-        model.addAttribute("usernameExist",username);
+        model.addAttribute("loggedIn", " " + username);
+        model.addAttribute("usernameExist", username);
         double total = 0;
         double gst = 0;
-        double finalTotal=0;
-        List<OrdersEntity> allOrders= ordersService.list();
+        double finalTotal = 0;
+        List<OrdersEntity> allOrders = ordersService.list();
         ArrayList<OrdersEntity> allCurrentCustomerOrder = new ArrayList<>();
-        for(OrdersEntity order:allOrders)
-        {
-            if(order.getUname().equals(username))
-            {
+        for (OrdersEntity order : allOrders) {
+            if (order.getUname().equals(username)) {
                 allCurrentCustomerOrder.add(order);
                 total += order.getPrice() * order.getQuantity();
             }
         }
 
-        for(OrdersEntity order:allCurrentCustomerOrder)
-        {
+        for (OrdersEntity order : allCurrentCustomerOrder) {
             QueryWrapper<ProductsEntity> queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("pname", order.getPname());
             ProductsEntity product = productsService.getOne(queryWrapper);
-            if(product==null)
-            {
-                model.addAttribute("message","Error updating image for product"+"\n"+"Please contact developers for assistance.");
-            }
-            else {
-                if(order.getImage()!=null)
-                {
+            if (product == null) {
+                model.addAttribute("message", "Error updating image for product" + "\n" + "Please contact developers for assistance.");
+            } else {
+                if (order.getImage() != null) {
 
-                }
-                else {
+                } else {
                     order.setImage(product.getImage());
-                    if(ordersService.saveOrUpdate(order))
-                    {
+                    if (ordersService.saveOrUpdate(order)) {
 
-                    }
-                    else
-                    {
+                    } else {
                         model.addAttribute("message", "Error updating image for product. Please contact developers for assistance.");
                     }
                 }
             }
             //ProductsEntity product = productsService.getById(order.getPname());
         }
-        String totalAfterFormat=df.format(total);
-        gst = (Double.parseDouble(totalAfterFormat)*5.0)/100.0;
-        String gstAfterFormat=df.format(gst);
-        finalTotal = total+gst;
-        String finalAfterFormat=df.format(finalTotal);
+        String totalAfterFormat = df.format(total);
+        gst = (Double.parseDouble(totalAfterFormat) * 5.0) / 100.0;
+        String gstAfterFormat = df.format(gst);
+        finalTotal = total + gst;
+        String finalAfterFormat = df.format(finalTotal);
 
         model.addAttribute("orderArrayList", allCurrentCustomerOrder);
-        model.addAttribute("total","$"+totalAfterFormat);
-        model.addAttribute("gst","$"+gstAfterFormat);
-        model.addAttribute("finalTotal","$"+finalAfterFormat);
+        model.addAttribute("total", "$" + totalAfterFormat);
+        model.addAttribute("gst", "$" + gstAfterFormat);
+        model.addAttribute("finalTotal", "$" + finalAfterFormat);
 
         return "customer/shop-cart";
     }
 
     @GetMapping("/shopdetail")
-    public String showDetail(ModelMap model, HttpSession session)
-    {
-        String username = (String)session.getAttribute("username");
-        if( username == null || username.equals("") )
-        {
+    public String showDetail(ModelMap model, HttpSession session) {
+        String username = (String) session.getAttribute("username");
+        if (username == null || username.equals("")) {
 
+        } else {
+            model.addAttribute("loggedIn", " " + username);
         }
-        else
-        {
-            model.addAttribute("loggedIn"," "+username);
-        }
-        model.addAttribute("usernameExist",username);
+        model.addAttribute("usernameExist", username);
         return "customer/shop-details";
     }
 
     @PostMapping("/cart")
-    public String updateOrder(@RequestParam int amount, @RequestParam int oid, ModelMap model, HttpSession session)
-    {
+    public String updateOrder(@RequestParam int amount, @RequestParam int oid, ModelMap model, HttpSession session) {
         OrdersEntity updatedOrder = ordersService.getById(oid);
-        if(updatedOrder==null)
-        {
-            model.addAttribute("message","Error: Order doesn't exist. Please refresh page");
+        if (updatedOrder == null) {
+            model.addAttribute("message", "Error: Order doesn't exist. Please refresh page");
             return "customer/shop-cart";
-        }
-        else {
+        } else {
 
-            if (amount==0) {
+            if (amount == 0) {
                 ordersService.removeById(oid);
-                model.addAttribute("message","Item removed.");
+                model.addAttribute("message", "Item removed.");
             } else {
 
 
@@ -131,7 +113,7 @@ public class CartController {
                 queryWrapper.eq("pname", updatedOrder.getPname());
                 ProductsEntity product = productsService.getOne(queryWrapper);
                 if (amount > product.getStock()) {
-                    model.addAttribute("message", "Amount exceeds stock. Stock: " + product.getStock()+" "+product.getUnit());
+                    model.addAttribute("message", "Amount exceeds stock. Stock: " + product.getStock() + " " + product.getUnit());
                 } else {
                     updatedOrder.setQuantity(amount);
                     if (ordersService.saveOrUpdate(updatedOrder)) {
@@ -143,145 +125,204 @@ public class CartController {
             }
         }
         String username = (String) session.getAttribute("username");
-        List<OrdersEntity> allOrders= ordersService.list();
+        List<OrdersEntity> allOrders = ordersService.list();
         ArrayList<OrdersEntity> allCurrentCustomerOrder = new ArrayList<>();
         double total = 0;
         double gst = 0;
-        double finalTotal=0;
-        for(OrdersEntity order:allOrders)
-        {
-            if(order.getUname().equals(username))
-            {
+        double finalTotal = 0;
+        for (OrdersEntity order : allOrders) {
+            if (order.getUname().equals(username)) {
 
                 allCurrentCustomerOrder.add(order);
                 total += order.getPrice() * order.getQuantity();
             }
         }
-        for(OrdersEntity order:allCurrentCustomerOrder)
-        {
+        for (OrdersEntity order : allCurrentCustomerOrder) {
             QueryWrapper<ProductsEntity> queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("pname", order.getPname());
             ProductsEntity product = productsService.getOne(queryWrapper);
-            if(product==null)
-            {
-                model.addAttribute("message","Error updating image for product"+"\n"+"Please contact developers for assistance.");
+            if (product == null) {
+                model.addAttribute("message", "Error updating image for product" + "\n" + "Please contact developers for assistance.");
 
-            }
-            else {
-                if(order.getImage()!=null)
-                {
+            } else {
+                if (order.getImage() != null) {
 
-                }
-                else {
+                } else {
                     order.setImage(product.getImage());
-                    if(ordersService.saveOrUpdate(order))
-                    {
+                    if (ordersService.saveOrUpdate(order)) {
 
-                    }
-                    else
-                    {
+                    } else {
                         model.addAttribute("message", "Error updating image for product. Please contact developers for assistance.");
                     }
                 }
-                }
+            }
             //ProductsEntity product = productsService.getById(order.getPname());
         }
-        String totalAfterFormat=df.format(total);
-        gst = (total*5)/100;
-        String gstAfterFormat= df.format(gst);
-        finalTotal = total+gst;
-        String finalAfterFormat=df.format(finalTotal);
+        String totalAfterFormat = df.format(total);
+        gst = (total * 5) / 100;
+        String gstAfterFormat = df.format(gst);
+        finalTotal = total + gst;
+        String finalAfterFormat = df.format(finalTotal);
 
         model.addAttribute("orderArrayList", allCurrentCustomerOrder);
-        model.addAttribute("total","$"+totalAfterFormat);
-        model.addAttribute("gst","$"+gstAfterFormat);
-        model.addAttribute("finalTotal","$"+finalAfterFormat);
+        model.addAttribute("total", "$" + totalAfterFormat);
+        model.addAttribute("gst", "$" + gstAfterFormat);
+        model.addAttribute("finalTotal", "$" + finalAfterFormat);
 
         model.addAttribute("orderArrayList", allCurrentCustomerOrder);
-        model.addAttribute("loggedIn", " "+username);
+        model.addAttribute("loggedIn", " " + username);
         model.addAttribute("usernameExist", username);
         return "customer/shop-cart";
     }
+
+
+
+    //July 23
+    @ResponseBody
+    @PostMapping("/cartEdit")
+    public Map<String, Object> cartEdit(@RequestParam int amount, @RequestParam int oid,HttpSession session) {
+        Map<String, Object> map = new HashMap<>();
+        OrdersEntity updatedOrder = ordersService.getById(oid);
+        map.put("code",200);
+        if (updatedOrder == null) {
+            map.put("msg", "Error: Order doesn't exist. Please refresh page");
+            return map;
+        } else {
+
+            if (amount == 0) {
+                ordersService.removeById(oid);
+                map.put("msg", "Item removed.");
+            } else {
+                QueryWrapper<ProductsEntity> queryWrapper = new QueryWrapper<>();
+                queryWrapper.eq("pname", updatedOrder.getPname());
+                ProductsEntity product = productsService.getOne(queryWrapper);
+                if (amount > product.getStock()) {
+                    map.put("code",500);
+                    map.put("max",product.getStock());
+                    map.put("msg", "Amount exceeds stock. Stock: " + product.getStock() + " " + product.getUnit());
+                } else {
+                    updatedOrder.setQuantity(amount);
+                    if (ordersService.saveOrUpdate(updatedOrder)) {
+                        map.put("msg","Updated.");
+                    } else {
+                        map.put("msg", "Failed to update. Please contact developers for assistance");
+                    }
+                }
+            }
+        }
+        String username = (String) session.getAttribute("username");
+        List<OrdersEntity> allOrders = ordersService.list();
+        ArrayList<OrdersEntity> allCurrentCustomerOrder = new ArrayList<>();
+//        double total = 0;
+//        double gst = 0;
+//        double finalTotal = 0;
+        for (OrdersEntity order : allOrders) {
+            if (order.getUname().equals(username)) {
+
+                allCurrentCustomerOrder.add(order);
+//                total += order.getPrice() * order.getQuantity();
+            }
+        }
+        for (OrdersEntity order : allCurrentCustomerOrder) {
+            QueryWrapper<ProductsEntity> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("pname", order.getPname());
+            ProductsEntity product = productsService.getOne(queryWrapper);
+            if (product == null) {
+                map.put("msg", "Error updating image for product" + "\n" + "Please contact developers for assistance.");
+
+            } else {
+                if (order.getImage() != null) {
+
+                } else {
+                    order.setImage(product.getImage());
+                    if (ordersService.saveOrUpdate(order)) {
+
+                    } else {
+                        map.put("msg", "Error updating image for product. Please contact developers for assistance.");
+                    }
+                }
+            }
+        }
+//        String totalAfterFormat = df.format(total);
+//        gst = (total * 5) / 100;
+//        String gstAfterFormat = df.format(gst);
+//        finalTotal = total + gst;
+//        String finalAfterFormat = df.format(finalTotal);
+
+//        model.addAttribute("orderArrayList", allCurrentCustomerOrder);
+//        model.addAttribute("total", "$" + totalAfterFormat);
+//        model.addAttribute("gst", "$" + gstAfterFormat);
+//        model.addAttribute("finalTotal", "$" + finalAfterFormat);
+//
+//        model.addAttribute("orderArrayList", allCurrentCustomerOrder);
+//        model.addAttribute("loggedIn", " " + username);
+//        model.addAttribute("usernameExist", username);
+        return map;
+    }
+
 
     @PostMapping("/deleteOrder")
-    public String updateOrder(@RequestParam int oid, ModelMap model,  HttpSession session)
-    {
+    public String updateOrder(@RequestParam int oid, ModelMap model, HttpSession session) {
         String username = (String) session.getAttribute("username");
-        model.addAttribute("loggedIn", " "+username);
+        model.addAttribute("loggedIn", " " + username);
         model.addAttribute("usernameExist", username);
         OrdersEntity updatedOrder = ordersService.getById(oid);
-        if(updatedOrder==null)
-        {
-            model.addAttribute("message","Error: Order doesn't exist. Please refresh page");
-        }
-        else {
-            if(ordersService.removeById(oid))
-            {
-                model.addAttribute("message","Order deleted.");
-            }
-            else
-            {
-                model.addAttribute("message","Failed to delete order. Please contact developers for assistance.");
+        if (updatedOrder == null) {
+            model.addAttribute("message", "Error: Order doesn't exist. Please refresh page");
+        } else {
+            if (ordersService.removeById(oid)) {
+                model.addAttribute("message", "Order deleted.");
+            } else {
+                model.addAttribute("message", "Failed to delete order. Please contact developers for assistance.");
 
             }
         }
 
         double total = 0;
         double gst = 0;
-        double finalTotal=0;
-        List<OrdersEntity> allOrders= ordersService.list();
+        double finalTotal = 0;
+        List<OrdersEntity> allOrders = ordersService.list();
         ArrayList<OrdersEntity> allCurrentCustomerOrder = new ArrayList<>();
-        for(OrdersEntity order:allOrders)
-        {
-            if(order.getUname().equals(username))
-            {
+        for (OrdersEntity order : allOrders) {
+            if (order.getUname().equals(username)) {
                 allCurrentCustomerOrder.add(order);
                 total += order.getPrice() * order.getQuantity();
             }
         }
 
-        for(OrdersEntity order:allCurrentCustomerOrder)
-        {
+        for (OrdersEntity order : allCurrentCustomerOrder) {
             QueryWrapper<ProductsEntity> queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("pname", order.getPname());
             ProductsEntity product = productsService.getOne(queryWrapper);
-            if(product==null)
-            {
-                model.addAttribute("message","Error updating image for product"+"\n"+"Please contact developers for assistance.");
-            }
-            else {
-                if(order.getImage()!=null)
-                {
+            if (product == null) {
+                model.addAttribute("message", "Error updating image for product" + "\n" + "Please contact developers for assistance.");
+            } else {
+                if (order.getImage() != null) {
 
-                }
-                else {
+                } else {
                     order.setImage(product.getImage());
-                    if(ordersService.saveOrUpdate(order))
-                    {
+                    if (ordersService.saveOrUpdate(order)) {
 
-                    }
-                    else
-                    {
+                    } else {
                         model.addAttribute("message", "Error updating image for product. Please contact developers for assistance.");
                     }
                 }
             }
             //ProductsEntity product = productsService.getById(order.getPname());
         }
-        String totalAfterFormat=df.format(total);
-        gst = (Double.parseDouble(totalAfterFormat)*5.0)/100.0;
-        String gstAfterFormat=df.format(gst);
-        finalTotal = total+gst;
-        String finalAfterFormat=df.format(finalTotal);
+        String totalAfterFormat = df.format(total);
+        gst = (Double.parseDouble(totalAfterFormat) * 5.0) / 100.0;
+        String gstAfterFormat = df.format(gst);
+        finalTotal = total + gst;
+        String finalAfterFormat = df.format(finalTotal);
 
         model.addAttribute("orderArrayList", allCurrentCustomerOrder);
-        model.addAttribute("total","$"+totalAfterFormat);
-        model.addAttribute("gst","$"+gstAfterFormat);
-        model.addAttribute("finalTotal","$"+finalAfterFormat);
+        model.addAttribute("total", "$" + totalAfterFormat);
+        model.addAttribute("gst", "$" + gstAfterFormat);
+        model.addAttribute("finalTotal", "$" + finalAfterFormat);
         return "customer/shop-cart";
 
     }
-
 
 
 }

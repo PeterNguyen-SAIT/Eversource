@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,21 +13,11 @@
     />
 
     <!-- Css Styles -->
-    <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 </head>
-<style type="text/css">
-    a:hover{
-        color: #0c5460;
-    }
-</style>
 <body>
 <!-- Page Preloder -->
 <div id="preloder">
@@ -46,6 +36,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8">
+
                     <div class="header__top__right">
                         <div th:if="${usernameExist} != null">
                             <div class="header__top__right__account">
@@ -81,14 +72,16 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="header__logo">
-                    <a href="/"><img src="img/logo.png" alt="" height="50" /></a>
+                    <a href="/"
+                    ><img src="img/logo.png" alt="" height="50"
+                    /></a>
                 </div>
             </div>
             <div class="col-lg-8 col-md-8">
                 <nav class="header__menu">
                     <ul>
                         <li><a href="/homepage">About us</a></li>
-                        <li class="active"><a href="/product">Store</a></li>
+                        <li><a href="/product">Store</a></li>
                         <li><a href="/blog">Blog</a></li>
                         <li><a href="/event">Event</a></li>
                         <li><a href="/contact">Contact</a></li>
@@ -100,103 +93,62 @@
 </header>
 <!-- Header Section End -->
 
+
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="img/greenhouse.jpg">
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Products</h2>
-                </div>
+                    <h2><Bloge>The Blog</Bloge></h2></div>
             </div>
         </div>
     </div>
 </section>
 <!-- Breadcrumb Section End -->
 
-<section class="product spad">
+<!-- Blog Section Begin -->
+
+<section class="from-blog">
     <div class="container">
-        <!--code in products.txt from PN-->
-        <h2 class="text-md-center" th:text="${message}"></h2>
-        <table class="table">
-            <thead>
-            <tr style="font-size:larger">
-                <th scope="col"> </th>
-                <th scope="col"> </th>
-                <th scope="col">Product </th>
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="cover80">
 
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col"></th>
-
-            </tr>
-            </thead>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <!--  <tr  th:each="product : *{productsEntityList}">  -->
-                    <tbody
-                            th:each="product : *{entityPage.records}"> <!--  ***** -->
-                    <tr>
-                        <td> &nbsp;&nbsp;&nbsp;</td>
-                        <td>
-                        <a href="" th:href="'/productDetail?productId='+${product.pid}"
-                        ><img height="110" th:src="${product.image}"  width="120"
-                              th:alt="${product.pname}"
-                        /></a>
-                    </td>
-                        <td> <br><br>
-                            <a href=""th:href="'/productDetail?productId='+${product.pid}"
-                            ><span th:text="${product.pname}"></span
-                            ></a>
-                            <a  href="" th:href="'/productDetail?productId='+${product.pid}">
-                                <span th:text="${product.cname}"></span></a>
-                        </td>
-
-                        <td><br><br>
-                            $<span th:text="${product.price}"></span></td>
-                        <td> <br><br>
-                            <form action="post" th:action="@{/productId}" method="post">
-                                <input
-                                        type="hidden"
-                                        th:value="${product.pid}"
-                                        name="productSource"
-                                />
-                                <!--<button class="shopping-btn"  id="minus">-</button>-->
-                                <input
-                                        type="number"
-                                        value="1"
-                                        min="1"
-                                        th:max="${product.stock}"
-                                        id="productQuantity"
-                                        style="width: 60px;"
-                                        pattern="[0-9]{1,3}"
-                                        name="productQuantity" />
-
-                        <td><br><br>
-                            <input type="submit" value="Add to Cart" /></td>
-
-                        </form>
-
-                    </tr></tbody>
+                    <h3 class="center">6 ways to prepare breakfast for 30</h3>
+                    <br>
+                    <p class="italic"> From homemade gravlax to indulgent huevos rancheros, The Kitchen's Rise and Shine episode was all about breakfast this morning, and while it's often called the most-important meal of the day, for better or worse, some days simply don't allow for a long, leisurely morning meal. But that doesn't mean you have to forgo breakfast altogether; the key is to look to ready-to-go dishes that are both quick to prepare and easy to pack. Read on below for wake-up-worthy inspiration from Alton Brown, The Pioneer Woman and more of your favorite chefs.
+                    </p>
+                    Ree Drummond keeps it classic in her Breakfast of Champions Sandwich, built on buttery English muffins and griddled with thinly sliced ham, gooey just-melted cheese and an egg. "Immediately wrap them in a foil bag to lock in the heat," Ree advises of packing up these sandwiches for on-the-go eating.
+                    <br>
+                    <br>
+                    While leftover delivery pizza is often best eaten for breakfast the next day, there's a fresher option for pizza in the morning: English-Muffin Breakfast Pizza from Food Network Magazine. This single-serving recipe boasts an English muffin in place of a traditional crust, plus tomato and Canadian bacon toppings, and a blanket of mozzarella for added richness.
+                    <br>
+                    <br>
+                    If you'd prefer to drink your breakfast instead, check out this Peach Pie Smoothie, a surprisingly healthy, hands-off recipe that's ready in a hurry. Let the blender do the work of whirling together the yogurt, a squeeze of honey, frozen peaches and fragrant spices for a smooth, refreshing smoothie.
+                    <br>
+                    </p>
+                    <img class="commonblog" src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/2/10/0/fnd_portable-breakfasts.jpg.rend.hgtvcom.1280.960.suffix/1423583731628.jpeg">
+                    <p>
+                    <br>
+                    Breakfast in five minutes? Yes, please. It all comes down to layering in Tyler Florence's Yogurt-Berry Parfait, boasting a base of tangy yogurt, plus heaping handfuls of your favorite fruits and crunchy granola for welcome texture.
+                    <br>
+                    <br>
+                    The beauty of Alton Brown's Blueberry Muffins is that they'll keep well in an airtight container for two to three days. Make a batch of these moist muffins on a Sunday, then grab a muffin on the way out the door on a hectic weekday morning.
+                    <br>
+                    <br>
+                    Wrapped up tight with traditional burrito fixings like cool avocado, creamy cheddar cheese and Food Network Kitchen's homemade Pico de Gallo, these Breakfast Burritos get the morning treatment with a hearty filling of fluffy scrambled eggs and crispy hash browns. "All of the elements are snugly wrapped in a tortilla, keeping everything warmer longer when you're taking it to go," the chefs of Food Network Kitchen say.
+                    <br>
+                    <br>
+                    Reference:
+                    <br>
+                    www.foodnetwork.com/fn-dish/recipes/2015/02/dont-skip-it-pack-it-6-ways-to-take-your-breakfast-on-the-go
                 </div>
             </div>
-
-        </table>
-
-        <!-- pagination nav bar    #of items per page: limit in showForm method in VegetableController.java      -->
-
-        <nav aria-label="Page navigation example">
-            <ul class="pagination" th:object="${entityPage}" >
-                <li class="page-item" th:each="i:${#numbers.sequence(1, entityPage.pages)}" >
-                    <a class="page-link" th:href="'/product?page='+${i}" th:text="${i}">
-
-                    </a></li>
-            </ul>
-        </nav>
-
+        </div>
     </div>
 </section>
+<!-- Blog Section End -->
 
 <!-- Footer Section Begin -->
 <footer class="footer spad">

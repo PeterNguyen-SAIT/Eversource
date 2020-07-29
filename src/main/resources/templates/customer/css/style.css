@@ -622,14 +622,8 @@ ol {
   line-height: 82px;
 }
 
-.homepagebackground {
-  background-image: url("img/greenhouse.jpg");
 
-  background-color: #ffffff;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
+
 
 .hometextbox {
   background-color: #ffffff;
@@ -917,6 +911,56 @@ ol {
 .from-blog__title {
   margin-bottom: 70px;
 }
+
+.cyan{
+  color: darkred;
+  font-style: italic;
+
+}
+
+img.blog {
+  float: left;
+  width: 200px;
+  height: 200px;
+  align-items: left;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  transition-duration: 1s;
+}
+
+img.commonblog {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+img.blog:hover {
+
+  position:absolute;
+  transform: scale(1.25);
+
+  /* source: https://css-tricks.com/forums/topic/images-scale-on-hover-but-very-glitchy-and-not-positioning-well*/
+}
+
+.cover80{
+  width: 80%;
+  margin-left:auto;
+  margin-right:auto;
+
+}
+
+.center {
+  text-align: center
+}
+
+.italic{
+  font-style: italic;
+
+}
+
+
 
 /*---------------------
   Breadcrumb
@@ -3147,6 +3191,19 @@ ol {
 
     .shoping__cart__btns {
       text-align: center;
+
+
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 13px 30px 12px;
+    background: #7fad39;
+    border: none;
+    align-content: end;
+
+
     }
 
     .primary-btn.cart-btn.cart-btn-right {
@@ -3186,4 +3243,4 @@ ol {
       font-size: 24px;
     }
   }
-}
+

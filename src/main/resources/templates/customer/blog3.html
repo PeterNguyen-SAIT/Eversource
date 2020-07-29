@@ -13,21 +13,14 @@
     />
 
     <!-- Css Styles -->
-    <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Pompiere&display=swap" rel="stylesheet">
+
 </head>
-<style type="text/css">
-    a:hover{
-        color: #0c5460;
-    }
-</style>
+
 <body>
 <!-- Page Preloder -->
 <div id="preloder">
@@ -46,6 +39,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8">
+
                     <div class="header__top__right">
                         <div th:if="${usernameExist} != null">
                             <div class="header__top__right__account">
@@ -81,14 +75,16 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="header__logo">
-                    <a href="/"><img src="img/logo.png" alt="" height="50" /></a>
+                    <a href="/"
+                    ><img src="img/logo.png" alt="" height="50"
+                    /></a>
                 </div>
             </div>
             <div class="col-lg-8 col-md-8">
                 <nav class="header__menu">
                     <ul>
                         <li><a href="/homepage">About us</a></li>
-                        <li class="active"><a href="/product">Store</a></li>
+                        <li><a href="/product">Store</a></li>
                         <li><a href="/blog">Blog</a></li>
                         <li><a href="/event">Event</a></li>
                         <li><a href="/contact">Contact</a></li>
@@ -100,103 +96,71 @@
 </header>
 <!-- Header Section End -->
 
+
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="img/greenhouse.jpg">
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Products</h2>
-                </div>
+                    <h2><Bloge>The Blog</Bloge></h2></div>
             </div>
         </div>
     </div>
 </section>
 <!-- Breadcrumb Section End -->
 
-<section class="product spad">
-    <div class="container">
-        <!--code in products.txt from PN-->
-        <h2 class="text-md-center" th:text="${message}"></h2>
-        <table class="table">
-            <thead>
-            <tr style="font-size:larger">
-                <th scope="col"> </th>
-                <th scope="col"> </th>
-                <th scope="col">Product </th>
+<!-- Blog Section Begin -->
 
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col"></th>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="cover80">
+                <h3 class ="center">How to Store Fresh Orange Slices </h3>
+                <br>
+                <p class ="italic">
+                    Orange slices only remain fresh for a few hours after peeling, so enjoy oranges soon after removing the rind.
+                    If you don't eat the oranges, follow specific guidelines to store them in the fridge or freezer for later use.
+                    Refrigerated orange slices can keep for several days and frozen slices last for months. The Sunkist website says
+                    not to freeze whole oranges, but you can freeze slices or grated peels to use for orange zest later on.</p>
+                <h5> Step 1  </h5>
+                <p> Grate orange zest from the peel of the orange with a cheese grater first, if you plan on using zest for recipes now
+                    or later on. Place zest in plastic bags and store in the fridge for use within one week. Keep these bags in the freezer,
+                    if you plan on using the zest for future recipes in the upcoming months. It's always easier to remove zest from a whole
+                    orange rather than peeled rinds. Skip this step if you don't plan on using the zest at all. Only grate lightly, so the
+                    majority of the peal still remains intact.
+                </p>
+                <h5> Step 2 </h5>
+                <p>Peel the entire orange and discard what's left of the peel or put it in your compost bin.
+                </p>
+                <img class ="commonblog" src="https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/difference-between-tangerines-oranges-1296x728.jpg?w=1155&h=1528">
 
-            </tr>
-            </thead>
+                <h5> Step 3 </h5>
+                <p>Eat the orange slices right away or place them in plastic containers for later use.
+                </p>
+                <h5> Step 4 </h5>
+                <p>
+                    Place packaged orange slices in the fridge, if you plan on enjoying them within one week.
+                    Whole, unpeeled oranges can stay fresh in the refrigerator for two weeks, so you might want
+                    to keep most of your orange peels in tact until you know you are ready to enjoy them.
+                </p>
+                <h5>  Step 5 </h5>
+                <p> Place the containers containing the slices in the freezer if you want to eat the orange
+                    slices within the next seven months.
+                </p>
+                <br>
+                references:
+                <br>
+                www.ehow.com/how_8635756_store-fresh-orange-slices.html
+                <br>
+                www.healthline.com/nutrition/tangerine-vs-orange
 
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <!--  <tr  th:each="product : *{productsEntityList}">  -->
-                    <tbody
-                            th:each="product : *{entityPage.records}"> <!--  ***** -->
-                    <tr>
-                        <td> &nbsp;&nbsp;&nbsp;</td>
-                        <td>
-                        <a href="" th:href="'/productDetail?productId='+${product.pid}"
-                        ><img height="110" th:src="${product.image}"  width="120"
-                              th:alt="${product.pname}"
-                        /></a>
-                    </td>
-                        <td> <br><br>
-                            <a href=""th:href="'/productDetail?productId='+${product.pid}"
-                            ><span th:text="${product.pname}"></span
-                            ></a>
-                            <a  href="" th:href="'/productDetail?productId='+${product.pid}">
-                                <span th:text="${product.cname}"></span></a>
-                        </td>
-
-                        <td><br><br>
-                            $<span th:text="${product.price}"></span></td>
-                        <td> <br><br>
-                            <form action="post" th:action="@{/productId}" method="post">
-                                <input
-                                        type="hidden"
-                                        th:value="${product.pid}"
-                                        name="productSource"
-                                />
-                                <!--<button class="shopping-btn"  id="minus">-</button>-->
-                                <input
-                                        type="number"
-                                        value="1"
-                                        min="1"
-                                        th:max="${product.stock}"
-                                        id="productQuantity"
-                                        style="width: 60px;"
-                                        pattern="[0-9]{1,3}"
-                                        name="productQuantity" />
-
-                        <td><br><br>
-                            <input type="submit" value="Add to Cart" /></td>
-
-                        </form>
-
-                    </tr></tbody>
-                </div>
             </div>
-
-        </table>
-
-        <!-- pagination nav bar    #of items per page: limit in showForm method in VegetableController.java      -->
-
-        <nav aria-label="Page navigation example">
-            <ul class="pagination" th:object="${entityPage}" >
-                <li class="page-item" th:each="i:${#numbers.sequence(1, entityPage.pages)}" >
-                    <a class="page-link" th:href="'/product?page='+${i}" th:text="${i}">
-
-                    </a></li>
-            </ul>
-        </nav>
-
+        </div>
     </div>
-</section>
+</div>
+
+<!-- Blog Section End -->
 
 <!-- Footer Section Begin -->
 <footer class="footer spad">
@@ -223,6 +187,11 @@
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/mixitup.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
