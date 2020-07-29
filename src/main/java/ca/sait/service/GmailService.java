@@ -56,8 +56,8 @@ public class GmailService {
 
     public static void sendMail2(String to, String subject, String body, boolean bodyIsHTML) throws MessagingException, NamingException {
         //Context env = (Context)new InitialContext().lookup("java:comp/env");
-        String username = "";//(String)env.lookup("webmail-username");
-        String password = "";//(String)env.lookup("webmail-password");
+        String username = "AdminEmail@gmail.com";//(String)env.lookup("webmail-username");
+        String password = "AdminEmailPassword";//(String)env.lookup("webmail-password");
 
         Properties props = new Properties();
         props.put("mail.transport.protocol", "smtps");

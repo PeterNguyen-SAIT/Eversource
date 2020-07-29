@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eversource Farm</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="header__top__left">
+                        <ul>
+                            <li>Welcome to Eversource Farm Website</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8">
+
+                    <div class="header__top__right">
+                        <div th:if="${usernameExist} != null">
+                            <div class="header__top__right__account">
+                                <i class="fa fa-shopping-cart" th:text="${loggedIn}"></i>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="/shoppingcart">Shopping Cart</a></li>
+                                    <li><a href="/history">Purchase History</a></li>
+                                    <li><a href="/account">Account</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__logout">
+                                <a href="/logout"><i class="fa fa-sign-out"></i>Logout</a>
+                            </div>
+                        </div>
+                        <div th:if="${usernameExist} == null">
+                            <div class="header__top__right__login">
+                                <a href="/login"><i class="fa fa-user"></i> Login</a>
+
+                            </div>
+                            <div class="header__top__right__signup">
+                                <a href="/register"><i class="fa fa-sign-in"></i>
+                                    Sign up</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="header__logo">
+                    <a href="/"><img src="img/logo.png" alt="" height="50"  ></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8">
+                <nav class="header__menu" >
+                    <ul>
+                        <li><a href="/homepage">About us</a></li>
+                        <li><a href="/product">Store</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/event">Event</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Forget Username</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Forget Username Section Begin -->
+
+<h2 class="text-md-center" th:text="${message}"></h2>
+
+<section class="checkout spad">
+    <div class="container">
+        <div class="row">
+        </div>
+        <div class="checkout__form">
+            <div class="col-lg-4"></div>
+
+            <form method="post" action="/lostUsername">
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-8 col-md-8">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="checkout__input">
+                                    <p>Email:<span>*</span></p>
+                                    <label>
+                                        <input type="text" name="email" class="form-control" required>
+                                    </label>
+                                </div>
+
+                                    <input type="submit" class="login-btn" value="Submit">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <br>
+            </form>
+
+
+            <br/>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer Section Begin -->
+<footer class="footer spad">
+    <div class="col-lg-12">
+        <div class="footer__copyright">
+            <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Eversource Farm. All Rights Reserved.
+            </p></div>
+            <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+        </div>
+    </div>
+
+
+</footer>
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>

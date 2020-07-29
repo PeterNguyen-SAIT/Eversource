@@ -23,8 +23,8 @@ public class ActivateController {
 
         }
         else {
-            String checkuuid = UUID.randomUUID().toString();
-            if(uuid==null || !uuid.equals(checkuuid)) {
+            //String checkuuid = UUID.randomUUID().toString();
+            if(uuid==null) {
                 model.addAttribute("message", "Error when activate account.");
             }
             else {

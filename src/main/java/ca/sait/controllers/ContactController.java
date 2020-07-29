@@ -1,8 +1,10 @@
 package ca.sait.controllers;
 
+import ca.sait.entity.UsersEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
 
@@ -20,8 +22,13 @@ public class ContactController {
         {
             model.addAttribute("loggedIn"," "+username);
         }
+        model.addAttribute("usersEntity",new UsersEntity());
         model.addAttribute("usernameExist",username);
         return "customer/contact";
+    }
+    @PostMapping("/contact")
+    public String sendContentMail(ModelMap model, String content, UsersEntity usersEntity) {
+        return "test/errorPage_404";
     }
 
 

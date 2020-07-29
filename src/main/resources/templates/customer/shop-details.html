@@ -166,7 +166,7 @@
                             <span>Coming soon.. </span> <!--   -->
                         </div>
                         <div th:if="*{discount gt 0}"> <!-- connect to discounts table or hard coded -->
-                            <span th:text="*{discount}" > </span>
+                            <span th:text="*{#numbers.formatDecimal(price*(1-discount))}" > </span>
                         </div>
 
 
