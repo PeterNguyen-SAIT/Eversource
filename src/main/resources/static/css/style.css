@@ -138,6 +138,18 @@ ol {
   padding-top: 10px;
 }
 
+.checkout_spad_contact{ /*--- -- July 29 ---*/
+  padding-left: 30px;
+  margin-top: 60px;
+
+}
+
+.checkout__input_contact p { /*--- -- July 29 ---*/
+  margin-left: 25px;
+  font-size: 18px;
+  color: #1c1c1c;
+  font-weight: 500;
+}
 
 .text-white h1,
 .text-white h2,
@@ -1528,6 +1540,18 @@ img.blog:hover {
   text-decoration: underline;
   color: #999999;
 }
+
+/*-----------------0729-------------------*/
+.checkout__input {
+  margin-bottom: 15px;
+}
+
+.checkout__input p {
+  margin-bottom: 5px;
+}
+
+
+/*----------------------------------------*/
 
 .checkout__input__checkbox {
   margin-bottom: 10px;
