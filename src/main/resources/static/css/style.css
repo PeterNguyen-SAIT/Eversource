@@ -809,7 +809,17 @@ ol {
   opacity: 0.1;
   content: "";
 }
+/*------- for blog reference   July 30-----*/
+.blog__ref {
+  color: black;
+}
+  .blog__ref  a:hover{
+    color: #0c5460;
+  }
 
+.blog__ref  a {
+  color: saddlebrown;
+}
 
 /*---------------------
   Form BLog
