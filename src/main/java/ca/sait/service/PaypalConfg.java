@@ -11,6 +11,10 @@ import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.OAuthTokenCredential;
 import com.paypal.base.rest.PayPalRESTException;
 
+/**
+ * This class will connect to PayPal gateway using property files in application.yml.
+ * @author Peter Nguyen
+ */
 @Configuration
 class PaypalConfig {
 

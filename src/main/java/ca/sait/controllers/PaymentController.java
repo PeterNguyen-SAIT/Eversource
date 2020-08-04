@@ -41,55 +41,6 @@ class PaypalController {
     public static final String SUCCESS_URL = "pay/success";
     public static final String CANCEL_URL = "pay/cancel";
 
-//    @PostMapping("/payment")
-//    public String showPaymentPage(ModelMap model, HttpSession session) {
-//
-//        String username = (String) session.getAttribute("username");
-//        double total = 0;
-//        double gst = 0;
-//        double finalTotal = 0;
-//        List<OrdersEntity> allOrders = ordersService.list();
-//        ArrayList<OrdersEntity> allCurrentCustomerOrder = new ArrayList<>();
-//        for (OrdersEntity order : allOrders) {
-//            if (order.getUname().equals(username)) {
-//                allCurrentCustomerOrder.add(order);
-//                total += order.getPrice() * order.getQuantity();
-//            }
-//        }
-//
-//        for (OrdersEntity order : allCurrentCustomerOrder) {
-//            QueryWrapper<ProductsEntity> queryWrapper = new QueryWrapper<>();
-//            queryWrapper.eq("pname", order.getPname());
-//            ProductsEntity product = productsService.getOne(queryWrapper);
-//            if (product == null) {
-//                model.addAttribute("message", "Error updating image for product" + "\n" + "Please contact developers for assistance.");
-//            } else {
-//                if (order.getImage() != null) {
-//
-//                } else {
-//                    order.setImage(product.getImage());
-//                    if (ordersService.saveOrUpdate(order)) {
-//
-//                    } else {
-//                        model.addAttribute("message", "Error updating image for product. Please contact developers for assistance.");
-//                    }
-//                }
-//            }
-//            //ProductsEntity product = productsService.getById(order.getPname());
-//        }
-//        String totalAfterFormat = df.format(total);
-//        gst = (Double.parseDouble(totalAfterFormat) * 5.0) / 100.0;
-//        String gstAfterFormat = df.format(gst);
-//        finalTotal = total + gst;
-//        String finalAfterFormat = df.format(finalTotal);
-//
-//        model.addAttribute("orderArrayList", allCurrentCustomerOrder);
-//        model.addAttribute("total", "$" + totalAfterFormat);
-//        model.addAttribute("gst", "$" + gstAfterFormat);
-//        model.addAttribute("finalTotal", "$" + finalAfterFormat);
-//        return "test/payment";
-//    }
-
     @PostMapping("/pay")
     public String payment(HttpSession session) {
         String price1 = (String) session.getAttribute("cartTotal");

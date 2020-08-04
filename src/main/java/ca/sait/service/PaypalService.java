@@ -17,12 +17,28 @@ import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
 
+/**
+ *
+ * @author Peter Nguyen
+ */
 @Service
 public class PaypalService {
 
     @Autowired
     private APIContext apiContext;
 
+    /**
+     * Creates a payment object
+     * @param total
+     * @param currency
+     * @param method
+     * @param intent
+     * @param description
+     * @param cancelUrl
+     * @param successUrl
+     * @return Payment
+     * @throws PayPalRESTException
+     */
     public Payment createPayment(Double total, String currency, String method,
                                  String intent, String description, String cancelUrl, String successUrl)
             throws PayPalRESTException {
@@ -57,6 +73,13 @@ public class PaypalService {
         return payment.create(apiContext);
     }
 
+    /**
+     * Send the payment object to PayPal gateway
+     * @param paymentId
+     * @param payerId
+     * @return Payment
+     * @throws PayPalRESTException
+     */
     public Payment executePayment(String paymentId, String payerId) throws PayPalRESTException {
         Payment payment = new Payment();
         payment.setId(paymentId);
