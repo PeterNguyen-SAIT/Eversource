@@ -3,7 +3,7 @@ package ca.sait.common.utils;
 import java.util.Random;
 
 /**
- * Token generator
+ * Token generator to store the token that is used in front-end page to validate a user.
  * @author Bin Zhang
  * @create 2020-06-22 9:43 PM
  */

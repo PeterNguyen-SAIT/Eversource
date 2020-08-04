@@ -8,6 +8,12 @@ import org.apache.commons.lang.StringUtils;
 
 import java.util.Map;
 
+/**
+ * This class is used to run the queries in the project.
+ * @author Bin Zhang
+ * @create 2020-06-19 11:22 PM
+ * @param <T> Any type
+ */
 public class Query<T> {
 
     public IPage<T> getPage(Map<String, Object> params) {

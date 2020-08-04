@@ -1,7 +1,9 @@
 package ca.sait.common.exception; /**
 
 /**
- *
+ * This class is to handle the exception used in service implementations.
+ * @author Bin Zhang
+ * @create 2020-06-19 11:35 PM
  */
 public class RRException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

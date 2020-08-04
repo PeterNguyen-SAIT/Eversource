@@ -2,7 +2,9 @@
 package ca.sait.common.utils;
 
 /**
- * constant
+ * Some constants used in this project.
+ * @author Bin Zhang
+ * @create 2020-06-19 09:43 PM
  */
 public class Constant {
     public static final int SUPER_ADMIN = 1;

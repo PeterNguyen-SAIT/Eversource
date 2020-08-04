@@ -7,6 +7,12 @@ import org.apache.http.HttpStatus;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This is a defined class used in the response in the API.
+ * @author Bin Zhang
+ * @create 2020-06-20 11:10 PM
+ */
+
 public class R extends HashMap<String, Object> {
 	private static final long serialVersionUID = 1L;
 	

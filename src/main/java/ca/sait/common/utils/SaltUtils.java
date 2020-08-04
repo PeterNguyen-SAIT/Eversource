@@ -3,7 +3,7 @@ package ca.sait.common.utils;
 import java.util.Random;
 
 /**
- * Generate salt
+ * Generate salt to make the password more secure.
  * @author Bin Zhang
  * @create 2020-06-22 9:43 PM
  */

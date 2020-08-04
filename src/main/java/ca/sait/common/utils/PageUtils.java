@@ -6,6 +6,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * This class is used for pagination in the project.
+ * @author Bin Zhang
+ * @create 2020-06-20 09:29 PM
+ */
+
 public class PageUtils implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int totalCount;
