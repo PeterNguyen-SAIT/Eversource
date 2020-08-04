@@ -13,7 +13,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ca.sait.common.utils.PageUtils;
 import ca.sait.common.utils.Query;
 
-
+/**
+ * This class implements all the service methods to handle the events in this project.
+ */
 
 @Service("eventsService")
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
