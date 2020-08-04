@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 
- * 
+ * This is the UserDao to handle all the operation with database.
  * @author bin
  * @email bin.zhang@sait.ca
  * @date 2020-07-08 23:13:21
