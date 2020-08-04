@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 
 /**
+ * This is the config file for MyBatis framework used in this project.
  * @author Bin Zhang
  * @create 2020-06-08 10:03 PM
  */
@@ -22,10 +23,7 @@ public class MyBatisConfig {
     }
 
 
-    /**
-     *   mybatis-plus
-     *   //G_0719
-     */
+
     @Bean
     public PaginationInterceptor paginationInterceptor() {
         PaginationInterceptor page = new PaginationInterceptor();
