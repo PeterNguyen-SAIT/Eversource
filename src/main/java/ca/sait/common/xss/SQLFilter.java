@@ -3,17 +3,17 @@ package ca.sait.common.xss;
 
 import ca.sait.common.exception.RRException;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-//import org.apache.commons.lang.StringUtils;
+
+/**
+ * This class may be used in some queries in this project.
+ */
 
 public class SQLFilter {
     public static String sqlInject(String str){
         if(StringUtils.isBlank(str)){
             return null;
         }
-//        str = StringUtils.replace(str, "'", "");
-//        str = StringUtils.replace(str, "\"", "");
-//        str = StringUtils.replace(str, ";", "");
-//        str = StringUtils.replace(str, "\\", "");
+
 
         str = str.toLowerCase();
 
