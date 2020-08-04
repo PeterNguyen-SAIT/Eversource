@@ -12,12 +12,20 @@ import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Lost controller class handles losing username/password
+ */
 @Controller
 public class LostController {
 
     @Autowired
     UsersServiceImpl usersService;
 
+    /**
+     * Call appropriate view based on the value received
+     * @param value the value received
+     * @return the view
+     */
     @RequestMapping("/retrieve")
     public String recover(String value)
     {
@@ -33,7 +41,13 @@ public class LostController {
             return "test/errorPage_404";
     }
 
-
+    /**
+     * Handle losing username, send the gmail's owner the username
+     * @param session session storage
+     * @param email email received from user
+     * @param model model map
+     * @return the view
+     */
     @RequestMapping("/lostUsername")
     public String recoverUname(HttpSession session, String email, ModelMap model) {
             String username=null;
@@ -70,6 +84,14 @@ public class LostController {
         model.addAttribute("loggedIn",username);
         return "customer/login";
     }
+
+    /**
+     * Handle losing password, send the gmail's owner the password
+     * @param session storage
+     * @param email email received from user
+     * @param model model map
+     * @return the view
+     */
     @RequestMapping("/lostPassword")
     public String recoverPass(HttpSession session, String email, ModelMap model) {
             String password=null;

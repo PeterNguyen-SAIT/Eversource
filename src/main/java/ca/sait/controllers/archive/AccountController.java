@@ -12,12 +12,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * Controller for account, user can edit information and save
+ */
 @Controller
 public class AccountController {
 
     @Autowired
     private UsersServiceImpl userService;
 
+    /**
+     * Go to account page from other pages
+     * @param model model map
+     * @param session http session storage
+     * @return the view
+     */
     @GetMapping("/account")
     public String showAccountPage(ModelMap model, HttpSession session) {
 
@@ -37,6 +46,13 @@ public class AccountController {
         }
     }
 
+    /**
+     * Edit any information in the form
+     * @param model model map
+     * @param usersEntity the user object created from the form input
+     * @param session http session storage
+     * @return the view
+     */
     @PostMapping("/editUser")
     public String editUser(ModelMap model, UsersEntity usersEntity, HttpSession session) {
         QueryWrapper<UsersEntity> queryWrapper1 = new QueryWrapper<>();

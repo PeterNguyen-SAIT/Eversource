@@ -20,6 +20,9 @@ import javax.servlet.http.HttpSession;
 import java.text.DecimalFormat;
 import java.util.*;
 
+/**
+ * Cart controller class, handles ordering items, changing item quantities and displaying items
+ */
 @Controller
 public class CartController {
 
@@ -31,6 +34,12 @@ public class CartController {
 
     private DecimalFormat df = new DecimalFormat("0.00");
 
+    /**
+     * Go to shopping cart page, loads all user's orders and calculating price
+     * @param model model map
+     * @param session http session storage
+     * @return the view
+     */
     @GetMapping("/shoppingcart")
     public String showCartPage(ModelMap model, HttpSession session) {
         String username = (String) session.getAttribute("username");
@@ -85,6 +94,12 @@ public class CartController {
         return "customer/shop-cart";
     }
 
+    /**
+     * Go to item details by clicking on the item image or name
+     * @param model model map
+     * @param session http session storage
+     * @return the view
+     */
     @GetMapping("/shopdetail")
     public String showDetail(ModelMap model, HttpSession session) {
         String username = (String) session.getAttribute("username");
@@ -97,6 +112,14 @@ public class CartController {
         return "customer/shop-details";
     }
 
+    /**
+     * Ordering an item, receive the quantity and proceed that item into cart
+     * @param amount the quantity of the ordered item
+     * @param oid the order id
+     * @param model model map
+     * @param session http session storage
+     * @return the view
+     */
     @PostMapping("/cart")
     public String updateOrder(@RequestParam int amount, @RequestParam int oid, ModelMap model, HttpSession session) {
         OrdersEntity updatedOrder = ordersService.getById(oid);
@@ -180,7 +203,13 @@ public class CartController {
     }
 
 
-
+    /**
+     * Edit the quantity of the items.
+     * @param amount the new quantity
+     * @param oid the order id
+     * @param session http session storage
+     * @return the view
+     */
     //July 23
     @ResponseBody
     @PostMapping("/cartEdit")
@@ -264,7 +293,13 @@ public class CartController {
         return map;
     }
 
-
+    /**
+     * Delete an item from the cart, by setting the quantity into 0
+     * @param oid the order id
+     * @param model model map
+     * @param session http session storage
+     * @return the view
+     */
     @PostMapping("/deleteOrder")
     public String updateOrder(@RequestParam int oid, ModelMap model, HttpSession session) {
         String username = (String) session.getAttribute("username");

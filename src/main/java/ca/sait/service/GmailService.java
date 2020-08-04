@@ -23,9 +23,18 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.swing.*;
 
+/**
+ * Gmail service class used to send email to customers
+ */
 @Service
 public class GmailService {
-
+    /**
+     * Send Mail function to read from template and call the other Send Mail function
+     * @param email
+     * @param subject
+     * @param template
+     * @param tags
+     */
     public static void sendMail1(String email, String subject,
                                  String template, HashMap<String, String> tags) {
         try {
@@ -54,6 +63,15 @@ public class GmailService {
 
     }
 
+    /**
+     * Send mail function to retrieve connection to smtp and all other required params to send mails
+     * @param to
+     * @param subject
+     * @param body
+     * @param bodyIsHTML
+     * @throws MessagingException
+     * @throws NamingException
+     */
     public static void sendMail2(String to, String subject, String body, boolean bodyIsHTML) throws MessagingException, NamingException {
         //Context env = (Context)new InitialContext().lookup("java:comp/env");
         String username = "AdminEmail@gmail.com";//(String)env.lookup("webmail-username");

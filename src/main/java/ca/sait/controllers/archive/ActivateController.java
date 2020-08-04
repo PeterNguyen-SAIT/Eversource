@@ -10,12 +10,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.UUID;
 
+/**
+ * Controller used for activation accounts, when users register new accounts
+ */
 @Controller
 public class ActivateController {
 
     @Autowired
     private UsersServiceImpl usersService;
 
+    /**
+     * Activate an account, changing its status after the user clicks on the procided link after registering
+     * @param username the username
+     * @param model model map
+     * @param uuid the random uuid
+     * @return the view
+     */
     @GetMapping(value = "/activate")
     public String activateAccount(String username, ModelMap model, String uuid) {
         if (username == null) {

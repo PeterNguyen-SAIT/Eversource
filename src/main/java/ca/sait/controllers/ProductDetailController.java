@@ -12,12 +12,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
 
-
+/**
+ * Product detail controller to redirect from pages into the product detail page
+ */
 @Controller
 public class ProductDetailController {
     @Autowired
     private ProductsService productsService;
 
+    /**
+     * Go to product detail page, based on the id received when the user clicks on the images, redirect them to the corresponding product
+     * @param productId the id of the product the user clicks on
+     * @param model model map
+     * @param productName name of the product
+     * @param session session storage
+     * @return the view
+     */
     @GetMapping("/productDetail")
     public String showEventPage(Long productId, ModelMap model, String productName, HttpSession session) {
         String username = (String) session.getAttribute("username");

@@ -8,9 +8,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * Contact controller class to redirect pages into contact page
+ */
 @Controller
 public class ContactController {
-
+    /**
+     * Go to contact page
+     * @param model
+     * @param session
+     * @return
+     */
     @GetMapping("/contact")
     public String showContactPage(ModelMap model, HttpSession session) {
         String username = (String)session.getAttribute("username");
@@ -26,6 +34,14 @@ public class ContactController {
         model.addAttribute("usernameExist",username);
         return "customer/contact";
     }
+
+    /**
+     * Send an email to the admin with the form in contact page
+     * @param model
+     * @param content
+     * @param usersEntity
+     * @return
+     */
     @PostMapping("/contact")
     public String sendContentMail(ModelMap model, String content, UsersEntity usersEntity) {
         return "test/errorPage_404";

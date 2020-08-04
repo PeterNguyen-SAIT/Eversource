@@ -18,11 +18,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Event controller, handling redirection from pages to event page
+ */
 @Controller
 public class EventController {
     @Autowired
     private EventsServiceImpl eventsService;
 
+    /**
+     * Go to event page
+     * @param model
+     * @param session
+     * @return
+     */
     @GetMapping("/event")
     public String showEventPage(ModelMap model, HttpSession session) {
 
@@ -35,6 +44,14 @@ public class EventController {
 
     }
 
+    /**
+     * Set notification of events
+     * @param model model map
+     * @param session http session storage
+     * @param event the events chosen
+     * @param ids the id array of all the event chosen
+     * @return the view
+     */
     @PostMapping("/eventNotice")
     public String registerEvent(Model model, HttpSession session, EventsEntity event, String ids) {
         String username = (String)session.getAttribute("username");
