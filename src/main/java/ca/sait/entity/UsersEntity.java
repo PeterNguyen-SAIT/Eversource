@@ -1,20 +1,13 @@
 package ca.sait.entity;
 
-
-
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-
-
 
 import java.io.Serializable;
 import java.sql.Date;
 import lombok.Data;
 
-
-
 /**
- *
  *
  * @author bin
  * @email bin.zhang@sait.ca
@@ -28,71 +21,74 @@ public class UsersEntity implements Serializable {
 
 
 	/**
-	 *
+	 *uid: This is the primary key in the table.
 	 */
 	@TableId
 	private Integer uid;
 	/**
-	 *
+	 * User name
 	 */
 	private String uname;
 	/**
-	 *
+	 * Password
 	 */
 	private String password;
 	/**
-	 *
+	 * Salt used to store the password
 	 */
 	private String salt;
 	/**
-	 *
+	 * Token used to validate a user
 	 */
 	private String token;
 	/**
-	 *
+	 * First name
 	 */
 	private String fname;
 	/**
-	 *
+	 * Last name
 	 */
 	private String lname;
 	/**
-	 *
+	 * Phone number
 	 */
 	private String phone;
 	/**
-	 *
+	 * Address for delivery
 	 */
 	private String address;
 	/**
-	 *
+	 * City
 	 */
 	private String city;
 	/**
-	 *
+	 * Postal code
 	 */
 	private String code;
 	/**
-	 *
+	 * Email address
 	 */
 	private String email;
 	/**
-	 *
+	 * Role such as user or admin
 	 */
 	private String role;
 	/**
-	 * active or not
+	 * active or inactive
 	 */
 	private String status;
 	/**
-	 * register date
+	 * register date of the user
 	 */
 	private Date date;
 	/**
-	 *
+	 * Note
 	 */
 	private String note;
 
+	/**
+	 * All the setters and getters
+	 */
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
 	}
