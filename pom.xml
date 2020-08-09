@@ -8,8 +8,8 @@
         <version>2.2.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example2</groupId>
-    <artifactId>helloworld</artifactId>
+    <groupId>website</groupId>
+    <artifactId>eversource</artifactId>
     <version>1.0</version>
     <name>Eversource</name>
     <description>Demo project for Spring Boot</description>
